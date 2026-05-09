@@ -6,14 +6,14 @@ on:
   workflow_dispatch: # Permite rodar manualmente
 
 permissions:
-  contents: write  # ESSA É A CHAVE: Dá permissão para o robô salvar arquivos
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4 # Atualizei para v4 que é mais moderna
+        uses: actions/checkout@v4
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -21,7 +21,7 @@ jobs:
           python-version: '3.9'
 
       - name: Instalar dependências
-        run: pip install requests
+        run: pip install requests beautifulsoup4
 
       - name: Rodar o Robô de Preços
         run: python update_prices.py
@@ -31,5 +31,5 @@ jobs:
           git config --global user.name 'FuelPro-Bot'
           git config --global user.email 'bot@fuelpro.com'
           git add dados.json
-          git commit -m "Auto: Atualização de preços diária" || echo "Sem mudanças para salvar"
+          git commit -m "Auto: Varredura real DeDuraPreço SJC" || echo "Sem mudanças"
           git push
