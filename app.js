@@ -14,7 +14,6 @@ markersLayer = L.layerGroup().addTo(map);
 
 function renderMarkers() {
   markersLayer.clearLayers(); 
-  
   const precos = postos.map(p => parseFloat(p.prices[currentFuel]));
   const menorPreco = Math.min(...precos);
 
@@ -25,7 +24,7 @@ function renderMarkers() {
     
     const icon = L.divIcon({
       className: 'custom-pin',
-      html: `<div style="background:${cor}; color:white; padding:6px 14px; border-radius:20px; font-weight:900; font-size:14px; box-shadow:0 4px 15px rgba(0,0,0,0.25); border:2px solid white; transition: 0.3s;">R$ ${preco.replace('.',',')}</div>`,
+      html: `<div style="background:${cor}; color:white; padding:6px 14px; border-radius:20px; font-weight:900; font-size:14px; box-shadow:0 4px 15px rgba(0,0,0,0.25); border:2px solid white;">R$ ${preco.replace('.',',')}</div>`,
       iconSize: [85, 35]
     });
 
@@ -47,20 +46,27 @@ function setFuel(type, btnElement, fuelName) {
   renderMarkers();
 }
 
-map.on('click', () => {
-  document.getElementById('station-card').classList.remove('active');
-});
-
-function centerMap() {
-  map.locate({setView: true, maxZoom: 15});
+async function executeSearch() {
+    const query = document.getElementById('search-input').value;
+    if (query.length < 3) return;
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}`);
+        const data = await response.json();
+        if (data && data.length > 0) {
+            const { lat, lon } = data[0];
+            map.setView([lat, lon], 15);
+            document.getElementById('station-card').classList.remove('active');
+        }
+    } catch (e) { console.error(e); }
 }
 
-map.on('locationfound', (e) => {
-  L.circle(e.latlng, {radius: 20, color: '#2196F3', fillColor: '#2196F3', fillOpacity: 0.3}).addTo(map);
+document.getElementById('search-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') executeSearch();
 });
 
-function openRoute() {
-  alert("Navegar para o Posto usando Waze/Google Maps.");
-}
+map.on('click', () => document.getElementById('station-card').classList.remove('active'));
+function centerMap() { map.locate({setView: true, maxZoom: 15}); }
+map.on('locationfound', (e) => { L.circle(e.latlng, {radius: 20, color: '#2196F3', fillOpacity: 0.3}).addTo(map); });
+function openRoute() { alert("Integrando com Waze/Maps..."); }
 
 renderMarkers();
