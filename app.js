@@ -1,79 +1,66 @@
-:root {
-  --primary: #00c853;
-  --dark: #1a1a1a;
-  --text-gray: #757575;
-  --shadow: 0 10px 30px rgba(0,0,0,0.12);
+const postos = [
+  { name: "Posto Shell Aquarius", lat: -23.219, lng: -45.908, prices: { gas: "5.45", eta: "3.59", gnv: "4.20", die: "5.89", gas_ad: "5.65", eta_ad: "3.79" } },
+  { name: "Ipiranga Vila Adyana", lat: -23.199, lng: -45.895, prices: { gas: "5.59", eta: "3.49", gnv: "4.15", die: "5.95", gas_ad: "5.79", eta_ad: "3.69" } },
+  { name: "Petrobras - Centro", lat: -23.185, lng: -45.890, prices: { gas: "5.37", eta: "3.65", gnv: "4.10", die: "5.75", gas_ad: "5.55", eta_ad: "3.85" } }
+];
+
+let currentFuel = 'gas'; 
+let markersLayer; 
+
+const map = L.map('map', { zoomControl: false }).setView([-23.200, -45.900], 13);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map);
+
+markersLayer = L.layerGroup().addTo(map);
+
+function renderMarkers() {
+  markersLayer.clearLayers(); 
+  
+  const precos = postos.map(p => parseFloat(p.prices[currentFuel]));
+  const menorPreco = Math.min(...precos);
+
+  postos.forEach(p => {
+    const preco = p.prices[currentFuel];
+    const isBest = parseFloat(preco) === menorPreco;
+    const cor = isBest ? '#00c853' : '#1a1a1a'; 
+    
+    const icon = L.divIcon({
+      className: 'custom-pin',
+      html: `<div style="background:${cor}; color:white; padding:6px 14px; border-radius:20px; font-weight:900; font-size:14px; box-shadow:0 4px 15px rgba(0,0,0,0.25); border:2px solid white; transition: 0.3s;">R$ ${preco.replace('.',',')}</div>`,
+      iconSize: [85, 35]
+    });
+
+    L.marker([p.lat, p.lng], { icon }).addTo(markersLayer).on('click', () => {
+      document.getElementById('station-name').innerText = p.name;
+      document.getElementById('station-price').innerText = `R$ ${preco.replace('.',',')}`;
+      document.getElementById('price-badge').style.display = isBest ? 'block' : 'none';
+      document.getElementById('station-card').classList.add('active');
+    });
+  });
 }
 
-body { margin: 0; font-family: 'Inter', -apple-system, sans-serif; overflow: hidden; background: #eee; }
-#map { height: 100vh; width: 100vw; z-index: 1; }
-
-.search-overlay {
-  position: absolute; top: 15px; width: 100%; z-index: 10;
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
+function setFuel(type, btnElement, fuelName) {
+  currentFuel = type;
+  document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
+  btnElement.classList.add('active');
+  document.getElementById('fuel-type-label').innerText = fuelName;
+  document.getElementById('station-card').classList.remove('active');
+  renderMarkers();
 }
 
-.search-bar {
-  background: white; width: 90%; padding: 12px 20px; border-radius: 15px;
-  display: flex; justify-content: space-between; box-shadow: var(--shadow);
-  box-sizing: border-box;
+map.on('click', () => {
+  document.getElementById('station-card').classList.remove('active');
+});
+
+function centerMap() {
+  map.locate({setView: true, maxZoom: 15});
 }
 
-.search-bar input { border: none; outline: none; width: 90%; font-size: 1rem; }
+map.on('locationfound', (e) => {
+  L.circle(e.latlng, {radius: 20, color: '#2196F3', fillColor: '#2196F3', fillOpacity: 0.3}).addTo(map);
+});
 
-/* Carrossel de Combustíveis */
-.filter-wrapper {
-  width: 100%; overflow-x: auto; display: flex; justify-content: flex-start;
-  padding: 5px 20px; box-sizing: border-box;
-  -webkit-overflow-scrolling: touch; scrollbar-width: none;
-}
-.filter-wrapper::-webkit-scrollbar { display: none; }
-
-.filter-group { display: flex; gap: 8px; white-space: nowrap; }
-
-.chip {
-  border: 1px solid #ddd; background: white; padding: 10px 18px; border-radius: 50px;
-  font-weight: 600; color: #555; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  cursor: pointer; transition: 0.2s;
-}
-.chip.active { background: var(--dark); color: white; border-color: var(--dark); }
-
-/* FAB */
-.fab-gps {
-  position: absolute; right: 20px; bottom: 150px; z-index: 10;
-  width: 56px; height: 56px; border-radius: 28px; border: none;
-  background: white; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
+function openRoute() {
+  alert("Navegar para o Posto usando Waze/Google Maps.");
 }
 
-/* Bottom Sheet */
-.bottom-sheet {
-  position: fixed; bottom: 0; width: 100%; background: white; z-index: 20;
-  border-radius: 30px 30px 0 0; box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
-  transform: translateY(100%); transition: 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
-  box-sizing: border-box;
-}
-.bottom-sheet.active { transform: translateY(0); }
-
-.drag-handle { width: 40px; height: 5px; background: #ddd; border-radius: 10px; margin: 15px auto; }
-.sheet-content { padding: 0 25px 35px 25px; }
-
-.header { display: flex; justify-content: space-between; align-items: flex-start; }
-.header h2 { margin: 0; font-size: 1.3rem; color: var(--dark); }
-.distance-info { margin: 4px 0; color: var(--text-gray); font-size: 0.85rem; }
-
-.verified-badge {
-  background: #e8f5e9; color: #2e7d32; padding: 5px 10px; border-radius: 8px;
-  font-size: 0.7rem; font-weight: 800; text-transform: uppercase; display: none;
-}
-
-.price-section { background: #f9f9f9; padding: 20px; border-radius: 20px; margin: 20px 0; display: flex; justify-content: space-between; align-items: center; }
-.price-label { font-size: 0.8rem; color: var(--text-gray); display: block; font-weight: 600;}
-#station-price { margin: 0; font-size: 2.2rem; color: var(--dark); letter-spacing: -1px; }
-
-.update-info { font-size: 0.75rem; color: #999; display: flex; align-items: center; gap: 5px; }
-.dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-
-.action-buttons { display: flex; gap: 10px; }
-.btn-primary { flex: 2; background: var(--primary); color: white; border: none; padding: 18px; border-radius: 15px; font-weight: 700; font-size: 1rem; cursor: pointer; }
-.btn-secondary { flex: 1; background: #f0f0f0; border: none; border-radius: 15px; font-weight: 600; color: #444; cursor: pointer; }
+renderMarkers();
