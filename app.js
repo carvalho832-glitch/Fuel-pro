@@ -37,6 +37,30 @@ function renderMarkers() {
   });
 }
 
+async function executeSearch() {
+    const input = document.getElementById('search-input');
+    const query = input.value;
+    if (query.length < 3) return;
+
+    // Fecha o teclado no celular
+    input.blur();
+
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}`);
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+            const { lat, lon } = data[0];
+            map.setView([lat, lon], 15);
+            document.getElementById('station-card').classList.remove('active');
+        } else {
+            alert("Local não encontrado.");
+        }
+    } catch (e) { 
+        alert("Erro na busca. Verifique a conexão.");
+    }
+}
+
 function setFuel(type, btnElement, fuelName) {
   currentFuel = type;
   document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
@@ -44,20 +68,6 @@ function setFuel(type, btnElement, fuelName) {
   document.getElementById('fuel-type-label').innerText = fuelName;
   document.getElementById('station-card').classList.remove('active');
   renderMarkers();
-}
-
-async function executeSearch() {
-    const query = document.getElementById('search-input').value;
-    if (query.length < 3) return;
-    try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}`);
-        const data = await response.json();
-        if (data && data.length > 0) {
-            const { lat, lon } = data[0];
-            map.setView([lat, lon], 15);
-            document.getElementById('station-card').classList.remove('active');
-        }
-    } catch (e) { console.error(e); }
 }
 
 document.getElementById('search-input').addEventListener('keypress', (e) => {
