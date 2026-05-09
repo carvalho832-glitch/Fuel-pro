@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <title>App Motorista - Preços Reais</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+    <div id="map"></div>
+
+    <div class="search-overlay">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar posto ou bairro..." />
+        <div class="search-icon">🔍</div>
+      </div>
+      
+      <div class="filter-wrapper">
+        <div class="filter-group">
+          <button class="chip active" onclick="setFuel('gas', this, 'Gasolina Comum')">Gasolina</button>
+          <button class="chip" onclick="setFuel('eta', this, 'Etanol Comum')">Etanol</button>
+          <button class="chip" onclick="setFuel('gas_ad', this, 'Gasolina Aditivada')">G. Adit.</button>
+          <button class="chip" onclick="setFuel('eta_ad', this, 'Etanol Aditivado')">E. Adit.</button>
+          <button class="chip" onclick="setFuel('die', this, 'Diesel')">Diesel</button>
+          <button class="chip" onclick="setFuel('gnv', this, 'GNV')">GNV</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="fab-gps" onclick="centerMap()">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#333" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+    </button>
+
+    <div id="station-card" class="bottom-sheet">
+      <div class="drag-handle"></div>
+      <div class="sheet-content">
+        <div class="header">
+          <div>
+            <h2 id="station-name">---</h2>
+            <p class="distance-info">📍 a 1.2 km de você</p>
+          </div>
+          <div id="price-badge" class="verified-badge">Melhor Preço</div>
+        </div>
+        
+        <div class="price-section">
+          <div class="price-container">
+            <span class="price-label" id="fuel-type-label">Gasolina Comum</span>
+            <h1 id="station-price">R$ 0,00</h1>
+          </div>
+          <div class="update-info">
+            <span class="dot"></span> Atualizado agora
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-secondary">Relatar Erro</button>
+          <button class="btn-primary" onclick="openRoute()">Ir para o Posto</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script src="app.js"></script>
+
+</body>
+</html>
