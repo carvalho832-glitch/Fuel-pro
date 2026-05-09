@@ -1,0 +1,34 @@
+import json
+import requests
+
+# Exemplo de função que busca dados (Simulando um Scraping)
+def buscar_precos_reais():
+    # Aqui você colocaria a URL do site que quer monitorar
+    # Por agora, vamos simular que ele pegou dados novos para SJC
+    novos_dados = [
+        {
+            "name": "Posto Shell Aquarius",
+            "lat": -23.219, "lng": -45.908,
+            "prices": {"gas": "5.42", "eta": "3.55", "gnv": "4.20", "die": "5.85", "gas_ad": "5.60", "eta_ad": "3.75"}
+        },
+        {
+            "name": "Ipiranga Vila Adyana",
+            "lat": -23.199, "lng": -45.895,
+            "prices": {"gas": "5.55", "eta": "3.45", "gnv": "4.10", "die": "5.90", "gas_ad": "5.75", "eta_ad": "3.65"}
+        },
+        {
+            "name": "Petrobras - Centro",
+            "lat": -23.185, "lng": -45.890,
+            "prices": {"gas": "5.35", "eta": "3.60", "gnv": "4.05", "die": "5.70", "gas_ad": "5.50", "eta_ad": "3.80"}
+        }
+    ]
+    return novos_dados
+
+def atualizar_arquivo():
+    dados = buscar_precos_reais()
+    with open('dados.json', 'w', encoding='utf-8') as f:
+        json.dump(dados, f, indent=2, ensure_ascii=False)
+    print("Arquivo dados.json atualizado com sucesso!")
+
+if __name__ == "__main__":
+    atualizar_arquivo()
