@@ -5,15 +5,18 @@ on:
     - cron: '0 0 * * *' # Roda todo dia à meia-noite
   workflow_dispatch: # Permite rodar manualmente
 
+permissions:
+  contents: write  # ESSA É A CHAVE: Dá permissão para o robô salvar arquivos
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Atualizei para v4 que é mais moderna
 
       - name: Configurar Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
@@ -28,6 +31,5 @@ jobs:
           git config --global user.name 'FuelPro-Bot'
           git config --global user.email 'bot@fuelpro.com'
           git add dados.json
-          git commit -m "Auto: Atualização de preços diária" || exit 0
+          git commit -m "Auto: Atualização de preços diária" || echo "Sem mudanças para salvar"
           git push
-
