@@ -1,0 +1,33 @@
+name: Atualizar Preços Automaticamente
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Roda todo dia à meia-noite
+  workflow_dispatch: # Permite rodar manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar dependências
+        run: pip install requests
+
+      - name: Rodar o Robô de Preços
+        run: python update_prices.py
+
+      - name: Salvar mudanças no GitHub
+        run: |
+          git config --global user.name 'FuelPro-Bot'
+          git config --global user.email 'bot@fuelpro.com'
+          git add dados.json
+          git commit -m "Auto: Atualização de preços diária" || exit 0
+          git push
+
