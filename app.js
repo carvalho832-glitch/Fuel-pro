@@ -1,9 +1,4 @@
-const postos = [
-  { name: "Posto Shell Aquarius", lat: -23.219, lng: -45.908, prices: { gas: "5.45", eta: "3.59", gnv: "4.20", die: "5.89", gas_ad: "5.65", eta_ad: "3.79" } },
-  { name: "Ipiranga Vila Adyana", lat: -23.199, lng: -45.895, prices: { gas: "5.59", eta: "3.49", gnv: "4.15", die: "5.95", gas_ad: "5.79", eta_ad: "3.69" } },
-  { name: "Petrobras - Centro", lat: -23.185, lng: -45.890, prices: { gas: "5.37", eta: "3.65", gnv: "4.10", die: "5.75", gas_ad: "5.55", eta_ad: "3.85" } }
-];
-
+let postos = []; 
 let currentFuel = 'gas'; 
 let markersLayer; 
 
@@ -12,8 +7,23 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').ad
 
 markersLayer = L.layerGroup().addTo(map);
 
+// Função com "Anti-Cache" para garantir dados novos
+async function carregarDados() {
+  try {
+    // O final '?t=' + new Date().getTime() força o navegador a baixar a versão mais nova do GitHub
+    const resposta = await fetch('dados.json?t=' + new Date().getTime());
+    postos = await resposta.json();
+    console.log("Dados carregados do robô:", postos);
+    renderMarkers();
+  } catch (erro) {
+    console.error("Erro ao carregar preços:", erro);
+  }
+}
+
 function renderMarkers() {
   markersLayer.clearLayers(); 
+  if (postos.length === 0) return;
+
   const precos = postos.map(p => parseFloat(p.prices[currentFuel]));
   const menorPreco = Math.min(...precos);
 
@@ -41,24 +51,16 @@ async function executeSearch() {
     const input = document.getElementById('search-input');
     const query = input.value;
     if (query.length < 3) return;
-
-    // Fecha o teclado no celular
     input.blur();
-
     try {
         const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}`);
         const data = await response.json();
-
         if (data && data.length > 0) {
             const { lat, lon } = data[0];
             map.setView([lat, lon], 15);
             document.getElementById('station-card').classList.remove('active');
-        } else {
-            alert("Local não encontrado.");
         }
-    } catch (e) { 
-        alert("Erro na busca. Verifique a conexão.");
-    }
+    } catch (e) { alert("Erro na busca."); }
 }
 
 function setFuel(type, btnElement, fuelName) {
@@ -79,4 +81,4 @@ function centerMap() { map.locate({setView: true, maxZoom: 15}); }
 map.on('locationfound', (e) => { L.circle(e.latlng, {radius: 20, color: '#2196F3', fillOpacity: 0.3}).addTo(map); });
 function openRoute() { alert("Integrando com Waze/Maps..."); }
 
-renderMarkers();
+carregarDados();
