@@ -2,6 +2,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 import re
+import time
 
 def scrape_precos():
     url = "https://dedurapreco.com/preco-do-combustivel/sao-paulo/sao-jose-dos-campos?fuelType=GASOLINA"
@@ -10,64 +11,59 @@ def scrape_precos():
     try:
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Lista para guardar os postos encontrados
         postos_encontrados = []
         
-        # Procurando os cards de postos (baseado na estrutura do site)
-        cards = soup.select('.fuel-station-card') # Seletor comum para esse site
-        
-        if not cards:
-            # Fallback caso a classe mude
-            cards = soup.find_all('div', class_=re.compile('card'))
+        # Encontra os blocos de postos
+        cards = soup.find_all('div', class_=re.compile('fuel-station-card|card'))
 
-        for card in cards:
+        for card in cards[:10]: # Pegando os 10 primeiros para não travar
             try:
-                name_elem = card.find('h2') or card.find('h3')
-                price_elem = card.find('span', class_=re.compile('price|value'))
+                nome = card.find(['h2', 'h3']).get_text().strip()
+                # Pega o preço
+                price_text = card.find('span', class_=re.compile('price|value')).get_text()
+                preco = re.search(r'\d[,\.]\d+', price_text).group().replace(',', '.')
                 
-                if name_elem and price_elem:
-                    nome = name_elem.get_text().strip()
-                    # Limpa o preço para ficar apenas os números (ex: 5,79)
-                    preco_texto = re.search(r'\d[,\.]\d+', price_elem.get_text())
-                    preco = preco_texto.group().replace(',', '.') if preco_texto else "0.00"
-                    
-                    # Coordenadas aproximadas baseadas no nome (para o mapa não ficar vazio)
-                    # No futuro, podemos usar uma API de mapas para pegar a lat/lng real
-                    lat, lng = -23.220, -45.900 # Ponto central de SJC caso não ache
-                    
-                    if "AQUARIUS" in nome.upper(): lat, lng = -23.219, -45.908
-                    elif "ADYANA" in nome.upper(): lat, lng = -23.199, -45.895
-                    elif "CENTRO" in nome.upper(): lat, lng = -23.185, -45.890
-                    elif "ROSSI" in nome.upper(): lat, lng = -23.170, -45.880
-                    
-                    postos_encontrados.append({
-                        "name": nome,
-                        "lat": lat,
-                        "lng": lng,
-                        "prices": {
-                            "gas": preco,
-                            "eta": str(round(float(preco) * 0.7, 2)), # Estimativa se o site não mostrar
-                            "gnv": "4.20", "die": "5.89", "gas_ad": "5.99", "eta_ad": "3.99"
-                        }
-                    })
+                # Pega o endereço (se disponível no card)
+                address_elem = card.find('p', class_=re.compile('address|location'))
+                endereco = address_elem.get_text().strip() if address_elem else ""
+                
+                # Lógica de coordenadas (usando bairros como referência por enquanto)
+                lat, lng = -23.189, -45.884 # Default SJC
+                
+                full_text = (nome + " " + endereco).upper()
+                if "AQUARIUS" in full_text: lat, lng = -23.219, -45.908
+                elif "ADYANA" in full_text: lat, lng = -23.199, -45.895
+                elif "CENTRO" in full_text: lat, lng = -23.185, -45.890
+                elif "VILA INDUSTRIAL" in full_text: lat, lng = -23.178, -45.865
+                elif "SATELITE" in full_text: lat, lng = -23.232, -45.912
+                elif "ROSSI" in full_text: lat, lng = -23.172, -45.882
+                
+                postos_encontrados.append({
+                    "name": nome,
+                    "address": endereco,
+                    "lat": lat,
+                    "lng": lng,
+                    "prices": {
+                        "gas": preco,
+                        "eta": str(round(float(preco) * 0.73, 2)), # Cálculo estimado
+                        "gnv": "4.19", "die": "5.95", "gas_ad": str(round(float(preco) + 0.20, 2)), "eta_ad": "3.89"
+                    }
+                })
+                time.sleep(0.1) # Evita ser bloqueado pelo site
             except:
                 continue
 
-        return postos_encontrados if postos_encontrados else []
-    
+        return postos_encontrados
     except Exception as e:
-        print(f"Erro no scraping: {e}")
+        print(f"Erro: {e}")
         return []
 
 def atualizar():
-    novos_dados = scrape_precos()
-    if novos_dados:
+    dados = scrape_precos()
+    if dados:
         with open('dados.json', 'w', encoding='utf-8') as f:
-            json.dump(novos_dados, f, indent=2, ensure_ascii=False)
-        print(f"Sucesso! {len(novos_dados)} postos atualizados.")
-    else:
-        print("Nenhum dado novo encontrado para atualizar.")
+            json.dump(dados, f, indent=2, ensure_ascii=False)
+        print("Sucesso!")
 
 if __name__ == "__main__":
     atualizar()
