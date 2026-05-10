@@ -1,12 +1,12 @@
 [
   {
-    "name": "TENDA ATACADO",
-    "address": "AVENIDA ANDROMEDA, JARDIM SATÉLITE, SAO JOSE DOS CAMPOS",
-    "lat": -23.219906,
-    "lng": -45.8914207,
+    "name": "POSTO GASOLINA",
+    "address": "",
+    "lat": -23.1431897,
+    "lng": -45.9046393,
     "prices": {
       "gas": "5.79",
-      "eta": "4.17",
+      "eta": "4.23",
       "gas_ad": "5.94"
     }
   }
