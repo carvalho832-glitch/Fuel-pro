@@ -2,11 +2,11 @@ name: Atualizar Preços Automaticamente
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Roda todo dia à meia-noite
-  workflow_dispatch: # Permite rodar manualmente
+    - cron: '0 0 * * *' # Roda automaticamente todo dia à meia-noite
+  workflow_dispatch: # Permite que você rode manualmente pelo botão "Run workflow"
 
 permissions:
-  contents: write
+  contents: write # Permissão essencial para o robô salvar o arquivo dados.json
 
 jobs:
   build:
@@ -20,16 +20,17 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Instalar dependências
-        run: pip install requests beautifulsoup4
+      - name: Instalar ferramentas de varredura
+        run: |
+          pip install requests beautifulsoup4
 
-      - name: Rodar o Robô de Preços
+      - name: Executar Robô de Preços
         run: python update_prices.py
 
-      - name: Salvar mudanças no GitHub
+      - name: Salvar mudanças no repositório
         run: |
           git config --global user.name 'FuelPro-Bot'
           git config --global user.email 'bot@fuelpro.com'
           git add dados.json
-          git commit -m "Auto: Varredura real DeDuraPreço SJC" || echo "Sem mudanças"
+          git commit -m "Auto: Varredura de preços SJC realizada" || echo "Nenhuma mudança encontrada"
           git push
