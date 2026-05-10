@@ -1,41 +1,162 @@
 [
   {
-    "name": "Posto Shell Aquarius",
-    "lat": -23.219,
-    "lng": -45.908,
+    "name": "TENDA ATACADO",
+    "lat": -23.189,
+    "lng": -45.884,
     "prices": {
-      "gas": "5.42",
-      "eta": "3.55",
-      "gnv": "4.20",
-      "die": "5.85",
-      "gas_ad": "5.60",
-      "eta_ad": "3.75"
+      "gas": "5.79",
+      "eta": "4.17",
+      "gas_ad": "5.94"
     }
   },
   {
-    "name": "Ipiranga Vila Adyana",
-    "lat": -23.199,
-    "lng": -45.895,
+    "name": "POSTO DESCONHECIDO",
+    "lat": -23.189,
+    "lng": -45.884,
     "prices": {
-      "gas": "5.55",
-      "eta": "3.45",
-      "gnv": "4.10",
-      "die": "5.90",
-      "gas_ad": "5.75",
-      "eta_ad": "3.65"
+      "gas": "5.79",
+      "eta": "4.17",
+      "gas_ad": "5.94"
     }
   },
   {
-    "name": "Petrobras - Centro",
+    "name": "AUTO POSTO AGUIA DE OURO",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.04",
+      "eta": "4.35",
+      "gas_ad": "6.19"
+    }
+  },
+  {
+    "name": "AUTO POSTO VITRINE LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.04",
+      "eta": "4.35",
+      "gas_ad": "6.19"
+    }
+  },
+  {
+    "name": "AUTO POSTO PARAISO DO SOL LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.04",
+      "eta": "4.35",
+      "gas_ad": "6.19"
+    }
+  },
+  {
+    "name": "POSTO SHOPPING VALE JCN LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.08",
+      "eta": "4.38",
+      "gas_ad": "6.23"
+    }
+  },
+  {
+    "name": "SETE ESTRELAS",
     "lat": -23.185,
     "lng": -45.89,
     "prices": {
-      "gas": "5.35",
-      "eta": "3.60",
-      "gnv": "4.05",
-      "die": "5.70",
-      "gas_ad": "5.50",
-      "eta_ad": "3.80"
+      "gas": "6.09",
+      "eta": "4.38",
+      "gas_ad": "6.24"
+    }
+  },
+  {
+    "name": "USA - UNIDADE DE SERVICOS E ABASTECIMENTO AUTOMOTIVO LTDA",
+    "lat": -23.178,
+    "lng": -45.865,
+    "prices": {
+      "gas": "6.09",
+      "eta": "4.38",
+      "gas_ad": "6.24"
+    }
+  },
+  {
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.19",
+      "eta": "4.46",
+      "gas_ad": "6.34"
+    }
+  },
+  {
+    "name": "AUTO CENTER 5000 LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.29",
+      "eta": "4.53",
+      "gas_ad": "6.44"
+    }
+  },
+  {
+    "name": "MONTANA",
+    "lat": -23.232,
+    "lng": -45.912,
+    "prices": {
+      "gas": "6.39",
+      "eta": "4.6",
+      "gas_ad": "6.54"
+    }
+  },
+  {
+    "name": "RIOS BATISTA AUTO POSTO",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.39",
+      "eta": "4.6",
+      "gas_ad": "6.54"
+    }
+  },
+  {
+    "name": "CENTRO AUTOMOTIVO STATUS LTDA",
+    "lat": -23.185,
+    "lng": -45.89,
+    "prices": {
+      "gas": "6.49",
+      "eta": "4.67",
+      "gas_ad": "6.64"
+    }
+  },
+  {
+    "name": "PORTAL VILA EMA AUTOMOTIVO LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.59",
+      "eta": "4.74",
+      "gas_ad": "6.74"
+    }
+  },
+  {
+    "name": "AUTO POSTO CASSIANO",
+    "lat": -23.219,
+    "lng": -45.908,
+    "prices": {
+      "gas": "6.59",
+      "eta": "4.74",
+      "gas_ad": "6.74"
+    }
+  },
+  {
+    "name": "AUTO POSTO CHAPARRAL SAO JOSE LTDA",
+    "lat": -23.189,
+    "lng": -45.884,
+    "prices": {
+      "gas": "6.79",
+      "eta": "4.89",
+      "gas_ad": "6.94"
     }
   }
 ]
