@@ -4,80 +4,70 @@ from bs4 import BeautifulSoup
 import re
 import time
 
-def buscar_coordenadas(nome_posto, endereco_bruto):
-    """Tenta achar a localização exata, com fallback para o bairro"""
-    # Limpa o endereço para o mapa entender melhor
-    endereco = endereco_bruto.split('-')[0].split(',')[0] # Pega só a rua e número
-    endereco = re.sub(r' (S/N|SN|QD|LT).*', '', endereco, flags=re.I)
-    
-    queries = [
-        f"{endereco}, Sao Jose dos Campos, Brazil",
-        f"{nome_posto}, Sao Jose dos Campos, Brazil",
-        f"{endereco_bruto}, Sao Jose dos Campos, Brazil"
-    ]
-    
-    headers = {'User-Agent': 'FuelPro_SJC_Bot_v2'}
-    
-    for q in queries:
-        try:
-            url = f"https://nominatim.openstreetmap.org/search?format=json&q={q}"
-            response = requests.get(url, headers=headers, timeout=10)
-            data = response.json()
-            if data:
-                return float(data[0]['lat']), float(data[0]['lon'])
-            time.sleep(1) # Respeita o limite do serviço
-        except:
-            continue
+def buscar_coords(endereco):
+    """Tenta buscar no OpenStreetMap, mas não trava se falhar"""
+    try:
+        # Limpa o endereço para facilitar a busca (ex: tira o número da casa)
+        busca = endereco.split('-')[0].split(',')[0]
+        url = f"https://nominatim.openstreetmap.org/search?format=json&q={busca}, Sao Jose dos Campos"
+        res = requests.get(url, headers={'User-Agent': 'FuelPro_SJC'}, timeout=5)
+        data = res.json()
+        if data:
+            return float(data[0]['lat']), float(data[0]['lon'])
+    except:
+        pass
     return None, None
 
-def scrape_real():
+def scrape():
     url = "https://dedurapreco.com/preco-do-combustivel/sao-paulo/sao-jose-dos-campos?fuelType=GASOLINA"
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     
     try:
-        response = requests.get(url, headers=headers, timeout=20)
-        soup = BeautifulSoup(response.text, 'html.parser')
+        print(f"Iniciando varredura no site...")
+        res = requests.get(url, headers=headers, timeout=20)
+        soup = BeautifulSoup(res.text, 'html.parser')
         postos_novos = []
         
-        # Procura os blocos de postos por preço
-        precos_encontrados = soup.find_all(string=re.compile(r'R\$'))
+        # Pega todos os blocos que parecem ser postos
+        cards = soup.select('.fuel-station-card') or soup.find_all(['div', 'a'], class_=re.compile(r'card|item|station', re.I))
         
-        print(f"Iniciando varredura em {len(precos_encontrados)} possíveis preços...")
+        print(f"Blocos detectados: {len(cards)}")
 
-        for el in precos_encontrados[:20]: # Foco nos 20 primeiros
+        for card in cards[:15]: # Vamos focar nos 15 primeiros para ser rápido
             try:
-                card = el.find_parent(['div', 'a', 'section'])
-                texto_card = card.get_text(separator=" ")
+                texto_total = card.get_text(separator=" ")
                 
-                # Preço
-                preco_match = re.search(r'R\$\s?(\d[,\.]\d{2})', texto_card)
-                if not preco_match: continue
-                preco = preco_match.group(1).replace(',', '.')
+                # 1. PEGA O PREÇO
+                p_match = re.search(r'R\$\s?(\d[,\.]\d{2})', texto_total)
+                if not p_match: continue
+                preco = p_match.group(1).replace(',', '.')
 
-                # Nome
-                nome_elem = card.find(['h2', 'h3', 'h4', 'strong', 'b'])
-                nome = nome_elem.get_text().strip().upper() if nome_elem else "POSTO"
-                if "R$" in nome: nome = "POSTO SJC"
+                # 2. PEGA O NOME
+                n_el = card.find(['h2', 'h3', 'h4', 'strong', 'b'])
+                nome = n_el.get_text().strip().upper() if n_el else "POSTO SJC"
+                if "R$" in nome: nome = "POSTO"
 
-                # Endereço
-                info_texto = card.find_all(['p', 'span', 'small'])
+                # 3. PEGA O ENDEREÇO
                 endereco = ""
-                for info in info_texto:
-                    t = info.get_text().strip()
-                    if any(word in t.upper() for word in ["RUA", "AV", "ESTRADA", "PRAÇA", "JD", "VILA"]):
-                        endereco = t
+                for p in card.find_all(['p', 'span', 'small']):
+                    t = p.get_text().upper()
+                    if any(w in t for w in ["AV", "RUA", "ESTRADA", "JD", "VILA", "SÃO JOSÉ"]):
+                        endereco = p.get_text().strip()
                         break
 
-                if not endereco or any(p['name'] == nome for p in postos_novos):
-                    continue
+                if any(p['name'] == nome for p in postos_novos): continue
 
-                print(f"-> Localizando: {nome} ({endereco})")
-                lat, lng = buscar_coordenadas(nome, endereco)
+                # 4. DEFINE AS COORDENADAS (Busca Real -> Bairro -> Centro SJC)
+                print(f"-> Processando: {nome}")
+                lat, lng = buscar_coords(endereco) if endereco else (None, None)
                 
-                # Se ainda não achar, coloca no centro de SJC para não perder o dado
                 if not lat:
-                    print(f"   ! Não localizado. Usando posição aproximada.")
-                    lat, lng = -23.189, -45.884
+                    # Fallback por palavras-chave se a busca no mapa falhar
+                    if "AQUARIUS" in (nome + endereco).upper(): lat, lng = -23.219, -45.908
+                    elif "ADYANA" in (nome + endereco).upper(): lat, lng = -23.199, -45.895
+                    elif "CENTRO" in (nome + endereco).upper(): lat, lng = -23.185, -45.890
+                    elif "SATELITE" in (nome + endereco).upper(): lat, lng = -23.232, -45.912
+                    else: lat, lng = -23.189, -45.884 # Centro de SJC (Padrão)
 
                 postos_novos.append({
                     "name": nome,
@@ -90,16 +80,20 @@ def scrape_real():
                         "gas_ad": str(round(float(preco) + 0.15, 2))
                     }
                 })
+                time.sleep(1) # Pausa obrigatória para o Nominatim
             except:
                 continue
 
         return postos_novos
-    except:
+    except Exception as e:
+        print(f"Erro no Scraper: {e}")
         return []
 
 if __name__ == "__main__":
-    resultado = scrape_real()
+    resultado = scrape()
     if resultado:
         with open('dados.json', 'w', encoding='utf-8') as f:
             json.dump(resultado, f, indent=2, ensure_ascii=False)
-        print(f"SUCESSO! {len(resultado)} postos carregados no sistema.")
+        print(f"SUCESSO! {len(resultado)} postos capturados.")
+    else:
+        print("FALHA: NENHUM POSTO FOI SALVO.")
