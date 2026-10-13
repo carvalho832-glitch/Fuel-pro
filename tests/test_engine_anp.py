@@ -140,6 +140,35 @@ class EngineTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             recent_official_links(html,limit=50)
 
+    def test_offline_staging_build_outputs_catalog_without_publication(self):
+        from engine_anp import run
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            prices = root/"pesquisa.xlsx"
+            prices.write_bytes(make_xlsx())
+            registry_file = root/"registry.json"
+            registry_file.write_text(json.dumps({
+                "records": {
+                    **registry(),
+                    CNPJ2:{
+                        **registry(cnpj=CNPJ2,lat=-23.2,lng=-45.9)[CNPJ2],
+                        "city":"SAO JOSE DOS CAMPOS",
+                    }
+                },
+                "counts":{"ARARAQUARA":1,"SAO JOSE DOS CAMPOS":1}
+            }),encoding="utf-8")
+            folder = root/"staging"
+            status = run(prices_file=prices, registry_file=registry_file,
+                         out_dir=folder, history_weeks=0)
+            catalog = json.loads((folder/"catalogo_postos_anp.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(catalog), 2)
+            self.assertEqual(status["catalogStations"], 2)
+            self.assertEqual(status["catalogWithoutRecentPrices"],1)
+            self.assertFalse(status["publicationApproved"])
+            self.assertIsNone(next(p for p in catalog if p["cnpj"]==CNPJ2)["fuelScore"]["overallScore"])
+            self.assertFalse((root/"dados.json").exists())
+            self.assertEqual(len(json.loads((folder/"dados_candidatos.json").read_text(encoding="utf-8"))), 1)
+
     def test_geodata_bounds_reject_outside_city(self):
         class FakeResponse:
             def raise_for_status(self): pass
