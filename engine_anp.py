@@ -307,8 +307,21 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     catalog = build_station_catalog(registry, mapped)
     audited_catalog, geo_review_queue, geo_summary = audit_catalog(catalog)
     pmqc_evidence = {}
+    pmqc_file_url = None
     if pmqc_file:
-        pmqc_evidence = parse_pmqc_csv(Path(pmqc_file).read_bytes(), registry)
+        # Arquivo oficial baixado e validado pelo fetch_pmqc.py, não
+        # simplesmente uma URL de anúncio de resultados laboratoriais.
+        pmqc_metadata = Path(pmqc_file).with_suffix(".source.json")
+        if pmqc_metadata.exists():
+            source = json.loads(pmqc_metadata.read_text(encoding="utf-8"))
+            from fetch_pmqc import valid_month_url
+            if not valid_month_url(source.get("url", "")):
+                raise ValueError("Proveniência de PMQC fora do domínio oficial")
+            pmqc_file_url = source["url"]
+        pmqc_evidence = parse_pmqc_csv(
+            Path(pmqc_file).read_bytes(), registry,
+            source_url=pmqc_file_url or "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/pmqc-programa-de-monitoramento-da-qualidade-dos-combustiveis"
+        )
         for station in audited_catalog:
             evidence = pmqc_evidence.get(station["cnpj"])
             if evidence:
@@ -320,6 +333,7 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
                 }
     status["pmqc"] = {
         "source": "ANP - PMQC",
+        "fileUrl": pmqc_file_url,
         "imported": bool(pmqc_file),
         "stationsWithSamples": len(pmqc_evidence),
         "totalSamples": sum(item["sampleCount"] for item in pmqc_evidence.values()),
@@ -329,6 +343,7 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     atomic_json(out/"status.json", status)
     atomic_json(out/"catalogo_postos_anp.json", audited_catalog)
     atomic_json(out/"geo_revisao_pendente.json", geo_review_queue)
+    atomic_json(out/"pmqc_evidencias_anp.json", pmqc_evidence)
     print(json.dumps(status, ensure_ascii=False, indent=2))
     return status
 
