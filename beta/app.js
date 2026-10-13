@@ -99,7 +99,6 @@ function updateSearchResults() {
     const item = document.createElement('button');
     item.type='button';
     item.className='search-result';
-    item.setAttribute('role','listitem');
     const name = makeTextElement('strong','result-name',station.name || 'Posto cadastrado na ANP');
     const location = makeTextElement('span','result-location',[
       station.address, station.district, cityLabel
