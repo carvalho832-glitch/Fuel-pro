@@ -58,3 +58,24 @@ select{width:100%;max-width:100%;min-width:0;border:1px solid #cde0d6;border-rad
  .search-toggle{font-size:11px;padding:8px 10px;margin-top:7px}
  .station-search-panel{max-height:50dvh;padding:10px}
 }
+
+
+/* User-driven address confirmations & corrections. */
+.community-section{border:1px solid #d6e7dc;background:#f6fbf7;border-radius:14px;padding:12px;margin:12px 0;display:flex;flex-direction:column;gap:8px}
+.community-section h3{font-size:14px;color:#153e32;margin:0;line-height:1.3}
+.community-help,.community-foot{font-size:11px;line-height:1.5;color:#426253;margin:0}
+.community-foot{font-size:10px;color:#6d6150}
+.community-buttons,.community-share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.community-section button{min-width:0;padding:10px 7px;border-radius:9px;border:1px solid #aac9ba;background:white;color:#18533e;font-family:inherit;font-weight:750;font-size:11px;line-height:1.25;cursor:pointer}
+.community-buttons button:first-child{background:#174b3a;color:white;border-color:#174b3a}
+.community-section button:focus-visible{outline:3px solid #31b985;outline-offset:2px}
+.community-share[hidden],.community-form[hidden]{display:none}
+.community-share button:first-child{grid-column:1/-1;background:#174b3a;color:#fff;border-color:#174b3a}
+.community-share button:last-child{grid-column:1/-1;color:#854b1d;border-color:#e7d9bd;background:#fff7e9}
+.community-status{font-size:11px;line-height:1.45;color:#326047;padding:8px 10px;border-radius:9px;background:#e5f6e9;margin:0}
+.community-form{display:flex;flex-direction:column;gap:7px;padding:10px;background:#fff;border:1px solid #d2e4d9;border-radius:10px}
+.community-form label{font-size:11px;font-weight:750;color:#21553e}
+.community-form textarea{width:100%;resize:vertical;min-height:55px;border:1px solid #bed4c7;border-radius:8px;padding:9px 10px;line-height:1.4;font:12px system-ui;background:#fff;color:#17362b}
+.detail-actions{flex-wrap:wrap}
+.detail-actions button{min-width:0}
+@media(max-width:380px){.community-buttons,.community-share{grid-template-columns:1fr}.community-share button:first-child,.community-share button:last-child{grid-column:auto}}
