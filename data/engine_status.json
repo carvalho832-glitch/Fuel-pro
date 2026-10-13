@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:42:28.542542+00:00",
+  "generatedAt": "2026-10-13T14:43:50.722870+00:00",
   "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
   "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
   "priceSampling": "weekly",
@@ -116,7 +116,7 @@
     "anpDatasetPositionsDivergent": 0,
     "pmqcWithoutCoordinates": 1,
     "registryWithoutCoordinates": 0,
-    "conflictingPositionsWithinSample": 5,
+    "conflictingPositionsWithinSample": 0,
     "thresholdMeters": 150,
     "manuallyVerified": 0,
     "interpretation": "Comparação entre dois arquivos da ANP; concordância não comprova posição em campo."

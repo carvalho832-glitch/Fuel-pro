@@ -26,7 +26,7 @@
             "lng": -45.88413
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060904",
@@ -44,7 +44,7 @@
             "lng": -45.88413
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -88,7 +88,7 @@
             "lng": -45.8730075
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060889",
@@ -118,7 +118,7 @@
             "lng": -45.8730075
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060890",
@@ -148,7 +148,7 @@
             "lng": -45.8730075
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -180,7 +180,7 @@
             "lng": -45.8545717
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060885",
@@ -198,7 +198,7 @@
             "lng": -45.8545717
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -230,7 +230,7 @@
             "lng": -45.9121683
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060892",
@@ -248,7 +248,7 @@
             "lng": -45.9121683
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -312,7 +312,7 @@
             "lng": -45.8800777
           }
         ],
-        "geoPositionsConflictWithinSample": true
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
