@@ -28,9 +28,10 @@ jobs:
           node --check app.js
           node --check beta/app.js
           node --check beta/station_search.js
+          node --check beta/community_feedback.js
           node --check beta/sw.js
       - name: Testar pesquisa local de postos
-        run: node --test tests/station_search.test.cjs
+        run: node --test tests/station_search.test.cjs tests/community_feedback.test.cjs
       - name: Verificar JSON
         run: |
           python -m json.tool dados.json > /dev/null
