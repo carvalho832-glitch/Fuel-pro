@@ -1,0 +1,198 @@
+{
+  "00256893001536": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 2,
+    "samplesWithNonconformity": 0,
+    "samplesWithAllReportedAssaysConforming": 2,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060903",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 10,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060904",
+        "product": "OLEO DIESEL B S10 - COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 8,
+        "status": "all_reported_assays_conforming"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  },
+  "07866483000150": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 3,
+    "samplesWithNonconformity": 0,
+    "samplesWithAllReportedAssaysConforming": 3,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060888",
+        "product": "ETANOL HIDRATADO COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 7,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060889",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 9,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060890",
+        "product": "OLEO DIESEL B S10 - ADITIVADO",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 8,
+        "status": "all_reported_assays_conforming"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  },
+  "13616378002029": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 2,
+    "samplesWithNonconformity": 0,
+    "samplesWithAllReportedAssaysConforming": 2,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060884",
+        "product": "ETANOL HIDRATADO COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 7,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060885",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 10,
+        "status": "all_reported_assays_conforming"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  },
+  "28748956000195": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 2,
+    "samplesWithNonconformity": 0,
+    "samplesWithAllReportedAssaysConforming": 2,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060891",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 9,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060892",
+        "product": "OLEO DIESEL B S10 - COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 8,
+        "status": "all_reported_assays_conforming"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  },
+  "46710986000194": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 2,
+    "samplesWithNonconformity": 0,
+    "samplesWithAllReportedAssaysConforming": 2,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060886",
+        "product": "ETANOL HIDRATADO COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 8,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060887",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 10,
+        "status": "all_reported_assays_conforming"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  },
+  "53895041000230": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 1,
+    "samplesWithNonconformity": 0,
+    "samplesWithAllReportedAssaysConforming": 1,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060895",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 10,
+        "status": "all_reported_assays_conforming"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  },
+  "62377169000112": {
+    "status": "laboratory_samples_found",
+    "source": "ANP - PMQC",
+    "sourceUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "rating": null,
+    "certifiesCurrentQuality": false,
+    "sampleCount": 2,
+    "samplesWithNonconformity": 1,
+    "samplesWithAllReportedAssaysConforming": 1,
+    "latestSampleAt": "2026-09-14",
+    "samples": [
+      {
+        "sampleId": "1060893",
+        "product": "GASOLINA C COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 10,
+        "status": "all_reported_assays_conforming"
+      },
+      {
+        "sampleId": "1060894",
+        "product": "OLEO DIESEL B S10 - COMUM",
+        "collectedAt": "2026-09-14",
+        "reportedAssayCount": 8,
+        "status": "nonconformity_reported"
+      }
+    ],
+    "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
+  }
+}
