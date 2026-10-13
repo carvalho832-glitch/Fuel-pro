@@ -1,0 +1,65 @@
+{
+  "00256893001536": {
+    "status": "anp_sources_nearby_unverified",
+    "samplePositions": 4,
+    "comparedAt": "2026-09-14",
+    "distanceMeters": 0.1,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  },
+  "07866483000150": {
+    "status": "anp_sources_nearby_unverified",
+    "samplePositions": 15,
+    "comparedAt": "2026-09-14",
+    "distanceMeters": 30.8,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  },
+  "13616378002029": {
+    "status": "anp_sources_nearby_unverified",
+    "samplePositions": 4,
+    "comparedAt": "2026-09-14",
+    "distanceMeters": 27.0,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  },
+  "28748956000195": {
+    "status": "anp_sources_nearby_unverified",
+    "samplePositions": 4,
+    "comparedAt": "2026-09-14",
+    "distanceMeters": 0.1,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  },
+  "46710986000194": {
+    "status": "pmqc_without_coordinates",
+    "samplePositions": 0,
+    "comparedAt": null,
+    "distanceMeters": null,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  },
+  "53895041000230": {
+    "status": "anp_sources_nearby_unverified",
+    "samplePositions": 2,
+    "comparedAt": "2026-09-14",
+    "distanceMeters": 0.0,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  },
+  "62377169000112": {
+    "status": "anp_sources_nearby_unverified",
+    "samplePositions": 2,
+    "comparedAt": "2026-09-14",
+    "distanceMeters": 0.0,
+    "thresholdMeters": 150,
+    "manualReviewApproved": false,
+    "sameAgencySources": true
+  }
+}
