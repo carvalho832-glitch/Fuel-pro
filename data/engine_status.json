@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:38:36.981162+00:00",
+  "generatedAt": "2026-10-13T14:39:52.629646+00:00",
   "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
   "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
   "priceSampling": "weekly",
@@ -108,6 +108,19 @@
   "hasStagingCandidates": true,
   "publicationApproved": false,
   "note": "Amostra semanal; coordenadas não validadas precisam ser conferidas antes de publicação.",
+  "pmqcGeoCrosscheck": {
+    "stationsWithSamples": 7,
+    "pmqcWithCoordinates": 6,
+    "comparableStations": 6,
+    "anpDatasetPositionsWithinThreshold": 6,
+    "anpDatasetPositionsDivergent": 0,
+    "pmqcWithoutCoordinates": 1,
+    "registryWithoutCoordinates": 0,
+    "conflictingPositionsWithinSample": 5,
+    "thresholdMeters": 150,
+    "manuallyVerified": 0,
+    "interpretation": "Comparação entre dois arquivos da ANP; concordância não comprova posição em campo."
+  },
   "addressCrosscheck": {
     "highPriorityCount": 22,
     "compared": 5,

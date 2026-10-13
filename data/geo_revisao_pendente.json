@@ -1365,7 +1365,16 @@
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "anp_sources_nearby_unverified",
+      "samplePositions": 4,
+      "comparedAt": "2026-09-14",
+      "distanceMeters": 0.1,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "00256893001706",
@@ -1923,7 +1932,16 @@
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "anp_sources_nearby_unverified",
+      "samplePositions": 15,
+      "comparedAt": "2026-09-14",
+      "distanceMeters": 30.8,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "08361646000106",
@@ -2211,7 +2229,16 @@
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "anp_sources_nearby_unverified",
+      "samplePositions": 4,
+      "comparedAt": "2026-09-14",
+      "distanceMeters": 27.0,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "13709355000104",
@@ -2408,7 +2435,16 @@
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "anp_sources_nearby_unverified",
+      "samplePositions": 4,
+      "comparedAt": "2026-09-14",
+      "distanceMeters": 0.1,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "29349003000117",
@@ -2781,7 +2817,16 @@
       "anp_position_not_validated"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "pmqc_without_coordinates",
+      "samplePositions": 0,
+      "comparedAt": null,
+      "distanceMeters": null,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "47508411134438",
@@ -2977,7 +3022,16 @@
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "anp_sources_nearby_unverified",
+      "samplePositions": 2,
+      "comparedAt": "2026-09-14",
+      "distanceMeters": 0.0,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "54476593000196",
@@ -3347,7 +3401,16 @@
       "anp_position_not_validated"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
+    "manualReviewApproved": false,
+    "pmqcCrosscheck": {
+      "status": "anp_sources_nearby_unverified",
+      "samplePositions": 2,
+      "comparedAt": "2026-09-14",
+      "distanceMeters": 0.0,
+      "thresholdMeters": 150,
+      "manualReviewApproved": false,
+      "sameAgencySources": true
+    }
   },
   {
     "cnpj": "63957708000155",
