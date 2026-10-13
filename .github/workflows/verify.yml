@@ -1,0 +1,29 @@
+name: Validar Fuel Pro Confiança
+
+on:
+  push:
+    branches:
+      - dev/fuelpro-confianca-anp
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  teste-seguranca:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependências
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Testar importação e preservação de dados
+        run: python -m unittest discover -s tests -v
+      - name: Verificar sintaxe JS
+        run: node --check app.js
+      - name: Verificar JSON
+        run: python -m json.tool dados.json > /dev/null
