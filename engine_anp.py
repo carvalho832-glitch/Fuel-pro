@@ -300,6 +300,7 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     atomic_json(out/"historico_anp.json", history)
     # No publish if there are zero verified prices. Keep staging explicit and reviewable.
     atomic_json(out/"dados_candidatos.json", mapped)
+    catalog = build_station_catalog(registry, mapped)
     atomic_json(out/"catalogo_postos_anp.json", catalog)
     print(json.dumps(status, ensure_ascii=False, indent=2))
     return status
