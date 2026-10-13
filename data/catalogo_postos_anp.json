@@ -39,6 +39,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -81,6 +92,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -123,6 +145,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -165,6 +198,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -207,6 +251,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -249,6 +304,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -291,6 +356,27 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "06949914000180",
+          "distanceMeters": 0.1
+        },
+        {
+          "cnpj": "09279922000154",
+          "distanceMeters": 0.1
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -333,6 +419,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -375,6 +471,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -417,6 +524,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -459,6 +577,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -501,6 +630,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -543,6 +682,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -585,6 +735,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -627,6 +788,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -669,6 +841,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -711,6 +894,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -753,6 +947,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -795,6 +1000,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -837,6 +1053,26 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "02301883000103",
+          "distanceMeters": 0.1
+        },
+        {
+          "cnpj": "09279922000154",
+          "distanceMeters": 0.0
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -879,6 +1115,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -921,6 +1167,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -963,6 +1219,26 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "02301883000103",
+          "distanceMeters": 0.1
+        },
+        {
+          "cnpj": "06949914000180",
+          "distanceMeters": 0.0
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -1005,6 +1281,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1047,6 +1334,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1136,6 +1433,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1178,6 +1486,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1245,6 +1564,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1334,6 +1664,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1376,6 +1717,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1418,6 +1770,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1507,6 +1870,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1549,6 +1923,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1591,6 +1976,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1680,6 +2075,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1722,6 +2127,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1764,6 +2179,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1806,6 +2232,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1848,6 +2284,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1890,6 +2336,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -1932,6 +2389,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2021,6 +2489,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2063,6 +2542,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2105,6 +2595,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2147,6 +2647,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2189,6 +2699,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2231,6 +2751,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2273,6 +2804,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2315,6 +2856,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2404,6 +2955,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2446,6 +3007,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2535,6 +3106,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2577,6 +3158,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2619,6 +3211,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2661,6 +3263,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2703,6 +3316,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2781,6 +3404,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2859,6 +3493,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2937,6 +3582,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -2979,6 +3634,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3057,6 +3723,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3146,6 +3822,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3188,6 +3875,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3230,6 +3928,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3272,6 +3981,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3314,6 +4034,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3356,6 +4087,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3398,6 +4140,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3440,6 +4193,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3482,6 +4246,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3524,6 +4299,23 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "45683376000186",
+          "distanceMeters": 0.1
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -3566,6 +4358,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3608,6 +4411,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3650,6 +4464,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3692,6 +4517,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3734,6 +4570,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3776,6 +4623,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3818,6 +4676,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3860,6 +4729,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3902,6 +4782,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3944,6 +4835,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -3986,6 +4888,23 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "19059849001050",
+          "distanceMeters": 17.6
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -4028,6 +4947,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4070,6 +5000,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4112,6 +5053,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4154,6 +5106,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4196,6 +5159,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4238,6 +5212,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4280,6 +5265,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4322,6 +5318,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4364,6 +5371,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4406,6 +5424,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4448,6 +5477,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4490,6 +5530,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4532,6 +5583,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4574,6 +5636,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4616,6 +5689,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4658,6 +5742,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4700,6 +5795,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4742,6 +5848,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4784,6 +5901,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4826,6 +5954,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4868,6 +6007,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4910,6 +6060,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4952,6 +6113,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -4994,6 +6166,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5036,6 +6219,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5078,6 +6272,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5120,6 +6325,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5162,6 +6378,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5204,6 +6431,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5246,6 +6484,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5288,6 +6537,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5330,6 +6590,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5372,6 +6643,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5414,6 +6695,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5456,6 +6748,23 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "03749576000144",
+          "distanceMeters": 17.6
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -5498,6 +6807,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5540,6 +6860,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5582,6 +6913,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5624,6 +6966,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5666,6 +7019,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5708,6 +7072,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5750,6 +7125,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5792,6 +7177,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5834,6 +7230,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5876,6 +7283,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5918,6 +7336,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -5960,6 +7388,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6002,6 +7440,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6044,6 +7493,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6086,6 +7545,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6128,6 +7598,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6170,6 +7650,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6212,6 +7702,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6254,6 +7755,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6296,6 +7808,23 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "00723674000114",
+          "distanceMeters": 0.1
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -6338,6 +7867,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6380,6 +7920,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6422,6 +7973,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6464,6 +8026,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6506,6 +8079,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6548,6 +8132,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6590,6 +8185,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6632,6 +8238,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6674,6 +8291,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6716,6 +8344,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6758,6 +8397,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6800,6 +8450,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6842,6 +8502,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6884,6 +8554,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6926,6 +8607,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -6968,6 +8660,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7010,6 +8713,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7052,6 +8766,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7094,6 +8819,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7136,6 +8871,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7178,6 +8924,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7220,6 +8977,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7262,6 +9029,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7304,6 +9082,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7346,6 +9135,22 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "61138210000135",
+          "distanceMeters": 0.1
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -7388,6 +9193,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7430,6 +9245,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7472,6 +9298,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7514,6 +9350,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7556,6 +9403,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7598,6 +9456,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7640,6 +9509,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7682,6 +9562,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7724,6 +9615,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7766,6 +9667,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7808,6 +9719,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7850,6 +9771,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7892,6 +9823,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7934,6 +9876,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -7976,6 +9929,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8018,6 +9982,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8060,6 +10035,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8102,6 +10088,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8144,6 +10141,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8186,6 +10193,23 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "near_another_cnpj",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [
+        {
+          "cnpj": "53981181000140",
+          "distanceMeters": 0.1
+        }
+      ],
+      "reviewedAt": null
     }
   },
   {
@@ -8228,6 +10252,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8270,6 +10305,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "unavailable",
+      "manualReviewApproved": false,
+      "reasons": [
+        "coordinates_missing_or_out_of_area"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8312,6 +10357,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8354,6 +10409,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8396,6 +10462,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8438,6 +10515,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8480,6 +10567,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8522,6 +10620,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8564,6 +10673,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8606,6 +10726,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8648,6 +10778,17 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated",
+        "geo_observation_old"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   },
   {
@@ -8690,6 +10831,16 @@
       },
       "overallScore": null,
       "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    },
+    "geoAudit": {
+      "status": "review_required",
+      "anpValidation": "not_validated",
+      "manualReviewApproved": false,
+      "reasons": [
+        "anp_position_not_validated"
+      ],
+      "nearbyOtherCnpjs": [],
+      "reviewedAt": null
     }
   }
 ]
