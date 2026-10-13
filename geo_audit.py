@@ -76,6 +76,8 @@ def audit_catalog(catalog, now=None, near_m=NEARBY_METERS,
             reasons.append("near_another_cnpj")
         if not (item.get("name") and item.get("address")):
             reasons.append("incomplete_address_or_name")
+        if item.get("priceStatus") == "historical_observation" and not reasons:
+            reasons.append("price_pin_field_review_pending")
 
         if state != "unavailable":
             obtained = parse_anp_date(item.get("geoDate"))
