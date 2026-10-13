@@ -12,6 +12,7 @@ import re
 from urllib.parse import urlparse
 
 from import_anp import norm, has_city_coordinate
+from geo_audit import haversine_m
 
 OFFICIAL_PMQC_URL = (
     "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/"
@@ -125,11 +126,17 @@ def parse_pmqc_csv(binary, registry, now=None, source_url=OFFICIAL_PMQC_URL):
         station[field] += 1
         station["latestSampleAt"] = max(collected_at, station["latestSampleAt"] or collected_at)
         positions = sorted(record["positions"])
+        # Coordenadas ligeiramente distintas podem ser só arredondamento
+        # entre ensaios da mesma amostra; sinalizar apenas diferença material.
+        conflict = any(
+            haversine_m({"lat":a[0],"lng":a[1]},{"lat":b[0],"lng":b[1]}) > 150
+            for i,a in enumerate(positions) for b in positions[i+1:]
+        )
         station["samples"].append({
             "sampleId": sample_id, "product": product,
             "collectedAt": collected_at, "reportedAssayCount": len(assays),
             "status": status,
             "reportedGeoPositions": [{"lat": lat, "lng": lng} for lat, lng in positions],
-            "geoPositionsConflictWithinSample": len(positions) > 1,
+            "geoPositionsConflictWithinSample": conflict,
         })
     return evidence
