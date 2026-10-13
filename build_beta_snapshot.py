@@ -119,6 +119,7 @@ def build_snapshot(catalog, status, pmqc, now=None):
             "mapEligible": can_map, "lat": lat, "lng": lng,
             "geoValidated": False,
             "geoSource": REGISTRY_SOURCE if can_map else None,
+            "geoRecordedAt": str(p.get("geoDate") or "") if can_map else None,
             "geoAudit": {
                 "manualReviewApproved": False,
                 "priority": audit.get("priority") if audit.get("priority") in ("high", "medium", "normal") else "normal",
