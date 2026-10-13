@@ -19,20 +19,23 @@ class BetaBuilderTest(unittest.TestCase):
         cls.status = json.loads((ROOT/"data/engine_status.json").read_text(encoding="utf-8"))
         cls.pmqc = json.loads((ROOT/"data/pmqc_evidencias_anp.json").read_text(encoding="utf-8"))
 
-    def build(self, catalog=None, status=None, pmqc=None, now=NOW):
+    def build(self, catalog=None, status=None, pmqc=None, now=None):
+        source_status = self.status if status is None else status
+        if now is None:
+            now = datetime.fromisoformat(source_status["generatedAt"])
         return build_snapshot(
             self.catalog if catalog is None else catalog,
-            self.status if status is None else status,
+            source_status,
             self.pmqc if pmqc is None else pmqc, now
         )
 
     def test_build_official_beta_only(self):
         data=self.build()
-        self.assertEqual(data["counts"]["registered"],194)
-        self.assertEqual(data["counts"]["mapEligible"],178)
-        self.assertEqual(data["counts"]["withRecentPrice"],13)
-        self.assertEqual(data["counts"]["withLabSamples"],7)
-        self.assertEqual(data["counts"]["withoutCoords"],16)
+        self.assertEqual(data["counts"]["registered"],len(self.catalog))
+        self.assertEqual(data["counts"]["mapEligible"],self.status["catalogWithCoordinates"])
+        self.assertEqual(data["counts"]["withRecentPrice"],sum(bool(p["prices"]) for p in data["stations"]))
+        self.assertEqual(data["counts"]["withLabSamples"],len(self.pmqc))
+        self.assertEqual(data["counts"]["withoutCoords"],len(self.catalog)-self.status["catalogWithCoordinates"])
         self.assertFalse(data["approval"]["publicationApproved"])
         self.assertEqual(data["approval"]["coordinatesVerifiedOnSite"],0)
         self.assertTrue(data["homologationOnly"])
@@ -47,8 +50,8 @@ class BetaBuilderTest(unittest.TestCase):
         old=self.build(now=datetime(2027, 3, 15, tzinfo=timezone.utc))
         self.assertEqual(old["counts"]["withRecentPrice"],0)
         self.assertTrue(all(not p["prices"] for p in old["stations"]))
-        self.assertEqual(old["counts"]["registered"],194)
-        self.assertEqual(old["counts"]["withLabSamples"],7)
+        self.assertEqual(old["counts"]["registered"],len(self.catalog))
+        self.assertEqual(old["counts"]["withLabSamples"],len(self.pmqc))
 
     def test_reject_untrusted_price_source(self):
         status=copy.deepcopy(self.status)
@@ -78,7 +81,7 @@ class BetaBuilderTest(unittest.TestCase):
     def test_does_not_expose_precise_location_for_missing_coordinates(self):
         data=self.build()
         none=[p for p in data["stations"] if not p["mapEligible"]]
-        self.assertEqual(len(none),16)
+        self.assertEqual(len(none),len(self.catalog)-self.status["catalogWithCoordinates"])
         self.assertTrue(all(p["lat"] is None and p["lng"] is None for p in none))
 
     def test_write_snapshot_with_strict_data(self):
@@ -88,7 +91,7 @@ class BetaBuilderTest(unittest.TestCase):
                 ROOT/"data/catalogo_postos_anp.json",
                 ROOT/"data/engine_status.json",
                 ROOT/"data/pmqc_evidencias_anp.json",
-                out, NOW
+                out, datetime.fromisoformat(self.status["generatedAt"])
             )
             self.assertEqual(json.loads(out.read_text(encoding="utf-8")),result)
             self.assertEqual(result["release"],"fuel-pro-anp-beta-2")
