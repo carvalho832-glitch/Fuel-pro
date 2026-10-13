@@ -78,6 +78,18 @@ class GeoAuditTest(unittest.TestCase):
         two=audit_catalog([original],now=NOW)
         self.assertEqual(one,two)
 
+    def test_review_queue_prioritizes_recent_prices_and_coordinate_collisions(self):
+        high=station("12345678000190",validated=True)
+        high["priceStatus"]="historical_observation"
+        normal=station("12345678000191",validated=False,lat=-21.81,lng=-48.19)
+        missing=station("12345678000192",lat=None,lng=None)
+        cat,queue,summary=audit_catalog([normal,missing,high],now=NOW)
+        self.assertEqual(queue[0]["cnpj"],"12345678000190")
+        self.assertEqual(queue[0]["priority"],"high")
+        self.assertTrue(queue[0]["hasRecentObservedPrice"])
+        self.assertEqual(summary["priorityQueue"],{"high":1,"medium":1,"normal":1})
+        self.assertEqual(len(cat),3)
+
     def test_distance_and_anp_date_conversion(self):
         self.assertAlmostEqual(haversine_m({"lat":-21.8,"lng":-48.18},
                                            {"lat":-21.8,"lng":-48.18}),0)
