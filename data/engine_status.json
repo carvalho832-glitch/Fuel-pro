@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T02:04:04.906219+00:00",
+  "generatedAt": "2026-10-13T02:25:20.979478+00:00",
   "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
   "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
   "priceSampling": "weekly",
@@ -61,6 +61,22 @@
   "archiveMode": "official_page",
   "lastObservedDate": "2026-10-06",
   "historyObservations": 202,
+  "catalogStations": 194,
+  "catalogWithCoordinates": 178,
+  "catalogWithoutRecentPrices": 181,
+  "catalogByCity": {
+    "ARARAQUARA": {
+      "registered": 63,
+      "withCoordinates": 51,
+      "withRecentPrices": 13
+    },
+    "SAO JOSE DOS CAMPOS": {
+      "registered": 131,
+      "withCoordinates": 127,
+      "withRecentPrices": 0
+    }
+  },
+  "qualityRatingsPublished": 0,
   "missingRegistry": 1,
   "missingCoordinates": 2,
   "expiredObservations": 0,

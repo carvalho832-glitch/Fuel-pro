@@ -23,6 +23,65 @@
       "eta": "2026-10-05",
       "gas": "2026-10-05",
       "gnv": "2026-10-05"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gnv": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -45,6 +104,47 @@
     "collectedAtByFuel": {
       "eta": "2026-09-21",
       "gas": "2026-09-21"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-21",
+          "ageDays": 22,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-21",
+          "ageDays": 22,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -71,6 +171,65 @@
       "eta": "2026-10-06",
       "gas": "2026-10-06",
       "gas_ad": "2026-10-06"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas_ad": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -97,6 +256,65 @@
       "die_s10": "2026-10-06",
       "eta": "2026-10-06",
       "gas": "2026-10-06"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -123,6 +341,65 @@
       "die_s10": "2026-10-05",
       "eta": "2026-10-05",
       "gas": "2026-10-05"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -149,6 +426,65 @@
       "die_s10": "2026-10-05",
       "eta": "2026-10-05",
       "gas": "2026-10-05"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -175,6 +511,65 @@
       "eta": "2026-09-30",
       "gas": "2026-09-30",
       "gas_ad": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas_ad": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -201,6 +596,65 @@
       "die_s10": "2026-09-30",
       "eta": "2026-09-30",
       "gas": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -225,6 +679,56 @@
       "die_s10": "2026-09-30",
       "eta": "2026-09-30",
       "gas": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -249,6 +753,56 @@
       "eta": "2026-09-15",
       "gas": "2026-09-15",
       "gas_ad": "2026-09-15"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas_ad": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -273,6 +827,56 @@
       "die_s10": "2026-09-15",
       "eta": "2026-09-15",
       "gas": "2026-09-15"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -297,6 +901,56 @@
       "die_s10": "2026-09-15",
       "eta": "2026-09-15",
       "gas": "2026-09-15"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   },
   {
@@ -323,6 +977,65 @@
       "die_s10": "2026-09-30",
       "eta": "2026-09-30",
       "gas": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
     }
   }
 ]
