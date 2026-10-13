@@ -27,3 +27,18 @@ jobs:
         run: node --check app.js
       - name: Verificar JSON
         run: python -m json.tool dados.json > /dev/null
+
+  validar-fonte-oficial:
+    runs-on: ubuntu-latest
+    continue-on-error: true # Fonte externa pode ficar indisponível sem invalidar testes locais
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependências
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Validar pesquisa semanal real ANP sem publicar preços
+        run: python import_anp.py --mais-recente --apenas-validar
