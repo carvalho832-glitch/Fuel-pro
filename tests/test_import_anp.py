@@ -64,7 +64,7 @@ class ImportAnpTest(unittest.TestCase):
             "NÚMERO": "20",
             "BAIRRO": "CIDADE JARDIM",
             "MUNICÍPIO": "SAO JOSE DOS CAMPOS",
-            "ESTADO": "SP",
+            "ESTADO": "SÃO PAULO",
             "PRODUTO": "GASOLINA COMUM",
             "PREÇO DE REVENDA": 5.99,
             "DATA DA COLETA": "09/10/2026",
