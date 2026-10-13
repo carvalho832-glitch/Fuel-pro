@@ -167,6 +167,10 @@ class EngineTest(unittest.TestCase):
             self.assertFalse(status["publicationApproved"])
             self.assertIsNone(next(p for p in catalog if p["cnpj"]==CNPJ2)["fuelScore"]["overallScore"])
             self.assertFalse((root/"dados.json").exists())
+            review=json.loads((folder/"geo_cruzamento_enderecos.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(review),1)
+            self.assertFalse(review[0]["manualReviewApproved"])
+            self.assertEqual(status["addressCrosscheck"]["highPriorityCount"],1)
             self.assertEqual(len(json.loads((folder/"dados_candidatos.json").read_text(encoding="utf-8"))), 1)
 
     def test_offline_quality_file_attaches_laboratory_evidence_without_stars(self):
