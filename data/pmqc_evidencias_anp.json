@@ -15,14 +15,36 @@
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 10,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.195786,
+            "lng": -45.8841308
+          },
+          {
+            "lat": -23.195785,
+            "lng": -45.88413
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       },
       {
         "sampleId": "1060904",
         "product": "OLEO DIESEL B S10 - COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 8,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.195786,
+            "lng": -45.8841308
+          },
+          {
+            "lat": -23.195785,
+            "lng": -45.88413
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -43,21 +65,90 @@
         "product": "ETANOL HIDRATADO COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 7,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1887467,
+            "lng": -45.8729167
+          },
+          {
+            "lat": -23.188746,
+            "lng": -45.8729168
+          },
+          {
+            "lat": -23.1885619,
+            "lng": -45.8729306
+          },
+          {
+            "lat": -23.1884827,
+            "lng": -45.8730077
+          },
+          {
+            "lat": -23.1884824,
+            "lng": -45.8730075
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       },
       {
         "sampleId": "1060889",
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 9,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1887467,
+            "lng": -45.8729167
+          },
+          {
+            "lat": -23.188746,
+            "lng": -45.8729168
+          },
+          {
+            "lat": -23.1885619,
+            "lng": -45.8729306
+          },
+          {
+            "lat": -23.1884827,
+            "lng": -45.8730077
+          },
+          {
+            "lat": -23.1884824,
+            "lng": -45.8730075
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       },
       {
         "sampleId": "1060890",
         "product": "OLEO DIESEL B S10 - ADITIVADO",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 8,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1887467,
+            "lng": -45.8729167
+          },
+          {
+            "lat": -23.188746,
+            "lng": -45.8729168
+          },
+          {
+            "lat": -23.1885619,
+            "lng": -45.8729306
+          },
+          {
+            "lat": -23.1884827,
+            "lng": -45.8730077
+          },
+          {
+            "lat": -23.1884824,
+            "lng": -45.8730075
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -78,14 +169,36 @@
         "product": "ETANOL HIDRATADO COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 7,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1855623,
+            "lng": -45.8548279
+          },
+          {
+            "lat": -23.1855033,
+            "lng": -45.8545717
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       },
       {
         "sampleId": "1060885",
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 10,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1855623,
+            "lng": -45.8548279
+          },
+          {
+            "lat": -23.1855033,
+            "lng": -45.8545717
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -106,14 +219,36 @@
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 9,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1986639,
+            "lng": -45.9121686
+          },
+          {
+            "lat": -23.1986633,
+            "lng": -45.9121683
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       },
       {
         "sampleId": "1060892",
         "product": "OLEO DIESEL B S10 - COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 8,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.1986639,
+            "lng": -45.9121686
+          },
+          {
+            "lat": -23.1986633,
+            "lng": -45.9121683
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -134,14 +269,18 @@
         "product": "ETANOL HIDRATADO COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 8,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [],
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060887",
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 10,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [],
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -162,7 +301,18 @@
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 10,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.2316202,
+            "lng": -45.8800778
+          },
+          {
+            "lat": -23.2316202,
+            "lng": -45.8800777
+          }
+        ],
+        "geoPositionsConflictWithinSample": true
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
@@ -183,14 +333,28 @@
         "product": "GASOLINA C COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 10,
-        "status": "all_reported_assays_conforming"
+        "status": "all_reported_assays_conforming",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.2237061,
+            "lng": -45.9182707
+          }
+        ],
+        "geoPositionsConflictWithinSample": false
       },
       {
         "sampleId": "1060894",
         "product": "OLEO DIESEL B S10 - COMUM",
         "collectedAt": "2026-09-14",
         "reportedAssayCount": 8,
-        "status": "nonconformity_reported"
+        "status": "nonconformity_reported",
+        "reportedGeoPositions": [
+          {
+            "lat": -23.2237061,
+            "lng": -45.9182707
+          }
+        ],
+        "geoPositionsConflictWithinSample": false
       }
     ],
     "disclaimer": "Resultados de ensaios em amostras coletadas, não garantia da qualidade atual do posto."
