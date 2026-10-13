@@ -169,6 +169,38 @@ class EngineTest(unittest.TestCase):
             self.assertFalse((root/"dados.json").exists())
             self.assertEqual(len(json.loads((folder/"dados_candidatos.json").read_text(encoding="utf-8"))), 1)
 
+    def test_offline_quality_file_attaches_laboratory_evidence_without_stars(self):
+        from engine_anp import run
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            prices = root/"anp.xlsx"
+            prices.write_bytes(make_xlsx())
+            registry_file = root/"registry.json"
+            registry_file.write_text(json.dumps({
+                "records":registry(), "counts":{"ARARAQUARA":1}
+            }),encoding="utf-8")
+            pmqc_file = root/"pmqc.csv"
+            pmqc_file.write_text(
+                "DataColeta;IdNumeric;Produto;CnpjPosto;Município;Uf;Ensaio;Conforme\n"
+                +f"2026-09-01;100;GASOLINA C COMUM;{CNPJ};ARARAQUARA;SP;Teor de Etanol;Sim\n"
+                +f"2026-09-01;100;GASOLINA C COMUM;{CNPJ};ARARAQUARA;SP;Aspecto;Não\n",
+                encoding="utf-8"
+            )
+            folder = root/"staging"
+            status=run(prices_file=prices,registry_file=registry_file,
+                       out_dir=folder,pmqc_file=pmqc_file)
+            self.assertTrue(status["pmqc"]["imported"])
+            self.assertEqual(status["pmqc"]["stationsWithSamples"],1)
+            self.assertEqual(status["pmqc"]["totalSamples"],1)
+            self.assertEqual(status["pmqc"]["ratingsPublished"],0)
+            catalog=json.loads((folder/"catalogo_postos_anp.json").read_text(encoding="utf-8"))
+            quality=catalog[0]["fuelScore"]["quality"]
+            self.assertEqual(quality["status"],"laboratory_samples_found")
+            self.assertEqual(quality["laboratoryEvidence"]["samplesWithNonconformity"],1)
+            self.assertIsNone(quality["rating"])
+            self.assertIsNone(catalog[0]["fuelScore"]["overallScore"])
+            self.assertFalse((root/"dados.json").exists())
+
     def test_geodata_bounds_reject_outside_city(self):
         class FakeResponse:
             def raise_for_status(self): pass
