@@ -51,11 +51,11 @@ FUELS = {
 }
 FIELDS = {
     "municipio": ["MUNICIPIO", "CIDADE"],
-    "uf": ["ESTADO - SIGLA", "UF"],
+    "uf": ["ESTADO - SIGLA", "UF", "ESTADO"],
     "cnpj": ["CNPJ DA REVENDA", "CNPJ"],
-    "name": ["REVENDA", "RAZAO SOCIAL"],
+    "name": ["REVENDA", "RAZAO SOCIAL", "RAZAO"],
     "product": ["PRODUTO", "COMBUSTIVEL"],
-    "price": ["VALOR DE VENDA", "PRECO DE VENDA", "PRECO"],
+    "price": ["VALOR DE VENDA", "PRECO DE VENDA", "PRECO DE REVENDA", "PRECO"],
     "date": ["DATA DA COLETA", "DATA COLETA", "DATA DE COLETA"],
     "street": ["NOME DA RUA", "LOGRADOURO", "ENDERECO"],
     "number": ["NUMERO RUA", "NUMERO", "NUMERO DO LOGRADOURO"],
