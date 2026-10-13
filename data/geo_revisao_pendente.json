@@ -1,100 +1,5 @@
 [
   {
-    "cnpj": "00218960000122",
-    "name": "REYSSOL COMERCIO E SERVICOS LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PDE FRANCISCO COLTURATO,  22",
-    "lat": -21.7789326,
-    "lng": -48.1795877,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "07/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00907839000108",
-    "name": "AUTO POSTO PARAISO ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA DR AMAURY P C MONTEIRO,  720",
-    "lat": -21.83217766,
-    "lng": -48.14397666,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "02/04/2024",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "01046932000138",
-    "name": "P. C DO AMARAL & CIA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA MAURICIO GALLI,  3789",
-    "lat": -21.742875,
-    "lng": -48.1555158,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "20/12/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "02008954000176",
-    "name": "AUTO POSTO DALLAS CENTER LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA MARIA A. C. DE OLIVEIRA,  1869",
-    "lat": -21.78947333,
-    "lng": -48.17239167,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "28/08/2018",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "02048440000144",
-    "name": "POSTO WEST LUSO JARDIM REGINA LTDA.",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA ENGENHEIRO CAMILO DINUCCI,  4371",
-    "lat": -21.8236272,
-    "lng": -48.1550202,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "08/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "02155815000175",
-    "name": "IGUATEMI AUTO SERVICE ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA HENRIQUE LUPO,  581",
-    "lat": -21.7715541,
-    "lng": -48.17908548,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "07/02/2025",
-    "flags": [
-      "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
     "cnpj": "02301883000103",
     "name": "AUTO POSTO SETE DE SETEMBRO ARARAQUARA LTDA",
     "city": "ARARAQUARA",
@@ -103,6 +8,8 @@
     "lng": -48.1771951,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "22/03/2022",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "near_another_cnpj",
@@ -121,196 +28,6 @@
     "manualReviewApproved": false
   },
   {
-    "cnpj": "02670700000119",
-    "name": "AUTO POSTO BALAO DA 36 LTDA.",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PDE FRANCISCO COLTURATO,  1323",
-    "lat": -21.7826071,
-    "lng": -48.1916904,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "24/03/2026",
-    "flags": [
-      "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "02975066000122",
-    "name": "AUTO POSTO PODIUM LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA MANUEL DE ABREU,  4205",
-    "lat": -21.7481207,
-    "lng": -48.1350962,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "22/03/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "03776999000153",
-    "name": "CAMPOS & FERNANDEZ LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA MAURICIO GALLI,  4245",
-    "lat": -21.74057,
-    "lng": -48.1515157,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "23/03/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "04201754000160",
-    "name": "AUTO POSTO ALAMEDA DE ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA RAUL THOBIAS MONTEIRO,  540",
-    "lat": -21.7745208,
-    "lng": -48.159531,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "18/12/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "04490125000106",
-    "name": "AUTO POSTO LIDER ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA GONCALVES DIAS,  1360",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "04508485000180",
-    "name": "RODRIGUES, CARVALHO & CIA ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA ANTONIO HONORIO REAL,  27",
-    "lat": -21.7720066,
-    "lng": -48.2061214,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "13/07/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "04527501000181",
-    "name": "POSTO TOTAL ARARAQUARA EIRELI",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA JULIO URSULINO PEDROSO,  25",
-    "lat": -21.80579,
-    "lng": -48.1727462,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "07/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "04644768000159",
-    "name": "POSTO ARCENAL LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA MAURICIO GALLI,  457",
-    "lat": -21.7639054,
-    "lng": -48.1638401,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "08/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "04914101000129",
-    "name": "AUTO POSTO FLORA ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA JOSE BARBIERI NETO,  1961",
-    "lat": -21.7427525,
-    "lng": -48.1860125,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "22/03/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "06054730000151",
-    "name": "AUTO POSTO REDE SOL LTDA.",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PADRE JOSE DE ANCHIETA,  116",
-    "lat": -21.7994183,
-    "lng": -48.1700267,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "03/02/2021",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "06111337000152",
-    "name": "PRISMA AUTO POSTO LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA FRANCISCO CARLOS MERLOS,  2400",
-    "lat": -21.8175065,
-    "lng": -48.1576637,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "22/03/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "06122396000126",
-    "name": "FAVERAL AUTO POSTO LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA EXPEDICIONARIOS DO BRASIL,  1048",
-    "lat": -21.7988412,
-    "lng": -48.1795544,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "06/10/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
     "cnpj": "06949914000180",
     "name": "AUTO POSTO PARQUE DE ARARAQUARA LTDA",
     "city": "ARARAQUARA",
@@ -319,6 +36,8 @@
     "lng": -48.17719575,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/03/2026",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "near_another_cnpj"
@@ -336,36 +55,6 @@
     "manualReviewApproved": false
   },
   {
-    "cnpj": "07060206000156",
-    "name": "AUTO POSTO RUA 16 LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA CASTRO ALVES,  2.647",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "07532598000109",
-    "name": "AUTO POSTO CEAEME LTDA.",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PRESIDENTE VARGAS,  2750",
-    "lat": -21.8036736,
-    "lng": -48.1977447,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "24/03/2026",
-    "flags": [
-      "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
     "cnpj": "09279922000154",
     "name": "POSTO DE SERVICOS VIP LTDA",
     "city": "ARARAQUARA",
@@ -374,6 +63,8 @@
     "lng": -48.17719575,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "16/04/2025",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "near_another_cnpj"
@@ -391,37 +82,6 @@
     "manualReviewApproved": false
   },
   {
-    "cnpj": "09448326000150",
-    "name": "AUTO POSTO MEDITERRANEO DE ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA ANTONIO DE PADUA CORREA,  374",
-    "lat": -21.80439385,
-    "lng": -48.17644389,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "18/04/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "10301424000140",
-    "name": "POSTO DE SERVIÇOS YOLANDA LTDA.",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA DOUTOR  WALDOMIRO BLUNDI,  6",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
     "cnpj": "10394030000183",
     "name": "IGAS COMERCIO DE COMBUSTIVEIS LTDA",
     "city": "ARARAQUARA",
@@ -430,22 +90,8 @@
     "lng": -48.174301,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "10408376000193",
-    "name": "POSTO MORADA DO SOL ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RODOVIA WASHINGTON LUIZ,  S/N",
-    "lat": -21.83630647,
-    "lng": -48.1526084,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "25/05/2017",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -462,6 +108,8 @@
     "lng": -48.177641,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "14/08/2023",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -478,38 +126,8 @@
     "lng": -48.1994267,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "18/12/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "11100654000103",
-    "name": "AUTO POSTO VILA SETE ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA JOAO BATISTA DE OLIVEIRA,  201",
-    "lat": -21.791336,
-    "lng": -48.1619184,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "23/06/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "11510396000133",
-    "name": "AUTO POSTO RUA ZERO LTDA.",
-    "city": "ARARAQUARA",
-    "address": "RUA MAJOR CARVALHO FILHO,  898",
-    "lat": -21.7840615,
-    "lng": -48.1747738,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "20/06/2022",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -526,40 +144,11 @@
     "lng": -48.1773384,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "06/10/2022",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "15584087000169",
-    "name": "POSTO TOTAL 9 DE JULHO COMBUSTIVEIS E CONVENIENCIA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA 9 DE JULHO,  1724",
-    "lat": -21.78320306,
-    "lng": -48.17706953,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "25/05/2017",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "16923317000130",
-    "name": "ARTAM ARARAQUARA COMERCIO DE COMBUSTIVEIS LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA MARIA ANTONIA CAMARGO DE OLIVEIRA,  150",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -573,101 +162,10 @@
     "lng": -48.1461299,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/03/2026",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "17733659000150",
-    "name": "POSTO TOTAL HENRIQUE LUPO COMBUSTIVEIS LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA DONA CORINA DAVID,  365",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "21446124000175",
-    "name": "AUTO POSTO FERROVIA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA PRINCESA IZABEL,  451",
-    "lat": -21.7917513,
-    "lng": -48.1657298,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "06/06/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "23934163000147",
-    "name": "W.T.C. COMBUSTIVEIS ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA BARROSO,  1.763",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "25384281000154",
-    "name": "TOTALLE AUTO POSTO LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PADRE FRANCISCO SALES COLTURATO,  327",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "29017551000140",
-    "name": "AUTO POSTO VIA EXPRESSA ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA MARIA ANTONIA CAMARGO DE OLIVEIRA,  371",
-    "lat": -21.8027801,
-    "lng": -48.173495,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "07/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "32548103000187",
-    "name": "IGUATEMI AUTO SERVICE ARARAQUARA II LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PADRE JOSE DE ANCHIETA,  1934",
-    "lat": -21.81072434,
-    "lng": -48.159213,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "01/06/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -681,116 +179,11 @@
     "lng": -48.1651958,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "13/12/2021",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "35826432000130",
-    "name": "AUTO POSTO 22 DE AGOSTO ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA VINTE E DOIS DE AGOSTO,  479",
-    "lat": -21.7904777,
-    "lng": -48.1667466,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "18/12/2023",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "40270089000120",
-    "name": "BIO SEVEN POSTO DE COMBUSTIVEIS E LUBRIFICANTES LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA ANTONIO GOMES DA SILVA,  65",
-    "lat": -21.745779,
-    "lng": -48.1595212,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "10/09/2026",
-    "flags": [
-      "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "43949742000170",
-    "name": "AUTO POSTO ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA ANTONIO PRADO,  395",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "43950492000199",
-    "name": "AUTO POSTO PAU SECO LTDA",
-    "city": "ARARAQUARA",
-    "address": "RODOVIA WASHINGTON LUIZ,  S/N",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "45273885000130",
-    "name": "AUTO POSTO FONTE LUMINOSA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA JAPAO,,  38",
-    "lat": -21.7778933,
-    "lng": -48.17858,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "03/12/2020",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "47993050000180",
-    "name": "VITTORIO PACCHIAROTTI & CIA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RODOVIA WASHINGTON LUIZ,  S N",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "47995105000191",
-    "name": " POSTO TOTAL 970 LTDA",
-    "city": "ARARAQUARA",
-    "address": "ALAMEDA PAULISTA,  970",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -804,21 +197,8 @@
     "lng": -48.15906181,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "30/09/2025",
-    "flags": [
-      "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "50714575000144",
-    "name": "AUTO POSTO 36 LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PADRE FRANCISCO SALES COLTURATO,  124",
-    "lat": -21.77907306,
-    "lng": -48.1803298,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "22/09/2026",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -834,68 +214,8 @@
     "lng": -48.14819161,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "02/01/2025",
-    "flags": [
-      "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "53613758000838",
-    "name": "MASTER AVGAS LTDA.",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA ALBERTO SANTOS DUMONT,  2880",
-    "lat": -21.8043791,
-    "lng": -48.1412534,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "19/08/2021",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "55239362000121",
-    "name": "AUTO POSTO DA VILA XAVIER LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA PE ANTONIO CEZARINO,  513",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "57788689000188",
-    "name": "AUTO POSTO VILA SOL LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA JOAO BATISTA DE OLIVEIRA,  850",
-    "lat": -21.79127833,
-    "lng": -48.155325,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "28/08/2018",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "57904608000168",
-    "name": "LOS ANGELES AUTO POSTO DE COMBUSTIVEL LTDA",
-    "city": "ARARAQUARA",
-    "address": "RUA ITALIA,  2575",
-    "lat": -21.7858527,
-    "lng": -48.1835607,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "10/09/2026",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -911,6 +231,8 @@
     "lng": -48.1695093,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "18/12/2023",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -927,6 +249,8 @@
     "lng": -48.19169286,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "25/05/2017",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -943,24 +267,10 @@
     "lng": -48.1655635,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/06/2025",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "64684897000100",
-    "name": "AUTO POSTO VAZ FILHO LTDA",
-    "city": "ARARAQUARA",
-    "address": "AVENIDA FRANCISCO VAZ FILHO,  2924",
-    "lat": -21.7756405,
-    "lng": -48.1439196,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "08/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -974,6 +284,8 @@
     "lng": -48.1603868,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "18/03/2026",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -989,134 +301,8 @@
     "lng": -48.15469,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "08/02/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "74257064000109",
-    "name": "AUTO POSTO KAMBUI ARARAQUARA LTDA",
-    "city": "ARARAQUARA",
-    "address": "RODOVIA WASHINGTON LUIZ KM 291,  SN",
-    "lat": -21.70339639,
-    "lng": -48.32359045,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "14/07/2022",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893001536",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA SENADOR TEOTONIO VILELA,  2001",
-    "lat": -23.195785,
-    "lng": -45.88413,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "09/12/2019",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893001706",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "PRACA CANDIDO DIAS CASTEJON,  59",
-    "lat": -23.19205338,
-    "lng": -45.88880626,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "09/12/2019",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893002184",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA JOAO BATISTA DE SOUZA SOARES,  2.969",
-    "lat": -23.2501825,
-    "lng": -45.9081611,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "05/03/2024",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893002265",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA PRESIDENTE TANCREDO NEVES,  1201",
-    "lat": -23.18306647,
-    "lng": -45.80884667,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "10/12/2019",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893002508",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "RUA SAO JORGE,  21",
-    "lat": -23.1603092,
-    "lng": -45.89754944,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "09/12/2019",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893003156",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA FEIRA DE SANTANA,  10",
-    "lat": -23.25722857,
-    "lng": -45.910616,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "09/12/2019",
-    "flags": [
-      "anp_position_not_validated",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "00256893003318",
-    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA PRESIDENTE TANCREDO NEVES,  1030",
-    "lat": -23.18172333,
-    "lng": -45.81037333,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "09/12/2019",
+    "priority": "high",
+    "hasRecentObservedPrice": true,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1133,6 +319,8 @@
     "lng": -45.89075272,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "near_another_cnpj",
@@ -1147,6 +335,1147 @@
     "manualReviewApproved": false
   },
   {
+    "cnpj": "03749576000144",
+    "name": "W CONDE COMÉRCIO DE PRODUTOS DE PETRÓLEO LTDA EPP.",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "PRACA MARECHAL-DO-AR  EDUARDO GOMES,  50",
+    "lat": -23.2204189,
+    "lng": -45.8675044,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "20/09/2021",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "near_another_cnpj",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [
+      {
+        "cnpj": "19059849001050",
+        "distanceMeters": 17.6
+      }
+    ],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "19059849001050",
+    "name": "MILDO ALVES ADMINISTRAÇÃO COMÉRCIO E TRANSPORTES LTDA.",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "PRAÇA MARECHAL DO AR EDUARDO GOMES,  50",
+    "lat": -23.22032667,
+    "lng": -45.867365,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "14/12/2018",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "near_another_cnpj",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [
+      {
+        "cnpj": "03749576000144",
+        "distanceMeters": 17.6
+      }
+    ],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "45683376000186",
+    "name": "AUTO POSTO ISARIS SOCIEDADE UNIPESSOAL LIMITADA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA ENGENHEIRO FRANCISCO JOSE LONGO,  60",
+    "lat": -23.22881953,
+    "lng": -45.89075202,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "30/04/2024",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "near_another_cnpj",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [
+      {
+        "cnpj": "00723674000114",
+        "distanceMeters": 0.1
+      }
+    ],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "53981181000140",
+    "name": "AUTO POSTO SANTA INES SJC LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "RUA DURVALINA SILVA AGUIAR,  743",
+    "lat": -23.25401618,
+    "lng": -45.92179854,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "15/01/2025",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "near_another_cnpj"
+    ],
+    "nearbyOtherCnpjs": [
+      {
+        "cnpj": "61138210000135",
+        "distanceMeters": 0.1
+      }
+    ],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "61138210000135",
+    "name": "SCUDERIA I AUTO POSTO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "ALAMEDA RIO NEGRO,  81",
+    "lat": -23.25401667,
+    "lng": -45.92179833,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "09/12/2019",
+    "priority": "high",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "near_another_cnpj",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [
+      {
+        "cnpj": "53981181000140",
+        "distanceMeters": 0.1
+      }
+    ],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "04490125000106",
+    "name": "AUTO POSTO LIDER ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA GONCALVES DIAS,  1360",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "07060206000156",
+    "name": "AUTO POSTO RUA 16 LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA CASTRO ALVES,  2.647",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "10301424000140",
+    "name": "POSTO DE SERVIÇOS YOLANDA LTDA.",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA DOUTOR  WALDOMIRO BLUNDI,  6",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "16923317000130",
+    "name": "ARTAM ARARAQUARA COMERCIO DE COMBUSTIVEIS LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA MARIA ANTONIA CAMARGO DE OLIVEIRA,  150",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "17733659000150",
+    "name": "POSTO TOTAL HENRIQUE LUPO COMBUSTIVEIS LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA DONA CORINA DAVID,  365",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "23934163000147",
+    "name": "W.T.C. COMBUSTIVEIS ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA BARROSO,  1.763",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "25384281000154",
+    "name": "TOTALLE AUTO POSTO LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PADRE FRANCISCO SALES COLTURATO,  327",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "43949742000170",
+    "name": "AUTO POSTO ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA ANTONIO PRADO,  395",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "43950492000199",
+    "name": "AUTO POSTO PAU SECO LTDA",
+    "city": "ARARAQUARA",
+    "address": "RODOVIA WASHINGTON LUIZ,  S/N",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "47993050000180",
+    "name": "VITTORIO PACCHIAROTTI & CIA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RODOVIA WASHINGTON LUIZ,  S N",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "47995105000191",
+    "name": " POSTO TOTAL 970 LTDA",
+    "city": "ARARAQUARA",
+    "address": "ALAMEDA PAULISTA,  970",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "55239362000121",
+    "name": "AUTO POSTO DA VILA XAVIER LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PE ANTONIO CEZARINO,  513",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "14607609001614",
+    "name": "JETFLY REVENDORA DE COMBUSTIVEIS LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "RUA DOUTORA  TÂNIA LIS TIZZONI NOGUEIRA,  10",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "35183195000137",
+    "name": "AUTO POSTO TRIUNFO TERRAS DO SUL LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA FUSANOBU YOKOTA,  31",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "37837300000130",
+    "name": "AUTO POSTO VILA TESOURO S. J. CAMPOS LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "RUA PROFESSORA MARIA SIQUEIRA NATHAN,  117",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "61684221000110",
+    "name": "AUTO POSTO PÉ DA SERRA LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "ESTRADA VEREADOR PEDRO DAVID,  150",
+    "lat": null,
+    "lng": null,
+    "geoValidation": "",
+    "geoDate": "",
+    "priority": "medium",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "coordinates_missing_or_out_of_area"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00218960000122",
+    "name": "REYSSOL COMERCIO E SERVICOS LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PDE FRANCISCO COLTURATO,  22",
+    "lat": -21.7789326,
+    "lng": -48.1795877,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "07/02/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00907839000108",
+    "name": "AUTO POSTO PARAISO ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA DR AMAURY P C MONTEIRO,  720",
+    "lat": -21.83217766,
+    "lng": -48.14397666,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "02/04/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "01046932000138",
+    "name": "P. C DO AMARAL & CIA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA MAURICIO GALLI,  3789",
+    "lat": -21.742875,
+    "lng": -48.1555158,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "20/12/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "02008954000176",
+    "name": "AUTO POSTO DALLAS CENTER LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA MARIA A. C. DE OLIVEIRA,  1869",
+    "lat": -21.78947333,
+    "lng": -48.17239167,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "28/08/2018",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "02048440000144",
+    "name": "POSTO WEST LUSO JARDIM REGINA LTDA.",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA ENGENHEIRO CAMILO DINUCCI,  4371",
+    "lat": -21.8236272,
+    "lng": -48.1550202,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "08/02/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "02155815000175",
+    "name": "IGUATEMI AUTO SERVICE ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA HENRIQUE LUPO,  581",
+    "lat": -21.7715541,
+    "lng": -48.17908548,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "07/02/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "02670700000119",
+    "name": "AUTO POSTO BALAO DA 36 LTDA.",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PDE FRANCISCO COLTURATO,  1323",
+    "lat": -21.7826071,
+    "lng": -48.1916904,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "24/03/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "02975066000122",
+    "name": "AUTO POSTO PODIUM LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA MANUEL DE ABREU,  4205",
+    "lat": -21.7481207,
+    "lng": -48.1350962,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "22/03/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "03776999000153",
+    "name": "CAMPOS & FERNANDEZ LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA MAURICIO GALLI,  4245",
+    "lat": -21.74057,
+    "lng": -48.1515157,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "23/03/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "04201754000160",
+    "name": "AUTO POSTO ALAMEDA DE ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA RAUL THOBIAS MONTEIRO,  540",
+    "lat": -21.7745208,
+    "lng": -48.159531,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "18/12/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "04508485000180",
+    "name": "RODRIGUES, CARVALHO & CIA ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA ANTONIO HONORIO REAL,  27",
+    "lat": -21.7720066,
+    "lng": -48.2061214,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "13/07/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "04527501000181",
+    "name": "POSTO TOTAL ARARAQUARA EIRELI",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA JULIO URSULINO PEDROSO,  25",
+    "lat": -21.80579,
+    "lng": -48.1727462,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "07/02/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "04644768000159",
+    "name": "POSTO ARCENAL LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA MAURICIO GALLI,  457",
+    "lat": -21.7639054,
+    "lng": -48.1638401,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "08/02/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "04914101000129",
+    "name": "AUTO POSTO FLORA ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA JOSE BARBIERI NETO,  1961",
+    "lat": -21.7427525,
+    "lng": -48.1860125,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "22/03/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "06054730000151",
+    "name": "AUTO POSTO REDE SOL LTDA.",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PADRE JOSE DE ANCHIETA,  116",
+    "lat": -21.7994183,
+    "lng": -48.1700267,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "03/02/2021",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "06111337000152",
+    "name": "PRISMA AUTO POSTO LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA FRANCISCO CARLOS MERLOS,  2400",
+    "lat": -21.8175065,
+    "lng": -48.1576637,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "22/03/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "06122396000126",
+    "name": "FAVERAL AUTO POSTO LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA EXPEDICIONARIOS DO BRASIL,  1048",
+    "lat": -21.7988412,
+    "lng": -48.1795544,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "06/10/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "07532598000109",
+    "name": "AUTO POSTO CEAEME LTDA.",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PRESIDENTE VARGAS,  2750",
+    "lat": -21.8036736,
+    "lng": -48.1977447,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "24/03/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "09448326000150",
+    "name": "AUTO POSTO MEDITERRANEO DE ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA ANTONIO DE PADUA CORREA,  374",
+    "lat": -21.80439385,
+    "lng": -48.17644389,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "18/04/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "10408376000193",
+    "name": "POSTO MORADA DO SOL ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RODOVIA WASHINGTON LUIZ,  S/N",
+    "lat": -21.83630647,
+    "lng": -48.1526084,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "25/05/2017",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "11100654000103",
+    "name": "AUTO POSTO VILA SETE ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA JOAO BATISTA DE OLIVEIRA,  201",
+    "lat": -21.791336,
+    "lng": -48.1619184,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "23/06/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "11510396000133",
+    "name": "AUTO POSTO RUA ZERO LTDA.",
+    "city": "ARARAQUARA",
+    "address": "RUA MAJOR CARVALHO FILHO,  898",
+    "lat": -21.7840615,
+    "lng": -48.1747738,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "20/06/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "15584087000169",
+    "name": "POSTO TOTAL 9 DE JULHO COMBUSTIVEIS E CONVENIENCIA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA 9 DE JULHO,  1724",
+    "lat": -21.78320306,
+    "lng": -48.17706953,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "25/05/2017",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "21446124000175",
+    "name": "AUTO POSTO FERROVIA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA PRINCESA IZABEL,  451",
+    "lat": -21.7917513,
+    "lng": -48.1657298,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "06/06/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "29017551000140",
+    "name": "AUTO POSTO VIA EXPRESSA ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA MARIA ANTONIA CAMARGO DE OLIVEIRA,  371",
+    "lat": -21.8027801,
+    "lng": -48.173495,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "07/02/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "32548103000187",
+    "name": "IGUATEMI AUTO SERVICE ARARAQUARA II LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PADRE JOSE DE ANCHIETA,  1934",
+    "lat": -21.81072434,
+    "lng": -48.159213,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "01/06/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "35826432000130",
+    "name": "AUTO POSTO 22 DE AGOSTO ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA VINTE E DOIS DE AGOSTO,  479",
+    "lat": -21.7904777,
+    "lng": -48.1667466,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "18/12/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "40270089000120",
+    "name": "BIO SEVEN POSTO DE COMBUSTIVEIS E LUBRIFICANTES LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA ANTONIO GOMES DA SILVA,  65",
+    "lat": -21.745779,
+    "lng": -48.1595212,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "10/09/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "45273885000130",
+    "name": "AUTO POSTO FONTE LUMINOSA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA JAPAO,,  38",
+    "lat": -21.7778933,
+    "lng": -48.17858,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "03/12/2020",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "50714575000144",
+    "name": "AUTO POSTO 36 LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA PADRE FRANCISCO SALES COLTURATO,  124",
+    "lat": -21.77907306,
+    "lng": -48.1803298,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "22/09/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "53613758000838",
+    "name": "MASTER AVGAS LTDA.",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA ALBERTO SANTOS DUMONT,  2880",
+    "lat": -21.8043791,
+    "lng": -48.1412534,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "19/08/2021",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "57788689000188",
+    "name": "AUTO POSTO VILA SOL LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA JOAO BATISTA DE OLIVEIRA,  850",
+    "lat": -21.79127833,
+    "lng": -48.155325,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "28/08/2018",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "57904608000168",
+    "name": "LOS ANGELES AUTO POSTO DE COMBUSTIVEL LTDA",
+    "city": "ARARAQUARA",
+    "address": "RUA ITALIA,  2575",
+    "lat": -21.7858527,
+    "lng": -48.1835607,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "10/09/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "64684897000100",
+    "name": "AUTO POSTO VAZ FILHO LTDA",
+    "city": "ARARAQUARA",
+    "address": "AVENIDA FRANCISCO VAZ FILHO,  2924",
+    "lat": -21.7756405,
+    "lng": -48.1439196,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "08/02/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "74257064000109",
+    "name": "AUTO POSTO KAMBUI ARARAQUARA LTDA",
+    "city": "ARARAQUARA",
+    "address": "RODOVIA WASHINGTON LUIZ KM 291,  SN",
+    "lat": -21.70339639,
+    "lng": -48.32359045,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "14/07/2022",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893001536",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA SENADOR TEOTONIO VILELA,  2001",
+    "lat": -23.195785,
+    "lng": -45.88413,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893001706",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "PRACA CANDIDO DIAS CASTEJON,  59",
+    "lat": -23.19205338,
+    "lng": -45.88880626,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893002184",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA JOAO BATISTA DE SOUZA SOARES,  2.969",
+    "lat": -23.2501825,
+    "lng": -45.9081611,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "05/03/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893002265",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA PRESIDENTE TANCREDO NEVES,  1201",
+    "lat": -23.18306647,
+    "lng": -45.80884667,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "10/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893002508",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "RUA SAO JORGE,  21",
+    "lat": -23.1603092,
+    "lng": -45.89754944,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893003156",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA FEIRA DE SANTANA,  10",
+    "lat": -23.25722857,
+    "lng": -45.910616,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
+    "cnpj": "00256893003318",
+    "name": "SETE ESTRELAS COMERCIO DE DERIVADOS DE PETROLEO LTDA",
+    "city": "SAO JOSE DOS CAMPOS",
+    "address": "AVENIDA PRESIDENTE TANCREDO NEVES,  1030",
+    "lat": -23.18172333,
+    "lng": -45.81037333,
+    "geoValidation": "Posição Geográfica não validada",
+    "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
+    "flags": [
+      "anp_position_not_validated",
+      "geo_observation_old"
+    ],
+    "nearbyOtherCnpjs": [],
+    "manualReviewApproved": false
+  },
+  {
     "cnpj": "00848767000175",
     "name": "AUTO POSTO DIACOV LTDA.",
     "city": "SAO JOSE DOS CAMPOS",
@@ -1155,6 +1484,8 @@
     "lng": -45.8043678,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "16/02/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1171,6 +1502,8 @@
     "lng": -45.89274241,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1187,6 +1520,8 @@
     "lng": -45.79965667,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1203,6 +1538,8 @@
     "lng": -45.85663,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1219,6 +1556,8 @@
     "lng": -45.88082644,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1235,6 +1574,8 @@
     "lng": -45.90540712,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1251,6 +1592,8 @@
     "lng": -45.8441046,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "05/03/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1267,6 +1610,8 @@
     "lng": -45.90925667,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1283,6 +1628,8 @@
     "lng": -45.77194833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "01/08/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1299,33 +1646,13 @@
     "lng": -45.887937,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "31/01/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "03749576000144",
-    "name": "W CONDE COMÉRCIO DE PRODUTOS DE PETRÓLEO LTDA EPP.",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "PRACA MARECHAL-DO-AR  EDUARDO GOMES,  50",
-    "lat": -23.2204189,
-    "lng": -45.8675044,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "20/09/2021",
-    "flags": [
-      "anp_position_not_validated",
-      "near_another_cnpj",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [
-      {
-        "cnpj": "19059849001050",
-        "distanceMeters": 17.6
-      }
-    ],
     "manualReviewApproved": false
   },
   {
@@ -1337,6 +1664,8 @@
     "lng": -45.88539543,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "08/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1353,6 +1682,8 @@
     "lng": -45.9012597,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "22/09/2021",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1369,6 +1700,8 @@
     "lng": -45.88484833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1385,6 +1718,8 @@
     "lng": -45.85323,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1401,6 +1736,8 @@
     "lng": -45.9028401,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "07/03/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1417,6 +1754,8 @@
     "lng": -45.9057782,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "13/04/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1433,6 +1772,8 @@
     "lng": -45.88614833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1449,6 +1790,8 @@
     "lng": -45.84010833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1465,6 +1808,8 @@
     "lng": -45.88174667,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1481,6 +1826,8 @@
     "lng": -45.852845,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1497,6 +1844,8 @@
     "lng": -45.85276167,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1513,6 +1862,8 @@
     "lng": -45.92626833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1529,6 +1880,8 @@
     "lng": -45.884515,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "30/07/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1545,6 +1898,8 @@
     "lng": -45.90487172,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1561,6 +1916,8 @@
     "lng": -45.8730075,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "31/01/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1577,6 +1934,8 @@
     "lng": -45.89920625,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1593,6 +1952,8 @@
     "lng": -45.8850274,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1609,6 +1970,8 @@
     "lng": -45.88480717,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1625,6 +1988,8 @@
     "lng": -45.8875903,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1641,6 +2006,8 @@
     "lng": -45.8852862,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "31/01/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1657,6 +2024,8 @@
     "lng": -45.88530833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "30/07/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1673,6 +2042,8 @@
     "lng": -45.89008037,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1689,6 +2060,8 @@
     "lng": -45.78195325,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "10/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1705,6 +2078,8 @@
     "lng": -45.89729462,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1721,6 +2096,8 @@
     "lng": -45.8970244,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "21/09/2021",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1737,6 +2114,8 @@
     "lng": -45.88996501,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1753,6 +2132,8 @@
     "lng": -45.88223333,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1769,6 +2150,8 @@
     "lng": -45.87577,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1785,6 +2168,8 @@
     "lng": -45.88704333,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1801,6 +2186,8 @@
     "lng": -45.87471333,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1817,6 +2204,8 @@
     "lng": -45.85482792,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "12/03/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1833,24 +2222,11 @@
     "lng": -45.83191718,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "10/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "14607609001614",
-    "name": "JETFLY REVENDORA DE COMBUSTIVEIS LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "RUA DOUTORA  TÂNIA LIS TIZZONI NOGUEIRA,  10",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -1864,33 +2240,13 @@
     "lng": -45.80039167,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "19059849001050",
-    "name": "MILDO ALVES ADMINISTRAÇÃO COMÉRCIO E TRANSPORTES LTDA.",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "PRAÇA MARECHAL DO AR EDUARDO GOMES,  50",
-    "lat": -23.22032667,
-    "lng": -45.867365,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "14/12/2018",
-    "flags": [
-      "anp_position_not_validated",
-      "near_another_cnpj",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [
-      {
-        "cnpj": "03749576000144",
-        "distanceMeters": 17.6
-      }
-    ],
     "manualReviewApproved": false
   },
   {
@@ -1902,6 +2258,8 @@
     "lng": -45.831815,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1918,6 +2276,8 @@
     "lng": -45.9132984,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1934,6 +2294,8 @@
     "lng": -45.8426405,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "05/03/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1950,6 +2312,8 @@
     "lng": -45.88465488,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "10/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1966,6 +2330,8 @@
     "lng": -45.88938273,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1982,6 +2348,8 @@
     "lng": -45.86935667,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -1998,6 +2366,8 @@
     "lng": -45.83568096,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "22/07/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2013,6 +2383,8 @@
     "lng": -45.88321978,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2029,6 +2401,8 @@
     "lng": -45.91216833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2045,24 +2419,11 @@
     "lng": -45.795265,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "29/07/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "35183195000137",
-    "name": "AUTO POSTO TRIUNFO TERRAS DO SUL LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA FUSANOBU YOKOTA,  31",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -2076,6 +2437,8 @@
     "lng": -45.8148742,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "28/07/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2091,24 +2454,11 @@
     "lng": -45.83615191,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "20/09/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "37837300000130",
-    "name": "AUTO POSTO VILA TESOURO S. J. CAMPOS LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "RUA PROFESSORA MARIA SIQUEIRA NATHAN,  117",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -2122,6 +2472,8 @@
     "lng": -45.899988,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "07/03/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2138,6 +2490,8 @@
     "lng": -45.8878481,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "04/08/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2153,6 +2507,8 @@
     "lng": -45.7815419,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "28/11/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2168,6 +2524,8 @@
     "lng": -45.86797955,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2184,33 +2542,13 @@
     "lng": -45.906195,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "45683376000186",
-    "name": "AUTO POSTO ISARIS SOCIEDADE UNIPESSOAL LIMITADA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "AVENIDA ENGENHEIRO FRANCISCO JOSE LONGO,  60",
-    "lat": -23.22881953,
-    "lng": -45.89075202,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "30/04/2024",
-    "flags": [
-      "anp_position_not_validated",
-      "near_another_cnpj",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [
-      {
-        "cnpj": "00723674000114",
-        "distanceMeters": 0.1
-      }
-    ],
     "manualReviewApproved": false
   },
   {
@@ -2222,6 +2560,8 @@
     "lng": -45.8912658,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2238,6 +2578,8 @@
     "lng": -45.91056881,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2254,6 +2596,8 @@
     "lng": -45.89359667,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2270,6 +2614,8 @@
     "lng": -45.90956077,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2286,6 +2632,8 @@
     "lng": -45.9169032,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2302,6 +2650,8 @@
     "lng": -45.91477804,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2318,6 +2668,8 @@
     "lng": -45.89502192,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2334,6 +2686,8 @@
     "lng": -45.87141667,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2350,6 +2704,8 @@
     "lng": -45.88504333,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2366,6 +2722,8 @@
     "lng": -45.9145219,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "13/02/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2382,6 +2740,8 @@
     "lng": -45.87717228,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2398,6 +2758,8 @@
     "lng": -45.89758199,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "25/11/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2413,6 +2775,8 @@
     "lng": -45.85613994,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "03/07/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2428,6 +2792,8 @@
     "lng": -45.906175,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2444,6 +2810,8 @@
     "lng": -45.89159562,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "30/05/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2460,6 +2828,8 @@
     "lng": -45.94557112,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "26/04/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2476,6 +2846,8 @@
     "lng": -45.88333794,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "08/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2492,6 +2864,8 @@
     "lng": -45.8881418,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "20/09/2021",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2508,6 +2882,8 @@
     "lng": -45.89729172,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "04/03/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2523,6 +2899,8 @@
     "lng": -45.805786,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "18/06/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2539,6 +2917,8 @@
     "lng": -45.89744058,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "24/11/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2555,6 +2935,8 @@
     "lng": -45.89262657,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "22/01/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2570,6 +2952,8 @@
     "lng": -45.88571574,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2586,32 +2970,13 @@
     "lng": -45.88007783,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "53981181000140",
-    "name": "AUTO POSTO SANTA INES SJC LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "RUA DURVALINA SILVA AGUIAR,  743",
-    "lat": -23.25401618,
-    "lng": -45.92179854,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "15/01/2025",
-    "flags": [
-      "anp_position_not_validated",
-      "near_another_cnpj"
-    ],
-    "nearbyOtherCnpjs": [
-      {
-        "cnpj": "61138210000135",
-        "distanceMeters": 0.1
-      }
-    ],
     "manualReviewApproved": false
   },
   {
@@ -2623,6 +2988,8 @@
     "lng": -45.9009119,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "13/01/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2638,6 +3005,8 @@
     "lng": -45.9011208,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "31/01/2024",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2654,6 +3023,8 @@
     "lng": -45.88721658,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "13/02/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2669,6 +3040,8 @@
     "lng": -45.912435,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2685,6 +3058,8 @@
     "lng": -45.89496549,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2701,6 +3076,8 @@
     "lng": -45.90963,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2717,6 +3094,8 @@
     "lng": -45.91555294,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2733,6 +3112,8 @@
     "lng": -45.90078792,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2749,6 +3130,8 @@
     "lng": -45.9036279,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "07/08/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2764,6 +3147,8 @@
     "lng": -45.82805515,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "25/03/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2779,6 +3164,8 @@
     "lng": -45.84804885,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "04/03/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2794,6 +3181,8 @@
     "lng": -45.78798917,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "26/08/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2809,6 +3198,8 @@
     "lng": -45.87971403,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2825,6 +3216,8 @@
     "lng": -45.91217833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2841,6 +3234,8 @@
     "lng": -45.88723535,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2857,6 +3252,8 @@
     "lng": -45.9159943,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "23/09/2021",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2873,6 +3270,8 @@
     "lng": -45.90443818,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2889,6 +3288,8 @@
     "lng": -45.8856052,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "13/02/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -2905,32 +3306,12 @@
     "lng": -45.911615,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "07/08/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
     "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "61138210000135",
-    "name": "SCUDERIA I AUTO POSTO LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "ALAMEDA RIO NEGRO,  81",
-    "lat": -23.25401667,
-    "lng": -45.92179833,
-    "geoValidation": "Posição Geográfica não validada",
-    "geoDate": "09/12/2019",
-    "flags": [
-      "anp_position_not_validated",
-      "near_another_cnpj",
-      "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [
-      {
-        "cnpj": "53981181000140",
-        "distanceMeters": 0.1
-      }
-    ],
     "manualReviewApproved": false
   },
   {
@@ -2942,24 +3323,11 @@
     "lng": -45.85695059,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "10/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
-    ],
-    "nearbyOtherCnpjs": [],
-    "manualReviewApproved": false
-  },
-  {
-    "cnpj": "61684221000110",
-    "name": "AUTO POSTO PÉ DA SERRA LTDA",
-    "city": "SAO JOSE DOS CAMPOS",
-    "address": "ESTRADA VEREADOR PEDRO DAVID,  150",
-    "lat": null,
-    "lng": null,
-    "geoValidation": "",
-    "geoDate": "",
-    "flags": [
-      "coordinates_missing_or_out_of_area"
     ],
     "nearbyOtherCnpjs": [],
     "manualReviewApproved": false
@@ -2973,6 +3341,8 @@
     "lng": -45.9182707,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "30/04/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -2988,6 +3358,8 @@
     "lng": -45.813565,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -3004,6 +3376,8 @@
     "lng": -45.879735,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -3020,6 +3394,8 @@
     "lng": -45.88504479,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "04/05/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -3035,6 +3411,8 @@
     "lng": -45.8990575,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -3051,6 +3429,8 @@
     "lng": -45.89472601,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -3067,6 +3447,8 @@
     "lng": -45.8289876,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "30/01/2023",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -3083,6 +3465,8 @@
     "lng": -45.89445301,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "25/09/2026",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
@@ -3098,6 +3482,8 @@
     "lng": -45.89850833,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "09/12/2019",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated",
       "geo_observation_old"
@@ -3114,6 +3500,8 @@
     "lng": -45.8637818,
     "geoValidation": "Posição Geográfica não validada",
     "geoDate": "04/08/2025",
+    "priority": "normal",
+    "hasRecentObservedPrice": false,
     "flags": [
       "anp_position_not_validated"
     ],
