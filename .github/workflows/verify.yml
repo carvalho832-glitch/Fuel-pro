@@ -1,0 +1,80 @@
+name: Validar Fuel Pro Confiança
+
+on:
+  push:
+    branches:
+      - dev/fuelpro-confianca-anp
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  teste-seguranca:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependências
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Testar importação e preservação de dados
+        run: python -m unittest discover -s tests -v
+      - name: Verificar sintaxe JS
+        run: |
+          node --check app.js
+          node --check beta/app.js
+          node --check beta/station_search.js
+          node --check beta/community_feedback.js
+          node --check beta/sw.js
+      - name: Testar pesquisa local de postos
+        run: node --test tests/station_search.test.cjs tests/community_feedback.test.cjs
+      - name: Verificar JSON
+        run: |
+          python -m json.tool dados.json > /dev/null
+          python -m json.tool beta/dados.json > /dev/null
+          python -m json.tool beta/manifest.webmanifest > /dev/null
+
+  validar-fonte-oficial:
+    runs-on: ubuntu-latest
+    continue-on-error: true # Fonte externa pode ficar indisponível sem invalidar testes locais
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependências
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Validar pesquisa semanal real ANP sem publicar preços
+        run: python import_anp.py --mais-recente --apenas-validar
+
+
+  testar-motor-anp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    permissions:
+      contents: read
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependências
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Cruzar API ANP de revendedores com pesquisa semanal (sem publicar)
+        run: python engine_anp.py --out-dir staging
+      - name: Guardar prévia privada para análise técnica
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuelpro-anp-staging
+          path: staging/
+          if-no-files-found: warn
+          retention-days: 7

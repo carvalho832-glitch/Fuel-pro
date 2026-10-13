@@ -1,0 +1,1041 @@
+[
+  {
+    "id": "10394030000183",
+    "cnpj": "10394030000183",
+    "name": "IGAS COMERCIO DE COMBUSTIVEIS LTDA",
+    "address": "AVENIDA AROEIRAS,  35, JARDIM AROEIRAS, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.8200275,
+    "lng": -48.174301,
+    "brand": "ALE",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die_s10": 7.29,
+      "eta": 4.09,
+      "gas": 6.49,
+      "gnv": 5.1
+    },
+    "collectedAtByFuel": {
+      "die_s10": "2026-10-05",
+      "eta": "2026-10-05",
+      "gas": "2026-10-05",
+      "gnv": "2026-10-05"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gnv": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "11087237000178",
+    "cnpj": "11087237000178",
+    "name": "AUTO POSTO SOARES LTDA",
+    "address": "RUA 9 DE JULHO,  1900, CENTRO, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7815524,
+    "lng": -48.177641,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "eta": 3.29,
+      "gas": 5.59
+    },
+    "collectedAtByFuel": {
+      "eta": "2026-09-21",
+      "gas": "2026-09-21"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-21",
+          "ageDays": 22,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-21",
+          "ageDays": 22,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "11087247000103",
+    "cnpj": "11087247000103",
+    "name": "MAXGAS AUTO POSTO LTDA",
+    "address": "RUA ETTORE BERTI,  670, PARQUE RESIDENCIAL DAMHA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7590504,
+    "lng": -48.1994267,
+    "brand": "VIBRA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die_s10": 7.29,
+      "eta": 4.09,
+      "gas": 6.59,
+      "gas_ad": 6.79
+    },
+    "collectedAtByFuel": {
+      "die_s10": "2026-10-06",
+      "eta": "2026-10-06",
+      "gas": "2026-10-06",
+      "gas_ad": "2026-10-06"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas_ad": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "14119632000183",
+    "cnpj": "14119632000183",
+    "name": "AUTO POSTO ARENA 2 LTDA",
+    "address": "AVENIDA   BENTO DE ABREU,  280, CENTRO, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7776778,
+    "lng": -48.1773384,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die": 7.79,
+      "die_s10": 7.79,
+      "eta": 3.59,
+      "gas": 6.39
+    },
+    "collectedAtByFuel": {
+      "die": "2026-10-06",
+      "die_s10": "2026-10-06",
+      "eta": "2026-10-06",
+      "gas": "2026-10-06"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-06",
+          "ageDays": 7,
+          "freshness": "4_to_7_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "17324326000177",
+    "cnpj": "17324326000177",
+    "name": "AUTO POSTO ATHENAS ARARAQUARA LTDA",
+    "address": "RUA DOS ELETRICITARIOS,  1061, JARDIM ARCO-IRIS, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.8157777,
+    "lng": -48.1461299,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die": 6.99,
+      "die_s10": 7.27,
+      "eta": 3.17,
+      "gas": 5.39
+    },
+    "collectedAtByFuel": {
+      "die": "2026-10-05",
+      "die_s10": "2026-10-05",
+      "eta": "2026-10-05",
+      "gas": "2026-10-05"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "32995779000119",
+    "cnpj": "32995779000119",
+    "name": "CONCORDIA POSTO DE COMBUSTIVEIS E LUBRIFICANTES LTDA",
+    "address": "AVENIDA LUIZ ALBERTO,  522, VILA VELOSA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7683763,
+    "lng": -48.1651958,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die": 6.99,
+      "die_s10": 7.27,
+      "eta": 3.39,
+      "gas": 5.87
+    },
+    "collectedAtByFuel": {
+      "die": "2026-10-05",
+      "die_s10": "2026-10-05",
+      "eta": "2026-10-05",
+      "gas": "2026-10-05"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-10-05",
+          "ageDays": 8,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "48206411000164",
+    "cnpj": "48206411000164",
+    "name": "AUTO POSTO CARAVAN LTDA",
+    "address": "ALAMEDA PAULISTA,  1650, JARDIM PAULISTANO (VILA XAVIER), Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.77740681,
+    "lng": -48.15906181,
+    "brand": "IPIRANGA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die_s10": 7.29,
+      "eta": 4.19,
+      "gas": 6.49,
+      "gas_ad": 6.59
+    },
+    "collectedAtByFuel": {
+      "die_s10": "2026-09-30",
+      "eta": "2026-09-30",
+      "gas": "2026-09-30",
+      "gas_ad": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas_ad": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "52304327000150",
+    "cnpj": "52304327000150",
+    "name": "AUTO POSTO PIEMONTE DE ARARAQUARA LTDA",
+    "address": "RUA LAZARO MENDES FERREIRA,  105, JARDIM INDAIA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7466584,
+    "lng": -48.14819161,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die": 6.99,
+      "die_s10": 7.27,
+      "eta": 3.39,
+      "gas": 5.87
+    },
+    "collectedAtByFuel": {
+      "die": "2026-09-30",
+      "die_s10": "2026-09-30",
+      "eta": "2026-09-30",
+      "gas": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "57946592000156",
+    "cnpj": "57946592000156",
+    "name": "AUTO POSTO PIRAMIDES LTDA",
+    "address": "AVENIDA MARIA A C DE OLIVEIRA,  3155, VILA RACY, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7780432,
+    "lng": -48.1695093,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die_s10": 6.99,
+      "eta": 3.49,
+      "gas": 5.89
+    },
+    "collectedAtByFuel": {
+      "die_s10": "2026-09-30",
+      "eta": "2026-09-30",
+      "gas": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "58594128000100",
+    "cnpj": "58594128000100",
+    "name": "AUTO POSTO FEDATO LTDA",
+    "address": "AVENIDA PRESIDENTE VARGAS,  2221, CENTRO, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.80278231,
+    "lng": -48.19169286,
+    "brand": "IPIRANGA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "eta": 3.99,
+      "gas": 6.65,
+      "gas_ad": 6.75
+    },
+    "collectedAtByFuel": {
+      "eta": "2026-09-15",
+      "gas": "2026-09-15",
+      "gas_ad": "2026-09-15"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas_ad": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "58650498000118",
+    "cnpj": "58650498000118",
+    "name": "AUTO POSTO BENEDETTI ARARAQUARA LTDA",
+    "address": "AVENIDA PADRE JOSE DE ANCHIETA,  949, VILA FURLAN, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.8033664,
+    "lng": -48.1655635,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die_s10": 6.64,
+      "eta": 3.29,
+      "gas": 5.59
+    },
+    "collectedAtByFuel": {
+      "die_s10": "2026-09-15",
+      "eta": "2026-09-15",
+      "gas": "2026-09-15"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "65572539000160",
+    "cnpj": "65572539000160",
+    "name": "AUTO POSTO TREVO DE ARARAQUARA LTDA",
+    "address": "AVENIDA ALBERTO SANTOS DUMONT,  628, JARDIM ELIANA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.80411375,
+    "lng": -48.1603868,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die_s10": 6.64,
+      "eta": 3.29,
+      "gas": 5.59
+    },
+    "collectedAtByFuel": {
+      "die_s10": "2026-09-15",
+      "eta": "2026-09-15",
+      "gas": "2026-09-15"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-15",
+          "ageDays": 28,
+          "freshness": "15_to_30_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  },
+  {
+    "id": "65761348000147",
+    "cnpj": "65761348000147",
+    "name": "AUTO POSTO MARTINEZ ARARAQUARA LTDA",
+    "address": "AVENIDA JOAO BOSCO ANTONIO DA SILVA FARIA,  101, JARDIM ELIANA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.8096156,
+    "lng": -48.15469,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "die": 7.06,
+      "die_s10": 7.71,
+      "eta": 4.19,
+      "gas": 6.89
+    },
+    "collectedAtByFuel": {
+      "die": "2026-09-30",
+      "die_s10": "2026-09-30",
+      "eta": "2026-09-30",
+      "gas": "2026-09-30"
+    },
+    "fuelScore": {
+      "version": 1,
+      "priceEvidenceByFuel": {
+        "die": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "die_s10": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "eta": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        },
+        "gas": {
+          "source": "ANP - levantamento semanal",
+          "collectedAt": "2026-09-30",
+          "ageDays": 13,
+          "freshness": "8_to_14_days",
+          "available": true,
+          "confirmedAtPump": false,
+          "isLive": false
+        }
+      },
+      "location": {
+        "source": "ANP - API Revendedores",
+        "status": "not_validated",
+        "verifiedOnSite": false
+      },
+      "quality": {
+        "status": "not_evaluated",
+        "rating": null,
+        "laboratoryEvidence": null,
+        "summary": "Sem prova laboratorial associada ao CNPJ"
+      },
+      "community": {
+        "status": "not_evaluated",
+        "rating": null,
+        "verifiedReviewCount": 0
+      },
+      "overallScore": null,
+      "overallScoreReason": "Não há evidências suficientes para classificar a qualidade do posto"
+    }
+  }
+]

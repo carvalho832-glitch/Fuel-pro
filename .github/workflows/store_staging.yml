@@ -1,0 +1,108 @@
+name: Fuel Pro - Guardar histórico ANP na branch de testes
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [dev/fuelpro-confianca-anp]
+    paths:
+      - engine_anp.py
+      - anp_history.py
+      - fuel_confidence.py
+      - geo_audit.py
+      - fetch_pmqc.py
+      - pmqc_quality.py
+      - address_crosscheck.py
+      - pmqc_geo_crosscheck.py
+      - build_beta_snapshot.py
+      - .github/workflows/store_staging.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fuelpro-anp-staging
+  cancel-in-progress: false
+
+jobs:
+  salvar-coletas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Baixar branch de testes
+        uses: actions/checkout@v4
+        with:
+          ref: dev/fuelpro-confianca-anp
+          persist-credentials: true
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar bibliotecas
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Obter CSV mensal oficial PMQC, somente no runner
+        run: python fetch_pmqc.py --out staging/pmqc_raw.csv
+      - name: Importar preços, localizações, histórico e amostras laboratoriais
+        run: python engine_anp.py --prev data/historico_anp.json --out-dir staging --history-weeks 6 --pmqc-file staging/pmqc_raw.csv
+      - name: Gerar Beta segura somente para testes
+        run: python build_beta_snapshot.py --catalog staging/catalogo_postos_anp.json --status staging/status.json --pmqc staging/pmqc_evidencias_anp.json --out staging/beta_dados.json
+      - name: Conferir critérios de integridade
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s = json.loads(Path("staging/status.json").read_text())
+          v = json.loads(Path("staging/dados_candidatos.json").read_text())
+          catalog = json.loads(Path("staging/catalogo_postos_anp.json").read_text())
+          review = json.loads(Path("staging/geo_revisao_pendente.json").read_text())
+          addresses = json.loads(Path("staging/geo_cruzamento_enderecos.json").read_text())
+          geo_pmqc = json.loads(Path("staging/pmqc_geo_crosscheck.json").read_text())
+          assert len(geo_pmqc) == s["pmqcGeoCrosscheck"]["stationsWithSamples"], "CNPJs PMQC geográficos inconsistentes"
+          assert s["pmqcGeoCrosscheck"]["manuallyVerified"] == 0, "PMQC não pode certificar localização"
+          assert all(row["manualReviewApproved"] is False for row in geo_pmqc.values()), "Geodados PMQC aprovaram pontos indevidamente"
+          beta = json.loads(Path("staging/beta_dados.json").read_text())
+          assert beta["beta"] is True and beta["homologationOnly"] is True, "Beta não é de homologação"
+          assert beta["approval"]["publicationApproved"] is False, "Beta não autorizada para produção"
+          assert len(beta["stations"]) == len(catalog), "Beta perdeu cadastros"
+          assert beta["counts"]["withLabSamples"] == s["pmqc"]["stationsWithSamples"], "PMQC da Beta não corresponde ao motor"
+          assert all(x["fuelScoreOverall"] is None for x in beta["stations"]), "Nota de qualidade sem revisão"
+          assert len(addresses) == s["addressCrosscheck"]["highPriorityCount"], "Comparação de endereços incompleta"
+          assert all(x["manualReviewApproved"] is False for x in addresses), "GPS deve permanecer não certificado"
+          assert len(catalog) == s["catalogStations"], "Catálogo inconsistente"
+          assert len(review) == s["geoReviewQueueLength"], "Fila de revisão inconsistente"
+          assert s["geoAudit"]["manuallyApproved"] == 0, "Auditoria automática não valida postos em campo"
+          assert s["pmqc"]["imported"] is True, "PMQC deve ter sido importado"
+          assert s["pmqc"]["ratingsPublished"] == 0, "PMQC nunca gera estrelas"
+          assert s["pmqc"]["fileUrl"].startswith("https://www.gov.br/anp/"), "CSV PMQC sem URL oficial"
+          assert all("geoAudit" in x and x["geoAudit"]["manualReviewApproved"] is False for x in catalog), "Auditoria não autorizada"
+          assert all(x["fuelScore"]["overallScore"] is None for x in catalog), "Reputação não pode ser inventada"
+          assert all(x.get("priceStatus") != "not_available" or x.get("prices") == {} for x in catalog), "Preço inventado em posto sem dados"
+          assert s["hasStagingCandidates"] and len(v) > 0, "Nenhum candidato válido, não salvar"
+          assert s["publicationApproved"] is False, "Staging não pode liberar publicação"
+          assert all(x.get("source") == "ANP - levantamento semanal" for x in v)
+          assert all(x.get("geoSource") == "ANP - API Revendedores" for x in v)
+          assert all(x.get("collectedAtByFuel") for x in v)
+          print("Registros de staging aceitos:", len(v))
+          PY
+      - name: Armazenar somente na branch de testes, sem publicar PWA
+        run: |
+          mkdir -p data
+          cp staging/historico_anp.json data/historico_anp.json
+          cp staging/dados_candidatos.json data/postos_anp_candidatos.json
+          cp staging/status.json data/engine_status.json
+          cp staging/catalogo_postos_anp.json data/catalogo_postos_anp.json
+          cp staging/geo_revisao_pendente.json data/geo_revisao_pendente.json
+          cp staging/pmqc_evidencias_anp.json data/pmqc_evidencias_anp.json
+          cp staging/geo_cruzamento_enderecos.json data/geo_cruzamento_enderecos.json
+          cp staging/pmqc_geo_crosscheck.json data/pmqc_geo_crosscheck.json
+          cp staging/beta_dados.json beta/dados.json
+          git config user.name 'fuelpro-engine[bot]'
+          git config user.email 'fuelpro-engine@users.noreply.github.com'
+          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json data/geo_cruzamento_enderecos.json data/pmqc_geo_crosscheck.json beta/dados.json
+          git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
+          git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
+          if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
+            echo "Branch avançou: tentar rebase seguro, sem force push."
+            git fetch origin dev/fuelpro-confianca-anp
+            git rebase origin/dev/fuelpro-confianca-anp
+            git push origin HEAD:dev/fuelpro-confianca-anp
+          fi

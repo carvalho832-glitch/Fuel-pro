@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-10-13T14:43:50.722870+00:00",
+  "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
+  "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
+  "priceSampling": "weekly",
+  "cities": [
+    "ARARAQUARA",
+    "SAO JOSE DOS CAMPOS"
+  ],
+  "registryCounts": {
+    "ARARAQUARA": 63,
+    "SAO JOSE DOS CAMPOS": 131
+  },
+  "stationsWithPrices": 8,
+  "stationsWithCoordinatesAndPrices": 13,
+  "priceStationsByCity": {
+    "ARARAQUARA": 8,
+    "SAO JOSE DOS CAMPOS": 0
+  },
+  "mappedStationsByCity": {
+    "ARARAQUARA": 13,
+    "SAO JOSE DOS CAMPOS": 0
+  },
+  "geolocationsNotValidated": 13,
+  "fuelObservationsInCurrentSurvey": 30,
+  "stationsMappedInCurrentSurvey": 5,
+  "recentStationsFromHistory": 17,
+  "historicWeeksInspected": 6,
+  "historicFiles": [
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-10-04_2026-10-10.xlsx",
+      "stations": 8,
+      "observations": 30
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-27_2026-10-03.xlsx",
+      "stations": 8,
+      "observations": 30
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-20_2026-09-26.xlsx",
+      "stations": 8,
+      "observations": 28
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-13_2026-09-19.xlsx",
+      "stations": 11,
+      "observations": 41
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-06_2026-09-12.xlsx",
+      "stations": 8,
+      "observations": 30
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-08-30_2026-09-05.xlsx",
+      "stations": 11,
+      "observations": 43
+    }
+  ],
+  "archiveMode": "official_page",
+  "lastObservedDate": "2026-10-06",
+  "historyObservations": 202,
+  "catalogStations": 194,
+  "catalogWithCoordinates": 178,
+  "catalogWithoutRecentPrices": 181,
+  "catalogByCity": {
+    "ARARAQUARA": {
+      "registered": 63,
+      "withCoordinates": 51,
+      "withRecentPrices": 13
+    },
+    "SAO JOSE DOS CAMPOS": {
+      "registered": 131,
+      "withCoordinates": 127,
+      "withRecentPrices": 0
+    }
+  },
+  "qualityRatingsPublished": 0,
+  "geoAudit": {
+    "total": 194,
+    "withCoordinates": 178,
+    "missingCoordinates": 16,
+    "reviewRequired": 194,
+    "automatedChecksPassed": 0,
+    "manuallyApproved": 0,
+    "priorityQueue": {
+      "high": 22,
+      "medium": 16,
+      "normal": 156
+    },
+    "flagCounts": {
+      "anp_position_not_validated": 178,
+      "coordinates_missing_or_out_of_area": 16,
+      "geo_observation_old": 145,
+      "near_another_cnpj": 9
+    },
+    "limits": {
+      "nearOtherCnpjMeters": 20,
+      "oldGeoDays": 730
+    },
+    "interpretation": "Verificações automáticas não equivalem a validação no local."
+  },
+  "geoReviewQueueLength": 194,
+  "missingRegistry": 1,
+  "missingCoordinates": 2,
+  "expiredObservations": 0,
+  "hasStagingCandidates": true,
+  "publicationApproved": false,
+  "note": "Amostra semanal; coordenadas não validadas precisam ser conferidas antes de publicação.",
+  "pmqcGeoCrosscheck": {
+    "stationsWithSamples": 7,
+    "pmqcWithCoordinates": 6,
+    "comparableStations": 6,
+    "anpDatasetPositionsWithinThreshold": 6,
+    "anpDatasetPositionsDivergent": 0,
+    "pmqcWithoutCoordinates": 1,
+    "registryWithoutCoordinates": 0,
+    "conflictingPositionsWithinSample": 0,
+    "thresholdMeters": 150,
+    "manuallyVerified": 0,
+    "interpretation": "Comparação entre dois arquivos da ANP; concordância não comprova posição em campo."
+  },
+  "addressCrosscheck": {
+    "highPriorityCount": 22,
+    "compared": 5,
+    "textuallyConsistent": 5,
+    "addressDiscrepancies": 0,
+    "withoutComparableAddress": 17,
+    "approvedLocations": 0,
+    "note": "Acordo entre endereços ANP não é verificação independente de GPS"
+  },
+  "pmqc": {
+    "source": "ANP - PMQC",
+    "fileUrl": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/2026/pmqc_2026_09.csv",
+    "imported": true,
+    "stationsWithSamples": 7,
+    "totalSamples": 14,
+    "ratingsPublished": 0,
+    "certifiesCurrentQuality": false
+  }
+}
