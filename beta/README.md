@@ -1,5 +1,22 @@
 # Fuel Pro 2.0 Beta (homologação)
 
+**Beta 5, confirmação e correção de endereços por usuários (13/10/2026):**
+https://arcane-flow-68xzkke.shipstatic.com
+
+A ficha do posto agora permite confirmar endereço, sugerir correção
+(com rua/número e observação), apagar a sugestão local, compartilhar
+o relato ou abrir um issue público do GitHub para revisão. A rota pelo
+endereço textual abre o Google Maps de consumidor, sem API paga.
+
+A confirmação pertence ao usuário que a fez, fica inicialmente somente
+no navegador daquele endereço de teste e não modifica a base ANP.
+Quem desejar comunicar ao projeto deve compartilhar o texto ou
+**concluir o envio no GitHub** (exige conta). Nenhum GPS é aprovado
+automaticamente e a nota de qualidade não muda.
+
+Ver regras e limites: `docs/BETA5_ENDERECOS_COMUNIDADE.md`.
+
+
 **Beta 4, comparação de coordenadas ANP x PMQC (13/10/2026):**
 https://strong-engine-h4px8y5.shipstatic.com
 
