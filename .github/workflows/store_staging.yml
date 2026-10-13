@@ -9,6 +9,8 @@ on:
       - anp_history.py
       - fuel_confidence.py
       - geo_audit.py
+      - fetch_pmqc.py
+      - pmqc_quality.py
       - .github/workflows/store_staging.yml
 
 permissions:
@@ -34,8 +36,10 @@ jobs:
           python-version: '3.11'
       - name: Instalar bibliotecas
         run: python -m pip install requests beautifulsoup4 openpyxl
-      - name: Importar preços, localizações e histórico existente
-        run: python engine_anp.py --prev data/historico_anp.json --out-dir staging --history-weeks 6
+      - name: Obter CSV mensal oficial PMQC, somente no runner
+        run: python fetch_pmqc.py --out staging/pmqc_raw.csv
+      - name: Importar preços, localizações, histórico e amostras laboratoriais
+        run: python engine_anp.py --prev data/historico_anp.json --out-dir staging --history-weeks 6 --pmqc-file staging/pmqc_raw.csv
       - name: Conferir critérios de integridade
         run: |
           python - <<'PY'
@@ -48,6 +52,9 @@ jobs:
           assert len(catalog) == s["catalogStations"], "Catálogo inconsistente"
           assert len(review) == s["geoReviewQueueLength"], "Fila de revisão inconsistente"
           assert s["geoAudit"]["manuallyApproved"] == 0, "Auditoria automática não valida postos em campo"
+          assert s["pmqc"]["imported"] is True, "PMQC deve ter sido importado"
+          assert s["pmqc"]["ratingsPublished"] == 0, "PMQC nunca gera estrelas"
+          assert s["pmqc"]["fileUrl"].startswith("https://www.gov.br/anp/"), "CSV PMQC sem URL oficial"
           assert all("geoAudit" in x and x["geoAudit"]["manualReviewApproved"] is False for x in catalog), "Auditoria não autorizada"
           assert all(x["fuelScore"]["overallScore"] is None for x in catalog), "Reputação não pode ser inventada"
           assert all(x.get("priceStatus") != "not_available" or x.get("prices") == {} for x in catalog), "Preço inventado em posto sem dados"
@@ -66,9 +73,10 @@ jobs:
           cp staging/status.json data/engine_status.json
           cp staging/catalogo_postos_anp.json data/catalogo_postos_anp.json
           cp staging/geo_revisao_pendente.json data/geo_revisao_pendente.json
+          cp staging/pmqc_evidencias_anp.json data/pmqc_evidencias_anp.json
           git config user.name 'fuelpro-engine[bot]'
           git config user.email 'fuelpro-engine@users.noreply.github.com'
-          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json
+          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json
           git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
           git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
           if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
