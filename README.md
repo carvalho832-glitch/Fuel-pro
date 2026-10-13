@@ -64,10 +64,12 @@ contra as duas fontes oficiais:
 ### Primeira integração real
 
 Em 12/10/2026, a pesquisa semanal de 04 a 10/10 e o cadastro ANP retornaram,
-nas duas cidades piloto, **194 postos cadastrados**, **8 postos com preços
-coletados**, dos quais **5 puderam ser associados a coordenadas da ANP**.
-A amostra gerou 30 observações de preço. Os outros 3 permaneceram sem pin
-por ausência de correspondência cadastral ou coordenadas. A quantidade poderá
+nas duas cidades piloto, **194 postos cadastrados** (63 em Araraquara e 131 em São José dos Campos).
+A planilha semanal continha preços de **8 postos, todos de Araraquara**; nenhum
+posto de São José dos Campos aparecia nessa pesquisa. Desses 8, **5 puderam
+ser associados a coordenadas da API ANP**, ainda sem validação geográfica
+certificada. A amostra gerou 30 observações de preço. Os outros 3 permaneceram
+sem pin por ausência de correspondência cadastral ou coordenadas. A quantidade poderá
 variar entre pesquisas.
 
 ### Onde ficam os dados
