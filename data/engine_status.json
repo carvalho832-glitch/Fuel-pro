@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T01:49:07.031306+00:00",
+  "generatedAt": "2026-10-13T02:04:04.906219+00:00",
   "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
   "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
   "priceSampling": "weekly",
@@ -12,18 +12,55 @@
     "SAO JOSE DOS CAMPOS": 131
   },
   "stationsWithPrices": 8,
-  "stationsWithCoordinatesAndPrices": 5,
+  "stationsWithCoordinatesAndPrices": 13,
   "priceStationsByCity": {
     "ARARAQUARA": 8,
     "SAO JOSE DOS CAMPOS": 0
   },
   "mappedStationsByCity": {
-    "ARARAQUARA": 5,
+    "ARARAQUARA": 13,
     "SAO JOSE DOS CAMPOS": 0
   },
-  "geolocationsNotValidated": 5,
+  "geolocationsNotValidated": 13,
   "fuelObservationsInCurrentSurvey": 30,
-  "historyObservations": 30,
+  "stationsMappedInCurrentSurvey": 5,
+  "recentStationsFromHistory": 17,
+  "historicWeeksInspected": 6,
+  "historicFiles": [
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-10-04_2026-10-10.xlsx",
+      "stations": 8,
+      "observations": 30
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-27_2026-10-03.xlsx",
+      "stations": 8,
+      "observations": 30
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-20_2026-09-26.xlsx",
+      "stations": 8,
+      "observations": 28
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-13_2026-09-19.xlsx",
+      "stations": 11,
+      "observations": 41
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-09-06_2026-09-12.xlsx",
+      "stations": 8,
+      "observations": 30
+    },
+    {
+      "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/revendas_lpc_2026-08-30_2026-09-05.xlsx",
+      "stations": 11,
+      "observations": 43
+    }
+  ],
+  "archiveMode": "official_page",
+  "lastObservedDate": "2026-10-06",
+  "historyObservations": 202,
   "missingRegistry": 1,
   "missingCoordinates": 2,
   "expiredObservations": 0,
