@@ -16,7 +16,9 @@
 <body>
   <div id="app">
     <div id="map"></div>
+    <div id="map-empty" class="map-empty" role="status" hidden></div>
     <div class="search-overlay">
+      <div id="data-status" class="data-status" role="status">Carregando pesquisas de preços...</div>
       <div class="search-bar">
         <input type="text" id="search-input" placeholder="Bairro ou cidade..." />
         <button class="search-btn" onclick="executeSearch()">🔍</button>
@@ -41,19 +43,19 @@
         <div class="header">
           <div>
             <h2 id="station-name">---</h2>
-            <p class="distance-info">📍 Selecionado no mapa</p>
+            <p id="station-address" class="distance-info">Endereço do posto</p>
           </div>
-          <div id="price-badge" class="verified-badge">Melhor Preço</div>
+          <div id="price-badge" class="verified-badge" style="display:none">Menor valor entre os postos exibidos</div>
         </div>
         <div class="price-section">
           <div class="price-container">
             <span class="price-label" id="fuel-type-label">Gasolina Comum</span>
             <h1 id="station-price">R$ 0,00</h1>
           </div>
-          <div class="update-info"><span class="dot"></span> Atualizado agora</div>
+          <div class="price-meta"><div id="station-date" class="update-info">Data da coleta desconhecida</div><div id="station-source" class="update-info">Fonte não informada</div></div>
         </div>
         <div class="action-buttons">
-          <button class="btn-secondary">Relatar Erro</button>
+          <button class="btn-secondary" onclick="showSourceInfo()">Sobre os dados</button>
           <button class="btn-primary" onclick="openRoute()">Ir para o Posto</button>
         </div>
       </div>
