@@ -4,8 +4,8 @@ let currentFuel = 'gas';
 let selectedStation = null;
 const FUEL_NAMES = { gas:'Gasolina comum', gas_ad:'Gasolina aditivada', eta:'Etanol', eta_ad:'Etanol aditivado', die:'Diesel', gnv:'GNV' };
 const map = L.map('map', { zoomControl: false }).setView([-23.200, -45.900], 13);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap &copy; CARTO',
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
   maxZoom: 19
 }).addTo(map);
 const markersLayer = L.layerGroup().addTo(map);
