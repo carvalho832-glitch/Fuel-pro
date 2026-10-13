@@ -95,6 +95,51 @@ class EngineTest(unittest.TestCase):
         self.assertEqual(posts[0]["prices"]["gas"],5.99)
         self.assertEqual(hist[0]["collectedAt"],"2026-10-09")
 
+
+    def test_history_recovers_latest_per_fuel_without_fabrication(self):
+        from engine_anp import recent_stations_from_history
+        hist = [
+            {"cnpj": CNPJ, "fuel": "gas", "price": 5.99, "collectedAt":"2026-09-28", "source":"ANP - levantamento semanal"},
+            {"cnpj": CNPJ, "fuel": "gas", "price": 6.05, "collectedAt":"2026-10-09", "source":"ANP - levantamento semanal"},
+            {"cnpj": CNPJ, "fuel": "eta", "price": 4.04, "collectedAt":"2026-10-01", "source":"ANP - levantamento semanal"},
+        ]
+        posts = recent_stations_from_history(hist, registry(), now=self.today)
+        self.assertEqual(len(posts), 1)
+        self.assertEqual(posts[0]["prices"], {"gas":6.05, "eta":4.04})
+        self.assertEqual(posts[0]["collectedAtByFuel"], {"gas":"2026-10-09", "eta":"2026-10-01"})
+
+    def test_history_never_exposes_old_prices(self):
+        from engine_anp import recent_stations_from_history
+        hist = [
+            {"cnpj":CNPJ,"fuel":"gas","price":5.99,"collectedAt":"2026-08-01","source":"ANP - levantamento semanal"}
+        ]
+        self.assertEqual(recent_stations_from_history(hist, registry(), now=self.today), [])
+
+    def test_historical_week_can_recover_a_post_missing_from_latest_week(self):
+        older = {
+            "cnpj": CNPJ, "fuel":"gas", "price":6.39,
+            "collectedAt":"2026-10-02", "source":"ANP - levantamento semanal"
+        }
+        posts, hist, status = build(make_xlsx(), registry(), {"ARARAQUARA":63},
+            previous_history=[older], now=self.today)
+        self.assertEqual(posts[0]["prices"]["gas"],5.99)
+        self.assertEqual(status["historyObservations"],2)
+        self.assertEqual(status["mappedStationsByCity"]["ARARAQUARA"],1)
+
+    def test_archive_link_discovery_blocks_untrusted_hosts(self):
+        from anp_history import recent_official_links
+        html = """
+          <a href="https://evil.example/fake.xlsx">Preços por posto revendedor</a>
+          <a href="/anp/arquivos/2026/week1.xlsx">Preços por posto revendedor (combustíveis)</a>
+          <a href="/anp/arquivos/2026/week2.xlsx">Preços por posto revendedor (combustíveis)</a>
+          <a href="/anp/arquivos/2026/week3.xlsx">Preços médios semanais</a>
+        """
+        found = recent_official_links(html, limit=2)
+        self.assertEqual(len(found),2)
+        self.assertTrue(all(x.startswith("https://www.gov.br/") for x in found))
+        with self.assertRaises(ValueError):
+            recent_official_links(html,limit=50)
+
     def test_geodata_bounds_reject_outside_city(self):
         class FakeResponse:
             def raise_for_status(self): pass
