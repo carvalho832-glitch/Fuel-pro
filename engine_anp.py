@@ -185,13 +185,17 @@ def build(prices_binary, registry, counts, previous_history=None, now=None):
         "registrySource": API_URL, "priceSampling": "weekly",
         "cities": list(REGISTRY_CITIES), "registryCounts": counts,
         "stationsWithPrices": len(stations), "stationsWithCoordinatesAndPrices": len(mapped),
+        "priceStationsByCity": {city: sum(p["city"] == city for p in stations) for city in REGISTRY_CITIES},
+        "mappedStationsByCity": {city: sum(p["city"] == city for p in mapped) for city in REGISTRY_CITIES},
+        "geolocationsNotValidated": sum(not p["locationValidated"] for p in mapped),
         "fuelObservationsInCurrentSurvey": len(latest),
         "historyObservations": len(history),
         "missingRegistry": len(issues["withoutRegistry"]),
         "missingCoordinates": len(issues["withoutCoordinates"]),
         "expiredObservations": issues["excludedStaleFuelObservations"],
-        "safeToPublish": bool(mapped),
-        "note": "Preço ANP é amostral e coletado, não preço em tempo real. Coordenadas podem não estar validadas.",
+        "hasStagingCandidates": bool(mapped),
+        "publicationApproved": False,
+        "note": "Amostra semanal; coordenadas não validadas precisam ser conferidas antes de publicação.",
     }
     return mapped, history, status
 
