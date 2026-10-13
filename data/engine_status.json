@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T02:37:57.425083+00:00",
+  "generatedAt": "2026-10-13T03:31:33.021674+00:00",
   "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
   "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
   "priceSampling": "weekly",
@@ -110,6 +110,7 @@
   "note": "Amostra semanal; coordenadas não validadas precisam ser conferidas antes de publicação.",
   "pmqc": {
     "source": "ANP - PMQC",
+    "fileUrl": null,
     "imported": false,
     "stationsWithSamples": 0,
     "totalSamples": 0,
