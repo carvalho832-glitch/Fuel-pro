@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./style.css">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="./station_search.js"></script>
+  <script defer src="./community_feedback.js"></script>
   <script defer src="./app.js"></script>
 </head>
 <body>
@@ -78,10 +79,38 @@
       <p id="detail-brand"></p>
     </div>
     <div class="detail-actions">
+      <button id="directions" type="button">🧭 Abrir rota pelo endereço</button>
       <button id="copy-address" type="button">Copiar endereço</button>
+    </div>
+    <section class="community-section" aria-labelledby="community-title">
+      <h3 id="community-title">Endereço correto? Ajude a comunidade</h3>
+      <p class="community-help">O endereço da ANP é nossa referência. Sua confirmação ou correção será identificada como relato de usuário, não como dado oficial.</p>
+      <div class="community-buttons">
+        <button id="confirm-address" type="button">✓ Confirmar endereço</button>
+        <button id="suggest-address" type="button">✏️ Sugerir correção</button>
+      </div>
+      <p id="community-status" class="community-status" role="status"></p>
+      <form id="community-form" class="community-form" hidden>
+        <label for="new-address">Endereço que você conhece</label>
+        <textarea id="new-address" rows="2" maxlength="180" minlength="7" required placeholder="Rua ou avenida, número"></textarea>
+        <label for="address-notes">Referência ou observação (opcional)</label>
+        <textarea id="address-notes" rows="2" maxlength="280" placeholder="Ex.: entrada pela rua lateral"></textarea>
+        <div class="community-buttons">
+          <button type="submit">Guardar minha sugestão</button>
+          <button id="cancel-suggestion" type="button">Cancelar</button>
+        </div>
+      </form>
+      <div id="feedback-share-actions" class="community-share" hidden>
+        <button id="send-feedback" type="button">Enviar para revisão no GitHub</button>
+        <button id="share-feedback" type="button">Compartilhar relato</button>
+        <button id="undo-feedback" type="button">Apagar meu registro</button>
+      </div>
+      <p class="community-foot">O registro fica neste navegador até ser compartilhado ou enviado. Para atualizar a base de todos os motoristas será necessária revisão. O envio pelo GitHub exige uma conta GitHub.</p>
+    </section>
+    <div class="detail-actions">
       <button id="source-info" type="button">Entenda os dados</button>
     </div>
-    <p class="detail-foot">Rotas para pins não validados permanecem bloqueadas nesta versão. Confirme endereço e preços diretamente no estabelecimento.</p>
+    <p class="detail-foot">A rota abre o aplicativo externo usando o endereço por escrito. Confira o destino antes de sair: as coordenadas dos pins continuam sem validação em campo.</p>
   </section>
   <div id="notification" class="notification" role="status" hidden></div>
   <noscript>O mapa precisa do JavaScript ativado no navegador.</noscript>
