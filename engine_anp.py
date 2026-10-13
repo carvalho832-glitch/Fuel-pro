@@ -208,7 +208,7 @@ def payload_prices(binary):
     return parse_rows(rows)
 
 def build(prices_binary, registry, counts, previous_history=None, now=None,
-          archived_observations=None, archived_files=None):
+          archived_observations=None, archived_files=None, archive_mode="disabled"):
     now = now or datetime.now(timezone.utc)
     stations = payload_prices(prices_binary)
     if not stations:
@@ -231,6 +231,8 @@ def build(prices_binary, registry, counts, previous_history=None, now=None,
         "recentStationsFromHistory": len(eligible),
         "historicWeeksInspected": len(archived_files or []),
         "historicFiles": archived_files or [],
+        "archiveMode": archive_mode,
+        "lastObservedDate": max((x["collectedAt"] for x in latest), default=None),
         "historyObservations": len(history),
         "missingRegistry": len(issues["withoutRegistry"]),
         "missingCoordinates": len(issues["withoutCoordinates"]),
@@ -252,7 +254,18 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
         session=None, history_weeks=0):
     session = session or requests.Session()
     session.headers.update({"User-Agent": UA})
-    prices_binary = Path(prices_file).read_bytes() if prices_file else latest_anp_file(session)
+    older, files, mode = [], [], "disabled"
+    if history_weeks:
+        fallback_path = Path("data/anp_week_urls.json")
+        fallback = []
+        if fallback_path.exists():
+            fallback = json.loads(fallback_path.read_text(encoding="utf-8")).get("urls", [])
+        older, files, newest_binary, mode = fetch_history(
+            session, weeks=history_weeks, fallback_urls=fallback
+        )
+        prices_binary = Path(prices_file).read_bytes() if prices_file else newest_binary
+    else:
+        prices_binary = Path(prices_file).read_bytes() if prices_file else latest_anp_file(session)
     if registry_file:
         source = json.loads(Path(registry_file).read_text(encoding="utf-8"))
         raw_registry = source.get("records") or {}
@@ -260,10 +273,9 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     else:
         registry, counts = anp_registry(session=session)
     previous = json.loads(Path(prev).read_text(encoding="utf-8")) if prev and Path(prev).exists() else []
-    older, files = fetch_history(session, weeks=history_weeks) if history_weeks else ([], [])
     mapped, history, status = build(
         prices_binary, registry, counts, previous,
-        archived_observations=older, archived_files=files
+        archived_observations=older, archived_files=files, archive_mode=mode
     )
     out = Path(out_dir)
     atomic_json(out/"status.json", status)
