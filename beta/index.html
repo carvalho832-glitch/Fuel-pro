@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102f26">
+  <meta name="description" content="Fuel Pro Beta: postos cadastrados na ANP, preços observados e evidências com datas e ressalvas.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <title>Fuel Pro Beta | Postos e preços ANP</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div id="map" role="region" aria-label="Mapa de postos de combustível"></div>
+  <header class="toolbar">
+    <div class="brand"><span aria-hidden="true">⛽</span><div><strong>Fuel Pro <span class="beta-label">BETA</span></strong><small>Dados oficiais • testes internos</small></div></div>
+    <div class="warning" role="note">⚠️ Todos os pins são provisórios. Localizações ANP não validadas em campo. Preços são coletas históricas, não valores ao vivo.</div>
+    <div class="tools">
+      <label class="control">Cidade
+        <select id="city-filter" aria-label="Escolher cidade">
+          <option value="SAO JOSE DOS CAMPOS">São José dos Campos</option>
+          <option value="ARARAQUARA">Araraquara</option>
+          <option value="ALL">Ambas</option>
+        </select>
+      </label>
+      <label class="control">Combustível
+        <select id="fuel-filter" aria-label="Escolher combustível">
+          <option value="gas">Gasolina comum</option>
+          <option value="eta">Etanol</option>
+          <option value="gas_ad">Gasolina aditivada</option>
+          <option value="eta_ad">Etanol aditivado</option>
+          <option value="die">Diesel</option>
+          <option value="die_s10">Diesel S10</option>
+          <option value="gnv">GNV</option>
+        </select>
+      </label>
+    </div>
+    <div class="toggle" role="group" aria-label="Quais postos mostrar">
+      <button id="mode-all" class="selected" type="button">Todos os postos</button>
+      <button id="mode-price" type="button">Com preço pesquisado</button>
+    </div>
+    <div class="summary" id="summary" aria-live="polite">Carregando cadastro ANP…</div>
+  </header>
+  <button id="gps" type="button" class="gps" title="Centralizar na minha localização" aria-label="Centralizar na minha localização">⌖</button>
+  <div class="legend" aria-label="Legenda dos marcadores">
+    <span><i class="dot" aria-hidden="true"></i> Sem preço</span>
+    <span><i class="price-swatch" aria-hidden="true"></i> Preço da coleta</span>
+  </div>
+  <section id="detail" class="detail" aria-labelledby="detail-name" hidden>
+    <div class="detail-top"><span class="eyebrow">Cadastro ANP • Teste</span><button id="close" aria-label="Fechar ficha do posto" type="button">✕</button></div>
+    <h2 id="detail-name"></h2>
+    <p id="detail-address"></p>
+    <div class="detail-price">
+      <div><small id="detail-fuel"></small><strong id="detail-value"></strong></div>
+      <p id="detail-date"></p>
+    </div>
+    <div class="facts">
+      <p id="detail-geo"></p>
+      <p id="detail-lab"></p>
+      <p id="detail-brand"></p>
+    </div>
+    <div class="detail-actions">
+      <button id="copy-address" type="button">Copiar endereço</button>
+      <button id="source-info" type="button">Entenda os dados</button>
+    </div>
+    <p class="detail-foot">Rotas para pins não validados permanecem bloqueadas nesta versão. Confirme endereço e preços diretamente no estabelecimento.</p>
+  </section>
+  <div id="notification" class="notification" role="status" hidden></div>
+  <noscript>O mapa precisa do JavaScript ativado no navegador.</noscript>
+</body>
+</html>
