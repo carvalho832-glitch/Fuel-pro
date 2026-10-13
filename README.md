@@ -47,3 +47,48 @@ Se o conteúdo da ANP mudar, faltar data, ou não houver postos georreferenciado
 5. Testar em campo com abastecimentos reais antes de liberar ampla cobertura.
 
 **Regra principal:** sem fonte/data e localização confiáveis, sem pin de preço. Nunca escrever "atualizado agora" para uma coleta antiga.
+
+
+## Motor de dados ANP (nova etapa)
+
+A integração de dados reais foi implementada em `engine_anp.py` e verificada
+contra as duas fontes oficiais:
+
+1. **ANP preços por posto (XLSX semanal):** extrai CNPJ, combustível, preço real e data da coleta.
+2. **API ANP Revendedores:** para Araraquara e São José dos Campos, retorna os cadastros e coordenadas quando disponíveis.
+3. **Junção pelo CNPJ:** nunca associa um preço a um posto apenas por proximidade ou nome; quando não há CNPJ ou localização, deixa o registro fora dos pins.
+4. **Histórico imutável por CNPJ/combustível/data:** evita duplicação da mesma pesquisa, mas guarda os preços das semanas seguintes.
+5. **Controle de validade:** preços com mais de 30 dias são excluídos dos pins; ficam preservados no histórico para auditoria.
+6. **Geolocalização sob ressalva:** posições não validadas pela ANP são identificadas como aproximadas. Isso **não comprova** qualidade ou conformidade do posto.
+
+### Primeira integração real
+
+Em 12/10/2026, a pesquisa semanal de 04 a 10/10 e o cadastro ANP retornaram,
+nas duas cidades piloto, **194 postos cadastrados**, **8 postos com preços
+coletados**, dos quais **5 puderam ser associados a coordenadas da ANP**.
+A amostra gerou 30 observações de preço. Os outros 3 permaneceram sem pin
+por ausência de correspondência cadastral ou coordenadas. A quantidade poderá
+variar entre pesquisas.
+
+### Onde ficam os dados
+
+- `data/historico_anp.json`: observações rastreáveis por CNPJ, combustível e data.
+- `data/postos_anp_candidatos.json`: resultados de preços com coordenadas disponíveis para revisão.
+- `data/engine_status.json`: cobertura, motivos de exclusão e horário de geração.
+
+Esses arquivos são escritos **apenas na branch de desenvolvimento**, pelo
+workflow `.github/workflows/store_staging.yml`. O `dados.json` e o
+site PWA público NÃO são atualizados automaticamente pelo motor nesta fase.
+A versão visual de demonstração mantém preços fictícios claramente rotulados.
+
+Teste local (precisa de acesso à internet):
+
+```bash
+python -m pip install requests beautifulsoup4 openpyxl
+python -m unittest discover -s tests -v
+python engine_anp.py --prev data/historico_anp.json --out-dir staging
+```
+
+Próximo marco: validar a posição dos cinco postos em mapa com fonte cadastral e
+iniciar a publicação gradual de preços reais, com indicação clara de data e
+de posição não validada. O ranking de qualidade ficará independente do preço.
