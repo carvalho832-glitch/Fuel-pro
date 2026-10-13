@@ -281,9 +281,7 @@ function effectiveAddress(p) {
   catch(error){return p.address;}
 }
 function routeForStation(p) {
-  return FuelProCommunity.mapsUrl(p,{
-    getItem:()=>JSON.stringify(communityRecord(p)?{[p.cnpj]:communityRecord(p)}:{})
-  });
+  return FuelProCommunity.mapsUrl(p,window.localStorage);
 }
 function updateCommunityState(post) {
   const feedback=communityRecord(post);
@@ -342,8 +340,11 @@ els['send-feedback'].addEventListener('click',()=>{
   const item=communityRecord(selected);
   if(!item)return notify('Confirme ou corrija o endereço antes de enviar.');
   const url=FuelProCommunity.issueUrl(selected,item);
-  const opened=window.open(url,'_blank','noopener,noreferrer');
-  if(!opened)window.location.href=url;
+  const link=document.createElement('a');
+  link.href=url;
+  link.target='_blank';
+  link.rel='noopener noreferrer';
+  link.click();
   notify('Página do GitHub aberta. O relato só é enviado quando você finalizar a publicação lá.');
 });
 els['share-feedback'].addEventListener('click',async()=>{
@@ -369,17 +370,18 @@ els.directions.addEventListener('click',()=>{
   if(!selected)return;
   try {
     const url=routeForStation(selected);
-    const opened=window.open(url,'_blank','noopener,noreferrer');
-    if(!opened)window.location.href=url;
+    const link=document.createElement('a');
+    link.href=url;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    link.click();
     notify('Rota aberta pelo endereço escrito. Confira o destino no Google Maps.');
   }catch(error){notify(error.message||'Endereço indisponível para rota.');}
 });
 els['copy-address'].addEventListener('click',async()=>{
   if(!selected)return;
   try {
-    const address=FuelProCommunity.fullAddress(selected,{
-      getItem:()=>JSON.stringify(communityRecord(selected)?{[selected.cnpj]:communityRecord(selected)}:{})
-    });
+    const address=FuelProCommunity.fullAddress(selected,window.localStorage);
     await navigator.clipboard.writeText(address);
     notify('Endereço copiado. Confirme o destino antes de sair.');
   } catch(error) {
