@@ -22,6 +22,7 @@ from anp_history import fetch_history
 from fuel_confidence import evidence_profile, build_station_catalog
 from geo_audit import audit_catalog
 from pmqc_quality import parse_pmqc_csv
+from address_crosscheck import compare_cadastral_addresses
 
 API_URL = "https://revendedoresapi.anp.gov.br/v1/combustivel"
 REGISTRY_CITIES = ("ARARAQUARA", "SAO JOSE DOS CAMPOS")
@@ -306,6 +307,9 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     atomic_json(out/"dados_candidatos.json", mapped)
     catalog = build_station_catalog(registry, mapped)
     audited_catalog, geo_review_queue, geo_summary = audit_catalog(catalog)
+    address_review, address_summary = compare_cadastral_addresses(
+        payload_prices(prices_binary), registry, geo_review_queue
+    )
     pmqc_evidence = {}
     pmqc_file_url = None
     if pmqc_file:
@@ -331,6 +335,7 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
                     "laboratoryEvidence": evidence,
                     "summary": "Ensaios laboratoriais amostrais da ANP; não garantem qualidade atual.",
                 }
+    status["addressCrosscheck"] = address_summary
     status["pmqc"] = {
         "source": "ANP - PMQC",
         "fileUrl": pmqc_file_url,
@@ -343,6 +348,7 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     atomic_json(out/"status.json", status)
     atomic_json(out/"catalogo_postos_anp.json", audited_catalog)
     atomic_json(out/"geo_revisao_pendente.json", geo_review_queue)
+    atomic_json(out/"geo_cruzamento_enderecos.json", address_review)
     atomic_json(out/"pmqc_evidencias_anp.json", pmqc_evidence)
     print(json.dumps(status, ensure_ascii=False, indent=2))
     return status
