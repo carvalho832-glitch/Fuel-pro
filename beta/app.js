@@ -15,7 +15,10 @@ const els = Object.fromEntries([
   'detail-fuel','detail-value','detail-date','detail-geo','detail-lab',
   'detail-brand','close','gps','mode-all','mode-price','copy-address',
   'source-info','notification','detail-cnpj',
-  'search-toggle','station-search-panel','station-query','search-clear','search-count','search-results'
+  'search-toggle','station-search-panel','station-query','search-clear','search-count','search-results',
+  'directions','confirm-address','suggest-address','community-form','community-status',
+  'new-address','address-notes','cancel-suggestion','feedback-share-actions',
+  'send-feedback','share-feedback','undo-feedback'
 ].map(id => [id, document.getElementById(id)]));
 
 let all = [];
@@ -101,7 +104,7 @@ function updateSearchResults() {
     item.className='search-result';
     const name = makeTextElement('strong','result-name',station.name || 'Posto cadastrado na ANP');
     const location = makeTextElement('span','result-location',[
-      station.address, station.district, cityLabel
+      effectiveAddress(station), station.district, cityLabel
     ].filter(Boolean).join(' · '));
     const indicator = makeTextElement('span','result-info',
       hasPoint ? '📍 Localização ANP provisória · CNPJ ' + station.cnpj
@@ -201,7 +204,7 @@ function showDetail(p) {
   const fuel = currentFuel(), price = observed(p,fuel);
   els['detail-name'].textContent = p.name || 'Posto cadastrado na ANP';
   els['detail-address'].textContent =
-    [p.address,p.district, p.city === 'ARARAQUARA'?'Araraquara · SP':'São José dos Campos · SP']
+    [effectiveAddress(p),p.district, p.city === 'ARARAQUARA'?'Araraquara · SP':'São José dos Campos · SP']
       .filter(Boolean).join(' · ');
   els['detail-cnpj'].textContent = 'CNPJ: ' + p.cnpj + ' · cadastro consultado na ANP';
   els['detail-fuel'].textContent = FUELS[fuel];
@@ -252,6 +255,7 @@ function showDetail(p) {
     els['detail-lab'].textContent = '🧪 Sem amostra PMQC associada a este CNPJ no arquivo mensal importado. Isso não indica aprovação nem reprovação.';
   }
   els['detail-brand'].textContent = '🏷️ Bandeira cadastrada: ' + (p.brand || 'não informada');
+  updateCommunityState(p);
   els.detail.hidden = false;
 }
 els.close.addEventListener('click',hideDetail);
@@ -265,14 +269,119 @@ function setMode(next) {
   els['mode-price'].classList.toggle('selected', next==='price');
   render();
 }
-els['copy-address'].addEventListener('click',async() => {
-  if (!selected) return;
-  const address = [selected.address,selected.district,
-    selected.city==='ARARAQUARA'?'Araraquara':'São José dos Campos','SP','Brasil']
-    .filter(Boolean).join(', ');
+
+/* Confirmações ficam no dispositivo; um relato só chega ao projeto
+ * quando a pessoa finaliza o envio externo, sem token privado no PWA. */
+function communityRecord(p) {
+  try {return FuelProCommunity.get(window.localStorage,p.cnpj);}
+  catch(error){return null;}
+}
+function effectiveAddress(p) {
+  try {return FuelProCommunity.displayAddress(p,window.localStorage);}
+  catch(error){return p.address;}
+}
+function routeForStation(p) {
+  return FuelProCommunity.mapsUrl(p,{
+    getItem:()=>JSON.stringify(communityRecord(p)?{[p.cnpj]:communityRecord(p)}:{})
+  });
+}
+function updateCommunityState(post) {
+  const feedback=communityRecord(post);
+  els['community-form'].hidden=true;
+  els['feedback-share-actions'].hidden=!feedback;
+  els['community-status'].textContent=feedback
+    ? feedback.kind==='confirmed'
+      ? '✓ Você confirmou este endereço neste navegador. Ainda não é validação oficial nem pública.'
+      : '✏️ Sua correção está guardada neste navegador: '+feedback.proposedAddress+'. Ainda não foi aceita no cadastro público.'
+    : 'Endereço exibido conforme a ANP. Ainda não há confirmação sua neste navegador.';
+}
+function saveCommunityRecord(record) {
   try {
+    FuelProCommunity.save(window.localStorage,record);
+    showDetail(selected);
+    if(!els['station-search-panel'].hidden)updateSearchResults();
+    notify('Relato salvo somente neste navegador. Compartilhe ou envie para revisão.');
+  }catch(error){notify(error.message||'Não foi possível guardar o relato.');}
+}
+els['confirm-address'].addEventListener('click',()=>{
+  if(!selected)return;
+  try {
+    const feedback=FuelProCommunity.makeRecord(selected,'confirmed',selected.address,'');
+    saveCommunityRecord(feedback);
+  } catch(error){notify(error.message||'Confirmação inválida.');}
+});
+els['suggest-address'].addEventListener('click',()=>{
+  if(!selected)return;
+  const old=communityRecord(selected);
+  els['new-address'].value=old&&old.kind==='correction'?old.proposedAddress:selected.address;
+  els['address-notes'].value=old?old.notes:'';
+  els['community-form'].hidden=false;
+  els['new-address'].focus();
+});
+els['cancel-suggestion'].addEventListener('click',()=>els['community-form'].hidden=true);
+els['community-form'].addEventListener('submit',event=>{
+  event.preventDefault();
+  if(!selected)return;
+  try {
+    const record=FuelProCommunity.makeRecord(
+      selected,'correction',els['new-address'].value,els['address-notes'].value);
+    saveCommunityRecord(record);
+  } catch(error){notify(error.message||'Verifique o endereço informado.');}
+});
+els['undo-feedback'].addEventListener('click',()=>{
+  if(!selected)return;
+  try{
+    if(FuelProCommunity.remove(window.localStorage,selected.cnpj)){
+      showDetail(selected);
+      notify('Registro local apagado. O endereço da ANP voltou a ser exibido.');
+    }else notify('Não foi possível apagar o registro deste dispositivo.');
+  }catch(error){notify('Não foi possível acessar os registros deste navegador.');}
+});
+els['send-feedback'].addEventListener('click',()=>{
+  if(!selected)return;
+  const item=communityRecord(selected);
+  if(!item)return notify('Confirme ou corrija o endereço antes de enviar.');
+  const url=FuelProCommunity.issueUrl(selected,item);
+  const opened=window.open(url,'_blank','noopener,noreferrer');
+  if(!opened)window.location.href=url;
+  notify('Página do GitHub aberta. O relato só é enviado quando você finalizar a publicação lá.');
+});
+els['share-feedback'].addEventListener('click',async()=>{
+  if(!selected)return;
+  const record=communityRecord(selected);
+  if(!record)return notify('Nenhum relato guardado neste aparelho.');
+  const text=FuelProCommunity.reportText(selected,record);
+  try {
+    if(navigator.share){
+      await navigator.share({title:'Fuel Pro: endereço de posto',text});
+      notify('Compartilhamento aberto. O destinatário precisará receber seu relato.');
+    }else{
+      await navigator.clipboard.writeText(text);
+      notify('Relato copiado. Envie para quem fará a revisão.');
+    }
+  }catch(error){
+    if(error&&error.name==='AbortError')return;
+    try{await navigator.clipboard.writeText(text);notify('Relato copiado. Envie para quem fará a revisão.');}
+    catch(e){window.prompt('Copie o relato e compartilhe:',text);}
+  }
+});
+els.directions.addEventListener('click',()=>{
+  if(!selected)return;
+  try {
+    const url=routeForStation(selected);
+    const opened=window.open(url,'_blank','noopener,noreferrer');
+    if(!opened)window.location.href=url;
+    notify('Rota aberta pelo endereço escrito. Confira o destino no Google Maps.');
+  }catch(error){notify(error.message||'Endereço indisponível para rota.');}
+});
+els['copy-address'].addEventListener('click',async()=>{
+  if(!selected)return;
+  try {
+    const address=FuelProCommunity.fullAddress(selected,{
+      getItem:()=>JSON.stringify(communityRecord(selected)?{[selected.cnpj]:communityRecord(selected)}:{})
+    });
     await navigator.clipboard.writeText(address);
-    notify('Endereço do cadastro copiado. Confirme antes de seguir viagem.');
+    notify('Endereço copiado. Confirme o destino antes de sair.');
   } catch(error) {
     notify('Não foi possível copiar automaticamente. Consulte o endereço exibido na ficha.');
   }
