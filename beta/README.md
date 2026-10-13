@@ -93,3 +93,30 @@ separada; não alterar o domínio do aplicativo demonstrativo.
 
 Os testes agora conferem **contagens dinâmicas**. Não esperam
 eternamente 194 postos, pois a ANP pode cadastrar mais ou retirar alguns.
+
+## Beta 3: localizar postos sem APIs pagas
+
+A nova interface em `beta/station_search.js` permite pesquisar **localmente**
+nome comercial, razão social, bairro, endereço, bandeira e CNPJ. Nenhum texto
+de busca é enviado para a Google Maps Platform, Nominatim ou geocodificadores;
+as pesquisas rodam sobre o JSON da ANP já baixado.
+
+- Na tela principal, tocar em **Localizar posto pelo nome, bairro ou CNPJ**.
+- Digitar pelo menos dois caracteres. A lista procura em **ambas as cidades**
+  mesmo quando o mapa está centralizado apenas em uma delas.
+- O resultado informa o CNPJ, o bairro, a existência de preço pesquisado
+  e se há coordenadas ANP. São exibidos inicialmente até doze itens.
+- Tocar no resultado: quando há coordenadas, a Beta aproxima o mapa e abre
+  a ficha; sem coordenadas, abre apenas a ficha cadastral, **sem inventar pin**.
+- Cada ficha agora apresenta CNPJ, data de obtenção da coordenada
+  quando disponível e alertas de coordenadas antigas ou outros CNPJs próximos.
+- A ação de criar rotas permanece **bloqueada** porque nenhuma coordenada
+  cadastral foi validada em campo.
+
+A versão `beta/sw.js` inclui o módulo de busca no cache local. Os testes de
+`tests/station_search.test.cjs` usam Node sem bibliotecas comerciais e são
+executados pelo GitHub Actions. As fontes de preços e laboratório não foram
+modificadas nesta etapa; permanecem exclusivamente ANP.
+
+A Beta 3 é somente homologação. O link de implantação gratuita será anotado
+no histórico do projeto, sem substituir as Beta 1/2 ou o PWA anterior.
