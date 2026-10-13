@@ -220,10 +220,23 @@ function showDetail(p) {
   const recorded = typeof p.geoRecordedAt === 'string' && /^\d{2}\/\d{2}\/\d{4}$/.test(p.geoRecordedAt)
     ? ' Registro de posição ANP em ' + p.geoRecordedAt + '.' : '';
   const hasPoint = p.mapEligible === true && safeCoordinate(p);
+  const cross = audit.pmqcCrosscheck;
+  if (cross && cross.status === 'anp_sources_diverge') {
+    warnings.push('A coordenada registrada na amostra PMQC difere ' +
+      Number(cross.distanceMeters).toFixed(0) +
+      ' m da posição cadastral ANP. Conferência pendente.');
+  } else if (cross && cross.status === 'anp_sources_nearby_unverified') {
+    warnings.push('O PMQC e o cadastro ANP indicam posições próximas. Isso não é validação independente.');
+  } else if (cross && cross.status === 'pmqc_without_coordinates') {
+    warnings.push('A amostra PMQC não contém uma coordenada utilizável para comparação.');
+  } else if (cross && cross.status === 'registry_without_coordinates') {
+    warnings.push('O cadastro de revendas não fornece coordenadas utilizáveis para comparar ao PMQC.');
+  }
   els['detail-geo'].textContent = hasPoint ?
     '📍 Posição cadastral provisória, não validada em campo. Rotas bloqueadas.' +
     recorded + (warnings.length ? ' ' + warnings.join(' ') : '') :
-    '📍 Sem coordenadas utilizáveis para este posto. A ficha existe no cadastro ANP, mas não há pin confiável nem rota.';
+    '📍 Sem coordenadas utilizáveis para este posto. A ficha existe no cadastro ANP, mas não há pin confiável nem rota.' +
+    (warnings.length ? ' ' + warnings.join(' ') : '');
   const pmqc = p.pmqc;
   if (pmqc && pmqc.sampleCount > 0) {
     const affected = Number(pmqc.samplesWithNonconformity) || 0;
