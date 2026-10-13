@@ -1,5 +1,18 @@
 # Fuel Pro 2.0 Beta (homologação)
 
+**Beta 4, comparação de coordenadas ANP x PMQC (13/10/2026):**
+https://strong-engine-h4px8y5.shipstatic.com
+
+O motor compara a localização cadastral da ANP com os pontos informados
+nas amostras do PMQC, cruzando apenas o mesmo CNPJ. Na primeira base
+real: **7 postos com amostras, 6 com coordenadas comparáveis**,
+**0 diferenças acima de 150 m** e **1 sem coordenada PMQC utilizável**.
+As 6 correspondências são somente entre duas bases da ANP, não
+verificação independente nem vistoria. **Nenhum pin foi aprovado.**
+
+As fichas da Beta exibem o status dessa comparação quando presente.
+Os outros postos continuam sem evidência PMQC geográfica associada.
+
 **Beta 3, busca local e data das coordenadas (13/10/2026):**
 https://nano-mirage-jub3t6m.shipstatic.com
 
