@@ -38,7 +38,8 @@ test('correção local altera apenas destino escrito neste dispositivo',()=>{
   assert.match(fullAddress(post,s),/1520.*São José dos Campos, SP, Brasil/);
   const uri=new URL(mapsUrl(post,s));
   assert.equal(uri.origin,'https://www.google.com');
-  assert.equal(uri.searchParams.get('destination'),'AVENIDA CASSIANO RICARDO, 1520, JARDIM ALVORADA, São José dos Campos, SP, Brasil');
+  assert.equal(uri.searchParams.get('destination'),'AVENIDA CASSIANO RICARDO, 1520, São José dos Campos, SP, Brasil');
+  assert.doesNotMatch(uri.searchParams.get('destination'),/JARDIM ALVORADA/);
   assert.equal(post.address,'AVENIDA CASSIANO RICARDO, 1500');
 });
 test('GitHub issue recebe relato e exige etapa de publicação pelo usuário',()=>{
