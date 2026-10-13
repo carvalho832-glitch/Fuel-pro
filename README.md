@@ -94,3 +94,30 @@ python engine_anp.py --prev data/historico_anp.json --out-dir staging
 Próximo marco: validar a posição dos cinco postos em mapa com fonte cadastral e
 iniciar a publicação gradual de preços reais, com indicação clara de data e
 de posição não validada. O ranking de qualidade ficará independente do preço.
+
+
+## Evolução do histórico multi-semanal (13/10/2026)
+
+O motor passou a coletar até **6 arquivos semanais oficiais** por posto, combinar
+os preços pelo CNPJ e escolher, para cada combustível, a coleta mais recente
+dentro do limite de **30 dias**. A data original da coleta nunca é substituída
+pela data de processamento. Arquivos históricos são recuperados da página da
+ANP, com um índice de URLs oficiais de contingência em
+`data/anp_week_urls.json` para quedas momentâneas de acesso.
+
+**Resultado real da primeira execução integrada, armazenado na branch de testes:**
+- 202 observações históricas, em 6 pesquisas semanais.
+- 13 postos com preços nos últimos 30 dias e geocoordenadas da ANP, todos em Araraquara.
+- 0 postos de São José dos Campos com preço na janela pesquisada.
+- Os 13 pontos continuam classificados com geolocalização **não validada**.
+- Nenhum preço real foi enviado automaticamente ao PWA público.
+
+O workflow `.github/workflows/store_staging.yml` foi validado com sucesso
+para gravar o histórico na branch experimental. Ele **não é um agendamento
+semanal em produção**: para funcionar em cron do GitHub, o workflow precisará
+estar na branch padrão e essa migração depende de revisão e aprovação.
+
+Cuidado: a versão legada em `main` ainda possui o antigo workflow
+`.github/workflows/update.yml`, cujo scraper está com falhas conhecidas.
+Antes do lançamento novo, desabilitar/substituir o legado para evitar
+informações sem procedência. Não alterá-lo sem uma mudança planejada.
