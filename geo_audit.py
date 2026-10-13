@@ -88,7 +88,12 @@ def audit_catalog(catalog, now=None, near_m=NEARBY_METERS,
                 elif age > max_geo_age_days:
                     reasons.append("geo_observation_old")
 
+        # Prioridade operacional, não nota de qualidade:
+        # começar pelos preços que poderiam ser exibidos e por possíveis colisões.
+        priority = ("high" if item.get("priceStatus") == "historical_observation" or nearby[cnpj]
+                    else "medium" if state == "unavailable" else "normal")
         checks = {
+            "priority": priority,
             "status": "review_required" if reasons else "automated_checks_passed",
             "anpValidation": state,
             "manualReviewApproved": False,
@@ -105,6 +110,8 @@ def audit_catalog(catalog, now=None, near_m=NEARBY_METERS,
                 "lat": item.get("lat"), "lng": item.get("lng"),
                 "geoValidation": item.get("geoValidation"),
                 "geoDate": item.get("geoDate"),
+                "priority": priority,
+                "hasRecentObservedPrice": item.get("priceStatus") == "historical_observation",
                 "flags": reasons,
                 "nearbyOtherCnpjs": checks["nearbyOtherCnpjs"],
                 "manualReviewApproved": False,
@@ -112,7 +119,11 @@ def audit_catalog(catalog, now=None, near_m=NEARBY_METERS,
         for reason in reasons:
             reasons_count[reason] = reasons_count.get(reason, 0) + 1
 
-    # Preços não determinam se a localização está correta.
+    # Preços servem somente para escolher o que conferir primeiro.
+    rank = {"high": 0, "medium": 1, "normal": 2}
+    queue.sort(key=lambda item: (rank[item["priority"]], item.get("city") or "", item["cnpj"]))
+    priorities = {name: sum(row["priority"] == name for row in queue)
+                  for name in ("high", "medium", "normal")}
     summary = {
         "total": len(catalog),
         "withCoordinates": len(positioned),
@@ -120,6 +131,7 @@ def audit_catalog(catalog, now=None, near_m=NEARBY_METERS,
         "reviewRequired": len(queue),
         "automatedChecksPassed": len(catalog) - len(queue),
         "manuallyApproved": 0,
+        "priorityQueue": priorities,
         "flagCounts": dict(sorted(reasons_count.items())),
         "limits": {
             "nearOtherCnpjMeters": near_m,
