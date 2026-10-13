@@ -123,6 +123,8 @@ def build_station_catalog(registry, mapped=None, now=None):
             "mapEligible": status != "unavailable",
             "geoSource": reg.get("geoSource") if status != "unavailable" else None,
             "geoValidation": reg.get("geoValidation") or "",
+            "geoDate": reg.get("geoDate") or "",
+            "geoAccuracyEstimate": reg.get("geoAccuracyMeters"),
             "priceStatus": "historical_observation" if observed_prices else "not_available",
             "source": source,
             "prices": observed_prices,
