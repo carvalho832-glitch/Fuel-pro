@@ -113,7 +113,7 @@ def parse_rows(rows, cities=CITY_BOUNDS):
     grouped = {}
     for row in rows:
         city = norm(pick(row, "municipio"))
-        if city not in cities or norm(pick(row, "uf")) != "SP":
+        if city not in cities or norm(pick(row, "uf")) not in ("SP", "SAO PAULO"):
             continue
         cnpj = re.sub(r"\D", "", str(pick(row, "cnpj")))
         name = str(pick(row, "name") or "").strip()
