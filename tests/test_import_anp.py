@@ -55,6 +55,25 @@ class ImportAnpTest(unittest.TestCase):
         result = parse_rows(xlsx_rows(out.getvalue()))
         self.assertEqual(result[0]["prices"]["gas"], 5.99)
 
+    def test_real_weekly_anp_column_names(self):
+        row = {
+            "CNPJ": "12.345.678/0001-90",
+            "RAZÃO": "AUTO POSTO DE EXEMPLO LTDA",
+            "FANTASIA": "POSTO EXEMPLO",
+            "ENDEREÇO": "AVENIDA IGUAPE",
+            "NÚMERO": "20",
+            "BAIRRO": "CIDADE JARDIM",
+            "MUNICÍPIO": "SAO JOSE DOS CAMPOS",
+            "ESTADO": "SP",
+            "PRODUTO": "GASOLINA COMUM",
+            "PREÇO DE REVENDA": 5.99,
+            "DATA DA COLETA": "09/10/2026",
+        }
+        posts = parse_rows([row])
+        self.assertEqual(len(posts), 1)
+        self.assertEqual(posts[0]["prices"], {"gas": 5.99})
+        self.assertIn("AVENIDA IGUAPE", posts[0]["address"])
+
     def test_location_boundaries(self):
         self.assertTrue(has_city_coordinate("SAO JOSE DOS CAMPOS", -23.2, -45.9))
         self.assertFalse(has_city_coordinate("SAO JOSE DOS CAMPOS", -21.8, -48.2))
