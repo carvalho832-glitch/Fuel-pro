@@ -28,6 +28,7 @@ test('confirmação de endereço não modifica cadastro ANP nem valida GPS',()=>
   assert.equal(r.locationVerified,false);
   assert.equal(displayAddress(post,s),post.address);
   assert.equal(post.address,'AVENIDA CASSIANO RICARDO, 1500');
+  assert.throws(()=>mapsUrl({...post,address:''},s),/completo/);
 });
 test('correção local altera apenas destino escrito neste dispositivo',()=>{
   const s=storage();
