@@ -18,6 +18,7 @@ from import_anp import (
     CITY_BOUNDS, UA, ANP_WEEKLY_PAGE, norm, csv_rows, xlsx_rows,
     latest_anp_file, parse_rows, has_city_coordinate,
 )
+from anp_history import fetch_history
 
 API_URL = "https://revendedoresapi.anp.gov.br/v1/combustivel"
 REGISTRY_CITIES = ("ARARAQUARA", "SAO JOSE DOS CAMPOS")
@@ -119,6 +120,40 @@ def update_history(previous, latest):
         unique[(cnpj, fuel, d)] = record
     return sorted(unique.values(), key=lambda x: (x["collectedAt"], x["cnpj"], x["fuel"]))
 
+def recent_stations_from_history(history, registry, now=None):
+    """Rebuild the latest price per fuel/establishment from dated, raw observations.
+
+    This never extrapolates values. The displayed date remains the original
+    collection date, even when the observation comes from an older week.
+    """
+    now = now or datetime.now(timezone.utc)
+    grouped = {}
+    for item in history:
+        if not isinstance(item, dict) or item.get("source") != "ANP - levantamento semanal":
+            continue
+        cnpj, fuel = digits(item.get("cnpj")), item.get("fuel")
+        reg = registry.get(cnpj)
+        if not reg or reg.get("city") not in CITY_BOUNDS:
+            continue
+        try:
+            d = date.fromisoformat(item["collectedAt"])
+            value = float(item["price"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        age = (now.date() - d).days
+        if age < -1 or age > MAX_PRICE_AGE_DAYS or not 0.5 < value < 30:
+            continue
+        station = grouped.setdefault(cnpj, {
+            "cnpj": cnpj, "name": reg["name"],
+            "city": reg["city"], "source": "ANP - levantamento semanal",
+            "prices": {}, "collectedAtByFuel": {}
+        })
+        previous = station["collectedAtByFuel"].get(fuel)
+        if previous is None or item["collectedAt"] >= previous:
+            station["prices"][fuel] = value
+            station["collectedAtByFuel"][fuel] = item["collectedAt"]
+    return list(grouped.values())
+
 def join_prices(prices, registry, now=None):
     now = now or datetime.now(timezone.utc)
     output, missing, no_coords, old = [], [], [], []
@@ -172,14 +207,17 @@ def payload_prices(binary):
     rows = xlsx_rows(binary) if binary[:2] == b"PK" else csv_rows(binary)
     return parse_rows(rows)
 
-def build(prices_binary, registry, counts, previous_history=None, now=None):
+def build(prices_binary, registry, counts, previous_history=None, now=None,
+          archived_observations=None, archived_files=None):
     now = now or datetime.now(timezone.utc)
     stations = payload_prices(prices_binary)
     if not stations:
         raise ValueError("Nenhum preço real da ANP encontrado nas cidades piloto.")
     latest = history_rows(stations)
-    history = update_history(previous_history or [], latest)
-    mapped, issues = join_prices(stations, registry, now=now)
+    history = update_history(previous_history or [], [*latest, *(archived_observations or [])])
+    current_mapped, issues = join_prices(stations, registry, now=now)
+    eligible = recent_stations_from_history(history, registry, now=now)
+    mapped, historic_issues = join_prices(eligible, registry, now=now)
     status = {
         "generatedAt": now.isoformat(), "priceSource": ANP_WEEKLY_PAGE,
         "registrySource": API_URL, "priceSampling": "weekly",
@@ -189,6 +227,10 @@ def build(prices_binary, registry, counts, previous_history=None, now=None):
         "mappedStationsByCity": {city: sum(p["city"] == city for p in mapped) for city in REGISTRY_CITIES},
         "geolocationsNotValidated": sum(not p["locationValidated"] for p in mapped),
         "fuelObservationsInCurrentSurvey": len(latest),
+        "stationsMappedInCurrentSurvey": len(current_mapped),
+        "recentStationsFromHistory": len(eligible),
+        "historicWeeksInspected": len(archived_files or []),
+        "historicFiles": archived_files or [],
         "historyObservations": len(history),
         "missingRegistry": len(issues["withoutRegistry"]),
         "missingCoordinates": len(issues["withoutCoordinates"]),
@@ -206,7 +248,8 @@ def atomic_json(path, obj):
     tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     tmp.replace(path)
 
-def run(prices_file=None, registry_file=None, out_dir="staging", prev=None, session=None):
+def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
+        session=None, history_weeks=0):
     session = session or requests.Session()
     session.headers.update({"User-Agent": UA})
     prices_binary = Path(prices_file).read_bytes() if prices_file else latest_anp_file(session)
@@ -217,7 +260,11 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None, sess
     else:
         registry, counts = anp_registry(session=session)
     previous = json.loads(Path(prev).read_text(encoding="utf-8")) if prev and Path(prev).exists() else []
-    mapped, history, status = build(prices_binary, registry, counts, previous)
+    older, files = fetch_history(session, weeks=history_weeks) if history_weeks else ([], [])
+    mapped, history, status = build(
+        prices_binary, registry, counts, previous,
+        archived_observations=older, archived_files=files
+    )
     out = Path(out_dir)
     atomic_json(out/"status.json", status)
     atomic_json(out/"historico_anp.json", history)
@@ -232,5 +279,8 @@ if __name__ == "__main__":
     parser.add_argument("--registry-file", help="JSON de cadastro ANP de teste (omitido: API oficial)")
     parser.add_argument("--out-dir", default="staging", help="Diretório isolado para revisão")
     parser.add_argument("--prev", help="Caminho opcional do histórico anterior")
+    parser.add_argument("--history-weeks", type=int, choices=range(0, 13), metavar="0-12",
+                        default=0, help="Carrega semanas anteriores (até 12) para ampliar o histórico")
     args = parser.parse_args()
-    run(args.prices_file, args.registry_file, args.out_dir, args.prev)
+    run(args.prices_file, args.registry_file, args.out_dir, args.prev,
+        history_weeks=args.history_weeks)
