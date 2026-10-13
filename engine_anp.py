@@ -20,6 +20,7 @@ from import_anp import (
 )
 from anp_history import fetch_history
 from fuel_confidence import evidence_profile, build_station_catalog
+from geo_audit import audit_catalog
 
 API_URL = "https://revendedoresapi.anp.gov.br/v1/combustivel"
 REGISTRY_CITIES = ("ARARAQUARA", "SAO JOSE DOS CAMPOS")
@@ -225,6 +226,7 @@ def build(prices_binary, registry, counts, previous_history=None, now=None,
             now=now
         )
     catalog = build_station_catalog(registry, mapped, now=now)
+    audited_catalog, geo_review_queue, geo_summary = audit_catalog(catalog, now=now)
     status = {
         "generatedAt": now.isoformat(), "priceSource": ANP_WEEKLY_PAGE,
         "registrySource": API_URL, "priceSampling": "weekly",
@@ -252,6 +254,8 @@ def build(prices_binary, registry, counts, previous_history=None, now=None,
             } for city in REGISTRY_CITIES
         },
         "qualityRatingsPublished": 0,
+        "geoAudit": geo_summary,
+        "geoReviewQueueLength": len(geo_review_queue),
         "missingRegistry": len(issues["withoutRegistry"]),
         "missingCoordinates": len(issues["withoutCoordinates"]),
         "expiredObservations": issues["excludedStaleFuelObservations"],
@@ -301,7 +305,9 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     # No publish if there are zero verified prices. Keep staging explicit and reviewable.
     atomic_json(out/"dados_candidatos.json", mapped)
     catalog = build_station_catalog(registry, mapped)
-    atomic_json(out/"catalogo_postos_anp.json", catalog)
+    audited_catalog, geo_review_queue, geo_summary = audit_catalog(catalog)
+    atomic_json(out/"catalogo_postos_anp.json", audited_catalog)
+    atomic_json(out/"geo_revisao_pendente.json", geo_review_queue)
     print(json.dumps(status, ensure_ascii=False, indent=2))
     return status
 
