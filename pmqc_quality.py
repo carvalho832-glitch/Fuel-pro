@@ -11,7 +11,7 @@ import io
 import re
 from urllib.parse import urlparse
 
-from import_anp import norm
+from import_anp import norm, has_city_coordinate
 
 OFFICIAL_PMQC_URL = (
     "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/"
@@ -31,6 +31,15 @@ def normalize_columns(row):
 
 def normalize_cnpj(value):
     return re.sub(r"\D", "", str(value or ""))
+
+def parse_decimal_coordinate(value):
+    """Coordenada decimal brasileira ou ISO; ausências são nulas."""
+    raw = str(value or "").strip().replace(",", ".")
+    try:
+        n = float(raw)
+        return n if abs(n) > 0.000001 and -180 <= n <= 180 else None
+    except (ValueError, OverflowError):
+        return None
 
 def parse_pmqc_csv(binary, registry, now=None, source_url=OFFICIAL_PMQC_URL):
     """Parse verified CSV. Join only identical CNPJ+UF+municipality.
@@ -84,8 +93,12 @@ def parse_pmqc_csv(binary, registry, now=None, source_url=OFFICIAL_PMQC_URL):
         record = samples.setdefault(key, {
             "cnpj": cnpj, "collectedAt": observed.isoformat(),
             "sampleId": sample_id, "product": product,
-            "assays": {},
+            "assays": {}, "positions": set(),
         })
+        lat = parse_decimal_coordinate(row.get("LATITUDE"))
+        lng = parse_decimal_coordinate(row.get("LONGITUDE"))
+        if lat is not None and lng is not None and has_city_coordinate(reg["city"], lat, lng):
+            record["positions"].add((round(lat,7), round(lng,7)))
         assay_key = norm(test)
         statuses = record["assays"].setdefault(assay_key, set())
         statuses.add(conforming)
@@ -111,9 +124,12 @@ def parse_pmqc_csv(binary, registry, now=None, source_url=OFFICIAL_PMQC_URL):
                  else "samplesWithAllReportedAssaysConforming")
         station[field] += 1
         station["latestSampleAt"] = max(collected_at, station["latestSampleAt"] or collected_at)
+        positions = sorted(record["positions"])
         station["samples"].append({
             "sampleId": sample_id, "product": product,
             "collectedAt": collected_at, "reportedAssayCount": len(assays),
             "status": status,
+            "reportedGeoPositions": [{"lat": lat, "lng": lng} for lat, lng in positions],
+            "geoPositionsConflictWithinSample": len(positions) > 1,
         })
     return evidence
