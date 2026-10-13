@@ -1,6 +1,9 @@
 # Fuel Pro 2.0 Beta (homologação)
 
-**Endereço da Beta publicada em 13/10/2026:**
+**Beta 2 atualizada em 13/10/2026:**
+https://drifting-echo-63b85wz.shipstatic.com
+
+**Beta 1 anterior (preservada):**
 https://vector-rune-qf3r66n.shipstatic.com
 
 **Atenção:** este é um link de testes separado do PWA demonstrativo
@@ -24,10 +27,16 @@ Amostras antigas **não** representam a situação atual do posto;
 nem ausência de amostras representa conformidade.
 
 O arquivo `beta/dados.json` é um *snapshot estático* gerado das
-fontes ANP em 13/10/2026. A Beta **não** recebe atualizações
-automáticas enquanto não houver controle de integridade da publicação.
-Ao mudar a data, o frontend oculta valores observados há mais de 30 dias,
-sem apagar o histórico original do repositório.
+fontes ANP. Na branch de desenvolvimento, o gerador
+`build_beta_snapshot.py` agora é executado pelo workflow de staging
+junto com o motor e atualiza automaticamente o snapshot versionado
+**a cada execução do workflow de testes**. A implantação no ShipStatic
+**continua manual e separada**, para permitir revisão antes de publicar.
+O workflow ainda **não possui cron semanal de produção**.
+
+A interface mostra a data do snapshot e alerta quando a base está
+antiga. O frontend oculta preços observados há mais de 30 dias,
+sem apagar o histórico original no GitHub.
 
 Os **178 pins têm coordenadas ainda não verificadas em campo**.
 Estão visíveis **apenas para homologação**, com aviso permanente;
@@ -66,3 +75,21 @@ Regerar `beta/dados.json` apenas depois de uma execução validada
 de `engine_anp.py`. Rodar `python -m unittest discover -s tests -v`
 e `node --check beta/app.js`. Fazer nova implantação estática
 separada; não alterar o domínio do aplicativo demonstrativo.
+
+
+## Nova rotina de homologação
+
+1. Executar o motor ANP em staging (somente a branch experimental).
+2. O workflow agora chama `build_beta_snapshot.py` para derivar
+   `beta/dados.json` das fontes oficiais de cadastro, preço e PMQC.
+3. Validar contagem, CNPJ, data da coleta, procedência, coordenadas
+   ainda não validadas e notas de qualidade ausentes.
+4. A versão nova do JSON fica salva na branch experimental.
+5. Publicar manualmente os arquivos de `beta/` no ShipStatic após revisão.
+   O link de cada implantação pode mudar. O plano gratuito disponível
+   atualmente só aceita o domínio personalizado `fuelpro-teste.shipstatic.com`,
+   usado pela demonstração antiga. Não substituímos essa demonstração e
+   não solicitamos mudança de plano.
+
+Os testes agora conferem **contagens dinâmicas**. Não esperam
+eternamente 194 postos, pois a ANP pode cadastrar mais ou retirar alguns.
