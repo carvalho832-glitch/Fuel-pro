@@ -41,6 +41,8 @@ class BetaBuilderTest(unittest.TestCase):
         self.assertTrue(data["homologationOnly"])
         self.assertTrue(all(p["fuelScoreOverall"] is None for p in data["stations"]))
         self.assertTrue(all(p["geoAudit"]["manualReviewApproved"] is False for p in data["stations"]))
+        self.assertTrue(all("geoRecordedAt" in p for p in data["stations"]))
+        self.assertTrue(all(p["geoRecordedAt"] is None for p in data["stations"] if not p["mapEligible"]))
 
     def test_snapshot_is_deterministic_for_same_inputs(self):
         self.assertEqual(self.build(),self.build())
