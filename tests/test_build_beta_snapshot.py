@@ -44,6 +44,19 @@ class BetaBuilderTest(unittest.TestCase):
         self.assertTrue(all("geoRecordedAt" in p for p in data["stations"]))
         self.assertTrue(all(p["geoRecordedAt"] is None for p in data["stations"] if not p["mapEligible"]))
 
+    def test_pmqc_crosscheck_never_certifies_positions(self):
+        snap=self.build()
+        for station in snap["stations"]:
+            check=station["geoAudit"].get("pmqcCrosscheck")
+            if check is not None:
+                self.assertFalse(check["manualReviewApproved"])
+                self.assertIn(check["status"], (
+                    "anp_sources_nearby_unverified", "anp_sources_diverge",
+                    "pmqc_without_coordinates", "registry_without_coordinates"
+                ))
+                self.assertNotIn("verifiedOnSite",check)
+        self.assertTrue(all(s["geoAudit"]["manualReviewApproved"] is False for s in snap["stations"]))
+
     def test_snapshot_is_deterministic_for_same_inputs(self):
         self.assertEqual(self.build(),self.build())
         self.assertNotEqual(self.build()["snapshotId"], "nao-real")
