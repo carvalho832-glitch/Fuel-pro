@@ -24,9 +24,15 @@ jobs:
       - name: Testar importação e preservação de dados
         run: python -m unittest discover -s tests -v
       - name: Verificar sintaxe JS
-        run: node --check app.js
+        run: |
+          node --check app.js
+          node --check beta/app.js
+          node --check beta/sw.js
       - name: Verificar JSON
-        run: python -m json.tool dados.json > /dev/null
+        run: |
+          python -m json.tool dados.json > /dev/null
+          python -m json.tool beta/dados.json > /dev/null
+          python -m json.tool beta/manifest.webmanifest > /dev/null
 
   validar-fonte-oficial:
     runs-on: ubuntu-latest
