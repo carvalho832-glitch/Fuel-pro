@@ -14,7 +14,8 @@ const els = Object.fromEntries([
   'city-filter','fuel-filter','summary','detail','detail-name','detail-address',
   'detail-fuel','detail-value','detail-date','detail-geo','detail-lab',
   'detail-brand','close','gps','mode-all','mode-price','copy-address',
-  'source-info','notification'
+  'source-info','notification','detail-cnpj',
+  'search-toggle','station-search-panel','station-query','search-clear','search-count','search-results'
 ].map(id => [id, document.getElementById(id)]));
 
 let all = [];
@@ -22,6 +23,7 @@ let selected = null;
 let mode = 'all';
 let status = {};
 let locationMarker = null;
+let searchUpdateTimer = null;
 const map = L.map('map', {zoomControl:false, preferCanvas:true}).setView(CENTERS['SAO JOSE DOS CAMPOS'], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom:19,
@@ -62,6 +64,88 @@ function hideDetail() { selected=null; els.detail.hidden = true; }
 function stationCount(city) {
   return all.filter(p => p.city === city && safeCoordinate(p)).length;
 }
+function toggleSearchPanel(force) {
+  const panel = els['station-search-panel'];
+  const show = typeof force === 'boolean' ? force : panel.hidden;
+  panel.hidden = !show;
+  els['search-toggle'].setAttribute('aria-expanded', String(show));
+  if (show) {
+    updateSearchResults();
+    els['station-query'].focus();
+  }
+}
+function makeTextElement(tag, cssClass, label) {
+  const node = document.createElement(tag);
+  if (cssClass) node.className = cssClass;
+  node.textContent = label;
+  return node;
+}
+function updateSearchResults() {
+  const box = els['search-results'];
+  box.replaceChildren();
+  const query = els['station-query'].value.trim();
+  if (FuelProSearch.normalize(query).length < 2) {
+    els['search-count'].textContent = 'Digite pelo menos 2 caracteres para pesquisar.';
+    return;
+  }
+  const {matches,total} = FuelProSearch.searchStations(all,query,currentCity(),12);
+  els['search-count'].textContent = total
+    ? total + (total === 1 ? ' posto encontrado' : ' postos encontrados') +
+      (total > matches.length ? ' · exibindo os primeiros ' + matches.length : '')
+    : 'Nenhum posto encontrado neste cadastro da ANP.';
+  for (const station of matches) {
+    const cityLabel = station.city === 'ARARAQUARA' ? 'Araraquara' : 'São José dos Campos';
+    const hasPoint = station.mapEligible === true && safeCoordinate(station);
+    const item = document.createElement('button');
+    item.type='button';
+    item.className='search-result';
+    item.setAttribute('role','listitem');
+    const name = makeTextElement('strong','result-name',station.name || 'Posto cadastrado na ANP');
+    const location = makeTextElement('span','result-location',[
+      station.address, station.district, cityLabel
+    ].filter(Boolean).join(' · '));
+    const indicator = makeTextElement('span','result-info',
+      hasPoint ? '📍 Localização ANP provisória · CNPJ ' + station.cnpj
+        : '⚠️ Sem coordenadas ANP · CNPJ ' + station.cnpj);
+    const price = observed(station,currentFuel());
+    const priceText = makeTextElement('span','result-price',
+      price ? formatMoney(price.value) + ' · coletado em ' + friendlyDay(price.iso)
+        : 'Preço não disponível');
+    item.append(name,location,indicator,priceText);
+    item.addEventListener('click', () => locateStationFromSearch(station));
+    box.appendChild(item);
+  }
+}
+function locateStationFromSearch(station) {
+  if (station.city !== currentCity()) {
+    els['city-filter'].value = station.city;
+    chooseCity(station.city);
+  }
+  toggleSearchPanel(false);
+  const hasPoint = station.mapEligible === true && safeCoordinate(station);
+  if (hasPoint) map.flyTo([station.lat,station.lng],15,{duration:0.65});
+  else map.setView(CENTERS[station.city],12);
+  showDetail(station);
+  if (!hasPoint) notify('Este posto não possui coordenadas ANP utilizáveis; exibimos apenas a ficha cadastral.');
+}
+els['search-toggle'].addEventListener('click',()=>toggleSearchPanel());
+els['search-clear'].addEventListener('click',()=>{
+  els['station-query'].value='';
+  updateSearchResults();
+  els['station-query'].focus();
+});
+els['station-query'].addEventListener('input',()=>{
+  clearTimeout(searchUpdateTimer);
+  searchUpdateTimer=setTimeout(updateSearchResults,100);
+});
+els['station-query'].addEventListener('keydown',event=>{
+  if(event.key==='Escape'){toggleSearchPanel(false);els['search-toggle'].focus();}
+  if(event.key==='Enter'){
+    event.preventDefault();
+    const results=FuelProSearch.searchStations(all,els['station-query'].value,currentCity(),1);
+    if(results.matches.length) locateStationFromSearch(results.matches[0]);
+  }
+});
 function chooseCity(city) {
   hideDetail();
   if (city === 'ALL') {
@@ -70,6 +154,7 @@ function chooseCity(city) {
     map.fitBounds(bounds, {padding:[30,30],maxZoom:11});
   } else map.setView(CENTERS[city] || CENTERS['SAO JOSE DOS CAMPOS'],12);
   render();
+  if (!els['station-search-panel'].hidden) updateSearchResults();
 }
 function render() {
   overlay.clearLayers();
@@ -87,7 +172,7 @@ function render() {
       const icon = L.divIcon({
         className:'fuel-marker', html, iconSize:[91,35], iconAnchor:[45,17]
       });
-      L.marker([post.lat, post.lng], {icon, keyboard:true})
+      L.marker([post.lat, post.lng], {icon, keyboard:true,bubblingMouseEvents:false})
         .on('click', () => showDetail(post)).addTo(overlay);
     } else {
       L.circleMarker([post.lat,post.lng], {
@@ -119,6 +204,7 @@ function showDetail(p) {
   els['detail-address'].textContent =
     [p.address,p.district, p.city === 'ARARAQUARA'?'Araraquara · SP':'São José dos Campos · SP']
       .filter(Boolean).join(' · ');
+  els['detail-cnpj'].textContent = 'CNPJ: ' + p.cnpj + ' · cadastro consultado na ANP';
   els['detail-fuel'].textContent = FUELS[fuel];
   els['detail-value'].textContent = price ? formatMoney(price.value) : 'Preço não disponível';
   els['detail-value'].classList.toggle('missing',!price);
@@ -130,8 +216,10 @@ function showDetail(p) {
   const flags = Array.isArray(audit.reasons) ? audit.reasons : [];
   const geowarning = flags.includes('near_another_cnpj') ?
     ' Há outro CNPJ com coordenadas próximas.' : '';
-  els['detail-geo'].textContent =
-    '📍 Localização do cadastro ANP, não validada em campo. Rotas bloqueadas.' + geowarning;
+  const hasPoint = p.mapEligible === true && safeCoordinate(p);
+  els['detail-geo'].textContent = hasPoint ?
+    '📍 Coordenadas do cadastro ANP, ainda não validadas em campo. Rotas bloqueadas.' + geowarning :
+    '📍 Não há coordenadas utilizáveis para este posto. A localização não pode ser exibida no mapa. Rotas bloqueadas.';
   const pmqc = p.pmqc;
   if (pmqc && pmqc.sampleCount > 0) {
     const affected = Number(pmqc.samplesWithNonconformity) || 0;
@@ -200,6 +288,7 @@ async function boot() {
       notify('Esta base de homologação está antiga. Preços de mais de 30 dias ficam ocultos.');
     }
     chooseCity(currentCity());
+    if(!els['station-search-panel'].hidden) updateSearchResults();
   } catch(error) {
     console.error('Fuel Pro beta: dados inválidos',error);
     els.summary.textContent='Falha ao carregar dados. Reabra o aplicativo.';
