@@ -40,7 +40,8 @@ jobs:
           from pathlib import Path
           s = json.loads(Path("staging/status.json").read_text())
           v = json.loads(Path("staging/dados_candidatos.json").read_text())
-          assert s["safeToPublish"] and len(v) > 0, "Nenhum posto com dados válidos, não salvar"
+          assert s["hasStagingCandidates"] and len(v) > 0, "Nenhum candidato válido, não salvar"
+          assert s["publicationApproved"] is False, "Staging não pode liberar publicação"
           assert all(x.get("source") == "ANP - levantamento semanal" for x in v)
           assert all(x.get("geoSource") == "ANP - API Revendedores" for x in v)
           assert all(x.get("collectedAtByFuel") for x in v)
