@@ -12,6 +12,7 @@ on:
       - fetch_pmqc.py
       - pmqc_quality.py
       - address_crosscheck.py
+      - pmqc_geo_crosscheck.py
       - build_beta_snapshot.py
       - .github/workflows/store_staging.yml
 
@@ -54,6 +55,10 @@ jobs:
           catalog = json.loads(Path("staging/catalogo_postos_anp.json").read_text())
           review = json.loads(Path("staging/geo_revisao_pendente.json").read_text())
           addresses = json.loads(Path("staging/geo_cruzamento_enderecos.json").read_text())
+          geo_pmqc = json.loads(Path("staging/pmqc_geo_crosscheck.json").read_text())
+          assert len(geo_pmqc) == s["pmqcGeoCrosscheck"]["stationsWithSamples"], "CNPJs PMQC geográficos inconsistentes"
+          assert s["pmqcGeoCrosscheck"]["manuallyVerified"] == 0, "PMQC não pode certificar localização"
+          assert all(row["manualReviewApproved"] is False for row in geo_pmqc.values()), "Geodados PMQC aprovaram pontos indevidamente"
           beta = json.loads(Path("staging/beta_dados.json").read_text())
           assert beta["beta"] is True and beta["homologationOnly"] is True, "Beta não é de homologação"
           assert beta["approval"]["publicationApproved"] is False, "Beta não autorizada para produção"
@@ -88,10 +93,11 @@ jobs:
           cp staging/geo_revisao_pendente.json data/geo_revisao_pendente.json
           cp staging/pmqc_evidencias_anp.json data/pmqc_evidencias_anp.json
           cp staging/geo_cruzamento_enderecos.json data/geo_cruzamento_enderecos.json
+          cp staging/pmqc_geo_crosscheck.json data/pmqc_geo_crosscheck.json
           cp staging/beta_dados.json beta/dados.json
           git config user.name 'fuelpro-engine[bot]'
           git config user.email 'fuelpro-engine@users.noreply.github.com'
-          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json data/geo_cruzamento_enderecos.json beta/dados.json
+          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json data/geo_cruzamento_enderecos.json data/pmqc_geo_crosscheck.json beta/dados.json
           git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
           git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
           if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
