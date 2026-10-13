@@ -1,0 +1,19 @@
+{
+  "name": "Fuel Pro Beta - ANP",
+  "short_name": "Fuel Pro Beta",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4faf6",
+  "theme_color": "#102f26",
+  "description": "Homologação. Mapa ANP com localização provisória e preços históricos.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
