@@ -7,6 +7,7 @@ on:
     paths:
       - engine_anp.py
       - anp_history.py
+      - fuel_confidence.py
       - .github/workflows/store_staging.yml
 
 permissions:
@@ -41,6 +42,10 @@ jobs:
           from pathlib import Path
           s = json.loads(Path("staging/status.json").read_text())
           v = json.loads(Path("staging/dados_candidatos.json").read_text())
+          catalog = json.loads(Path("staging/catalogo_postos_anp.json").read_text())
+          assert len(catalog) == s["catalogStations"], "Catálogo inconsistente"
+          assert all(x["fuelScore"]["overallScore"] is None for x in catalog), "Reputação não pode ser inventada"
+          assert all(x.get("priceStatus") != "not_available" or x.get("prices") == {} for x in catalog), "Preço inventado em posto sem dados"
           assert s["hasStagingCandidates"] and len(v) > 0, "Nenhum candidato válido, não salvar"
           assert s["publicationApproved"] is False, "Staging não pode liberar publicação"
           assert all(x.get("source") == "ANP - levantamento semanal" for x in v)
@@ -54,9 +59,10 @@ jobs:
           cp staging/historico_anp.json data/historico_anp.json
           cp staging/dados_candidatos.json data/postos_anp_candidatos.json
           cp staging/status.json data/engine_status.json
+          cp staging/catalogo_postos_anp.json data/catalogo_postos_anp.json
           git config user.name 'fuelpro-engine[bot]'
           git config user.email 'fuelpro-engine@users.noreply.github.com'
-          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json
+          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json
           git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
           git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
           if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
