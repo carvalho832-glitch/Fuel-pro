@@ -12,6 +12,7 @@ on:
       - fetch_pmqc.py
       - pmqc_quality.py
       - address_crosscheck.py
+      - build_beta_snapshot.py
       - .github/workflows/store_staging.yml
 
 permissions:
@@ -41,6 +42,8 @@ jobs:
         run: python fetch_pmqc.py --out staging/pmqc_raw.csv
       - name: Importar preços, localizações, histórico e amostras laboratoriais
         run: python engine_anp.py --prev data/historico_anp.json --out-dir staging --history-weeks 6 --pmqc-file staging/pmqc_raw.csv
+      - name: Gerar Beta segura somente para testes
+        run: python build_beta_snapshot.py --catalog staging/catalogo_postos_anp.json --status staging/status.json --pmqc staging/pmqc_evidencias_anp.json --out staging/beta_dados.json
       - name: Conferir critérios de integridade
         run: |
           python - <<'PY'
@@ -51,6 +54,12 @@ jobs:
           catalog = json.loads(Path("staging/catalogo_postos_anp.json").read_text())
           review = json.loads(Path("staging/geo_revisao_pendente.json").read_text())
           addresses = json.loads(Path("staging/geo_cruzamento_enderecos.json").read_text())
+          beta = json.loads(Path("staging/beta_dados.json").read_text())
+          assert beta["beta"] is True and beta["homologationOnly"] is True, "Beta não é de homologação"
+          assert beta["approval"]["publicationApproved"] is False, "Beta não autorizada para produção"
+          assert len(beta["stations"]) == len(catalog), "Beta perdeu cadastros"
+          assert beta["counts"]["withLabSamples"] == s["pmqc"]["stationsWithSamples"], "PMQC da Beta não corresponde ao motor"
+          assert all(x["fuelScoreOverall"] is None for x in beta["stations"]), "Nota de qualidade sem revisão"
           assert len(addresses) == s["addressCrosscheck"]["highPriorityCount"], "Comparação de endereços incompleta"
           assert all(x["manualReviewApproved"] is False for x in addresses), "GPS deve permanecer não certificado"
           assert len(catalog) == s["catalogStations"], "Catálogo inconsistente"
@@ -79,9 +88,10 @@ jobs:
           cp staging/geo_revisao_pendente.json data/geo_revisao_pendente.json
           cp staging/pmqc_evidencias_anp.json data/pmqc_evidencias_anp.json
           cp staging/geo_cruzamento_enderecos.json data/geo_cruzamento_enderecos.json
+          cp staging/beta_dados.json beta/dados.json
           git config user.name 'fuelpro-engine[bot]'
           git config user.email 'fuelpro-engine@users.noreply.github.com'
-          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json data/geo_cruzamento_enderecos.json
+          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json data/geo_cruzamento_enderecos.json beta/dados.json
           git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
           git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
           if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
