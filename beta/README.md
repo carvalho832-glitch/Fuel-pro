@@ -1,7 +1,7 @@
 # Fuel Pro 2.0 Beta (homologação)
 
 **Beta 5, confirmação e correção de endereços por usuários (13/10/2026):**
-https://arcane-flow-68xzkke.shipstatic.com
+https://nano-ion-863pgm9.shipstatic.com
 
 A ficha do posto agora permite confirmar endereço, sugerir correção
 (com rua/número e observação), apagar a sugestão local, compartilhar
