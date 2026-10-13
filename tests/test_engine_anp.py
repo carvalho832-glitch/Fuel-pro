@@ -70,10 +70,10 @@ class EngineTest(unittest.TestCase):
         self.assertEqual(issues["excludedStaleFuelObservations"],2)
 
     def test_history_is_idempotent_by_cnpj_fuel_date(self):
-        observation={"cnpj":CNPJ, "fuel":"gas", "price":5.99,"collectedAt":"2026-10-09"}
+        observation={"cnpj":CNPJ, "fuel":"gas", "price":5.99,"collectedAt":"2026-10-02"}
         history=update_history([observation],[observation,observation])
         self.assertEqual(len(history),1)
-        nextweek={**observation,"collectedAt":"2026-10-16"}
+        nextweek={**observation,"collectedAt":"2026-10-09"}
         self.assertEqual(len(update_history(history,[nextweek])),2)
 
     def test_api_refuses_unsuccessful_response(self):
