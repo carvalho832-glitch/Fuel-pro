@@ -91,7 +91,7 @@ function render() {
         .on('click', () => showDetail(post)).addTo(overlay);
     } else {
       L.circleMarker([post.lat,post.lng], {
-        radius:6,weight:1,color:'#164a41',fillColor:'#376c62',fillOpacity:0.7
+        radius:6,weight:1,color:'#164a41',fillColor:'#376c62',fillOpacity:0.7,bubblingMouseEvents:false
       }).on('click',()=>showDetail(post)).addTo(overlay);
     }
   }
