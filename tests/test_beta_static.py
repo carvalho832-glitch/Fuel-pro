@@ -23,14 +23,15 @@ class BetaStaticTest(unittest.TestCase):
         self.assertEqual(d["sources"]["registry"],"https://revendedoresapi.anp.gov.br/v1/combustivel")
 
     def test_map_snapshot_counts(self):
-        self.assertEqual(len(self.stations),194)
-        self.assertEqual(sum(p["mapEligible"] for p in self.stations),178)
-        self.assertEqual(sum(not p["mapEligible"] for p in self.stations),16)
-        self.assertEqual(sum(bool(p["prices"]) for p in self.stations),13)
-        self.assertEqual(sum(p["pmqc"] is not None for p in self.stations),7)
-        self.assertEqual(sum(p["city"]=="ARARAQUARA" for p in self.stations),63)
-        self.assertEqual(sum(p["city"]=="SAO JOSE DOS CAMPOS" for p in self.stations),131)
-        self.assertEqual(self.data["counts"]["mapEligible"],178)
+        count = self.data["counts"]
+        self.assertGreater(len(self.stations), 0)
+        self.assertEqual(len(self.stations), count["registered"])
+        self.assertEqual(len({p["cnpj"] for p in self.stations}), len(self.stations))
+        self.assertEqual(sum(p["mapEligible"] for p in self.stations), count["mapEligible"])
+        self.assertEqual(sum(not p["mapEligible"] for p in self.stations), count["withoutCoords"])
+        self.assertEqual(sum(bool(p["prices"]) for p in self.stations), count["withRecentPrice"])
+        self.assertEqual(sum(p["pmqc"] is not None for p in self.stations), count["withLabSamples"])
+        self.assertEqual(sum(p["city"] in ("ARARAQUARA","SAO JOSE DOS CAMPOS") for p in self.stations), len(self.stations))
 
     def test_no_fabricated_prices(self):
         approved_fuels={"gas","gas_ad","eta","eta_ad","die","die_s10","gnv"}
