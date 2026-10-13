@@ -1,5 +1,8 @@
 # Fuel Pro 2.0 Beta (homologação)
 
+**Beta 3, busca local e data das coordenadas (13/10/2026):**
+https://nano-mirage-jub3t6m.shipstatic.com
+
 **Beta 2 atualizada em 13/10/2026:**
 https://drifting-echo-63b85wz.shipstatic.com
 
