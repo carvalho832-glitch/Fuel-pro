@@ -111,6 +111,24 @@ def build_snapshot(catalog, status, pmqc, now=None):
         # Never represent older prices as an up-to-date observation.
         has_price = bool(prices)
         candidate_lab = public_pmqc(pmqc.get(cnpj))
+        geo_crosscheck = audit.get("pmqcCrosscheck")
+        if geo_crosscheck is not None:
+            if (not isinstance(geo_crosscheck, dict)
+                    or geo_crosscheck.get("manualReviewApproved") is not False
+                    or geo_crosscheck.get("status") not in (
+                        "anp_sources_nearby_unverified",
+                        "anp_sources_diverge",
+                        "pmqc_without_coordinates",
+                        "registry_without_coordinates")):
+                raise ValueError("Cruzamento geográfico PMQC não confiável")
+            public_crosscheck = {
+                "status": geo_crosscheck["status"],
+                "distanceMeters": geo_crosscheck.get("distanceMeters"),
+                "comparedAt": geo_crosscheck.get("comparedAt"),
+                "manualReviewApproved": False,
+            }
+        else:
+            public_crosscheck = None
         entry = {
             "cnpj": cnpj, "name": str(p.get("name") or "Posto cadastrado na ANP"),
             "address": str(p.get("address") or ""),
@@ -124,6 +142,7 @@ def build_snapshot(catalog, status, pmqc, now=None):
                 "manualReviewApproved": False,
                 "priority": audit.get("priority") if audit.get("priority") in ("high", "medium", "normal") else "normal",
                 "reasons": audit.get("reasons") if isinstance(audit.get("reasons"), list) else [],
+                "pmqcCrosscheck": public_crosscheck,
             },
             "priceStatus": "historical_observation" if has_price else "not_available",
             "source": PRICE_SOURCE if has_price else None,
