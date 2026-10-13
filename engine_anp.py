@@ -19,6 +19,7 @@ from import_anp import (
     latest_anp_file, parse_rows, has_city_coordinate,
 )
 from anp_history import fetch_history
+from fuel_confidence import evidence_profile, build_station_catalog
 
 API_URL = "https://revendedoresapi.anp.gov.br/v1/combustivel"
 REGISTRY_CITIES = ("ARARAQUARA", "SAO JOSE DOS CAMPOS")
@@ -218,6 +219,12 @@ def build(prices_binary, registry, counts, previous_history=None, now=None,
     current_mapped, issues = join_prices(stations, registry, now=now)
     eligible = recent_stations_from_history(history, registry, now=now)
     mapped, historic_issues = join_prices(eligible, registry, now=now)
+    for post in mapped:
+        post["fuelScore"] = evidence_profile(
+            {**post, "geoValidation": "VALIDADA" if post["locationValidated"] else "não validada"},
+            now=now
+        )
+    catalog = build_station_catalog(registry, mapped, now=now)
     status = {
         "generatedAt": now.isoformat(), "priceSource": ANP_WEEKLY_PAGE,
         "registrySource": API_URL, "priceSampling": "weekly",
@@ -234,6 +241,17 @@ def build(prices_binary, registry, counts, previous_history=None, now=None,
         "archiveMode": archive_mode,
         "lastObservedDate": max((x["collectedAt"] for x in latest), default=None),
         "historyObservations": len(history),
+        "catalogStations": len(catalog),
+        "catalogWithCoordinates": sum(post["mapEligible"] for post in catalog),
+        "catalogWithoutRecentPrices": sum(post["priceStatus"] == "not_available" for post in catalog),
+        "catalogByCity": {
+            city: {
+                "registered": sum(post["city"] == city for post in catalog),
+                "withCoordinates": sum(post["city"] == city and post["mapEligible"] for post in catalog),
+                "withRecentPrices": sum(post["city"] == city and post["priceStatus"] != "not_available" for post in catalog)
+            } for city in REGISTRY_CITIES
+        },
+        "qualityRatingsPublished": 0,
         "missingRegistry": len(issues["withoutRegistry"]),
         "missingCoordinates": len(issues["withoutCoordinates"]),
         "expiredObservations": issues["excludedStaleFuelObservations"],
@@ -282,6 +300,7 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
     atomic_json(out/"historico_anp.json", history)
     # No publish if there are zero verified prices. Keep staging explicit and reviewable.
     atomic_json(out/"dados_candidatos.json", mapped)
+    atomic_json(out/"catalogo_postos_anp.json", catalog)
     print(json.dumps(status, ensure_ascii=False, indent=2))
     return status
 
