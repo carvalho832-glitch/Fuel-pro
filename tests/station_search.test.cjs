@@ -10,7 +10,7 @@ const stations = [
 
 test('busca sem acento nem diferença de caixa',()=>{
   assert.equal(normalize('  SÃO   JOSÉ! '),'sao jose');
-  assert.deepEqual(searchStations(stations,'sao jose','SAO JOSE DOS CAMPOS').matches.map(x=>x.cnpj),['12345678000190']);
+  assert.deepEqual(searchStations(stations,'auto posto sao jose','SAO JOSE DOS CAMPOS').matches.map(x=>x.cnpj),['12345678000190']);
   assert.equal(searchStations(stations,'MAURICIO GALLI','ALL').matches[0].cnpj,'98765432000144');
 });
 test('busca bairro, bandeira e nome por palavras parciais',()=>{
