@@ -204,6 +204,9 @@ def run(args, session=None):
     stations = parse_rows(rows)
     if not stations:
         raise RuntimeError("Importação interrompida: nenhum posto válido de SJC/Araraquara na fonte.")
+    if getattr(args, "apenas_validar", False):
+        print(f"Fonte ANP validada: {len(stations)} postos identificados nas cidades piloto; nenhum dado publicado.")
+        return len(stations)
     cache_path = Path(args.cache)
     cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.exists() else {}
     mapped = []
@@ -239,6 +242,7 @@ def main():
     parser.add_argument("--max-geocode", type=int, default=15, help="Limite de novas buscas por execução")
     parser.add_argument("--cache", default="geocache.json")
     parser.add_argument("--output", default="dados.json")
+    parser.add_argument("--apenas-validar", action="store_true", help="Valida planilha ANP sem alterar dados")
     run(parser.parse_args())
 
 if __name__ == "__main__":
