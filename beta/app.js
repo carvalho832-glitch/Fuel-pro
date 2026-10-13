@@ -104,7 +104,7 @@ function updateSearchResults() {
     item.className='search-result';
     const name = makeTextElement('strong','result-name',station.name || 'Posto cadastrado na ANP');
     const location = makeTextElement('span','result-location',[
-      effectiveAddress(station), station.district, cityLabel
+      effectiveAddress(station), effectiveDistrict(station), cityLabel
     ].filter(Boolean).join(' · '));
     const indicator = makeTextElement('span','result-info',
       hasPoint ? '📍 Localização ANP provisória · CNPJ ' + station.cnpj
@@ -204,7 +204,7 @@ function showDetail(p) {
   const fuel = currentFuel(), price = observed(p,fuel);
   els['detail-name'].textContent = p.name || 'Posto cadastrado na ANP';
   els['detail-address'].textContent =
-    [effectiveAddress(p),p.district, p.city === 'ARARAQUARA'?'Araraquara · SP':'São José dos Campos · SP']
+    [effectiveAddress(p),effectiveDistrict(p), p.city === 'ARARAQUARA'?'Araraquara · SP':'São José dos Campos · SP']
       .filter(Boolean).join(' · ');
   els['detail-cnpj'].textContent = 'CNPJ: ' + p.cnpj + ' · cadastro consultado na ANP';
   els['detail-fuel'].textContent = FUELS[fuel];
@@ -279,6 +279,10 @@ function communityRecord(p) {
 function effectiveAddress(p) {
   try {return FuelProCommunity.displayAddress(p,window.localStorage);}
   catch(error){return p.address;}
+}
+function effectiveDistrict(p) {
+  const record=communityRecord(p);
+  return record&&record.kind==='correction'?null:p.district;
 }
 function routeForStation(p) {
   return FuelProCommunity.mapsUrl(p,window.localStorage);
