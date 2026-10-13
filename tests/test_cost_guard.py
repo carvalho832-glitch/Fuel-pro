@@ -6,11 +6,11 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 CHECK = ("app.js", "index.html", "style.css")
 BLOCKED = [
-    re.compile(r"maps\\.googleapis\\.com/maps/api/js", re.I),
-    re.compile(r"places\\.googleapis\\.com", re.I),
-    re.compile(r"api\\.mapbox\\.com", re.I),
-    re.compile(r"api\\.maptiler\\.com", re.I),
-    re.compile(r"api\\.tomtom\\.com", re.I),
+    re.compile(r"maps\.googleapis\.com/maps/api/js", re.I),
+    re.compile(r"places\.googleapis\.com", re.I),
+    re.compile(r"api\.mapbox\.com", re.I),
+    re.compile(r"api\.maptiler\.com", re.I),
+    re.compile(r"api\.tomtom\.com", re.I),
 ]
 
 class FreeMvpGuardTest(unittest.TestCase):
