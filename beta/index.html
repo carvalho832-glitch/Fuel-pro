@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="./style.css">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="./station_search.js"></script>
   <script defer src="./app.js"></script>
 </head>
 <body>
@@ -45,6 +46,17 @@
       <button id="mode-price" type="button">Com preço pesquisado</button>
     </div>
     <div class="summary" id="summary" aria-live="polite">Carregando cadastro ANP…</div>
+    <button id="search-toggle" class="search-toggle" type="button" aria-expanded="false" aria-controls="station-search-panel">🔎 Localizar posto pelo nome, bairro ou CNPJ</button>
+    <div id="station-search-panel" class="station-search-panel" hidden>
+      <div class="search-controls">
+        <label class="sr-only" for="station-query">Buscar posto no cadastro da ANP</label>
+        <input id="station-query" type="search" inputmode="search" autocomplete="off" maxlength="120" placeholder="Nome, bairro, bandeira ou CNPJ" aria-describedby="search-help">
+        <button type="button" id="search-clear" aria-label="Limpar busca">Limpar</button>
+      </div>
+      <div id="search-help" class="search-help">Pesquisa local nas duas cidades, inclusive postos sem coordenadas. Sem consulta ao Google.</div>
+      <div id="search-count" class="search-count" role="status" aria-live="polite">Digite pelo menos 2 caracteres.</div>
+      <div id="search-results" class="search-results" role="list"></div>
+    </div>
   </header>
   <button id="gps" type="button" class="gps" title="Centralizar na minha localização" aria-label="Centralizar na minha localização">⌖</button>
   <div class="legend" aria-label="Legenda dos marcadores">
@@ -55,6 +67,7 @@
     <div class="detail-top"><span class="eyebrow">Cadastro ANP • Teste</span><button id="close" aria-label="Fechar ficha do posto" type="button">✕</button></div>
     <h2 id="detail-name"></h2>
     <p id="detail-address"></p>
+    <p id="detail-cnpj" class="detail-cnpj"></p>
     <div class="detail-price">
       <div><small id="detail-fuel"></small><strong id="detail-value"></strong></div>
       <p id="detail-date"></p>
