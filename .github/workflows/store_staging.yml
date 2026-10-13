@@ -11,6 +11,7 @@ on:
       - geo_audit.py
       - fetch_pmqc.py
       - pmqc_quality.py
+      - address_crosscheck.py
       - .github/workflows/store_staging.yml
 
 permissions:
@@ -49,6 +50,9 @@ jobs:
           v = json.loads(Path("staging/dados_candidatos.json").read_text())
           catalog = json.loads(Path("staging/catalogo_postos_anp.json").read_text())
           review = json.loads(Path("staging/geo_revisao_pendente.json").read_text())
+          addresses = json.loads(Path("staging/geo_cruzamento_enderecos.json").read_text())
+          assert len(addresses) == s["addressCrosscheck"]["highPriorityCount"], "Comparação de endereços incompleta"
+          assert all(x["manualReviewApproved"] is False for x in addresses), "GPS deve permanecer não certificado"
           assert len(catalog) == s["catalogStations"], "Catálogo inconsistente"
           assert len(review) == s["geoReviewQueueLength"], "Fila de revisão inconsistente"
           assert s["geoAudit"]["manuallyApproved"] == 0, "Auditoria automática não valida postos em campo"
@@ -74,9 +78,10 @@ jobs:
           cp staging/catalogo_postos_anp.json data/catalogo_postos_anp.json
           cp staging/geo_revisao_pendente.json data/geo_revisao_pendente.json
           cp staging/pmqc_evidencias_anp.json data/pmqc_evidencias_anp.json
+          cp staging/geo_cruzamento_enderecos.json data/geo_cruzamento_enderecos.json
           git config user.name 'fuelpro-engine[bot]'
           git config user.email 'fuelpro-engine@users.noreply.github.com'
-          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json
+          git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json data/catalogo_postos_anp.json data/geo_revisao_pendente.json data/pmqc_evidencias_anp.json data/geo_cruzamento_enderecos.json
           git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
           git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
           if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
