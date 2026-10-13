@@ -78,8 +78,9 @@ function fullAddress(post,storage){
     .map(x=>clean(x,180)).filter(Boolean).join(', ');
 }
 function mapsUrl(post,storage){
+  // Never route to the city centre merely because a station address is absent.
+  address(displayAddress(post,storage));
   const destination=fullAddress(post,storage);
-  if(destination.length<12)throw new Error('O endereço não é completo para navegar.');
   return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(destination);
 }
 function reportText(post,record){
