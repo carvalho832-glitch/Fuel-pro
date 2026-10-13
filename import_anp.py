@@ -175,7 +175,7 @@ def geocode(station, cache, session):
     cnpj = station["cnpj"]
     if cnpj in cache:
         item = cache[cnpj]
-        if has_city_coordinate(station["city"], item["lat"], item["lng"]):
+        if item and has_city_coordinate(station["city"], item["lat"], item["lng"]):
             return item
         return None
     query = station["address"].replace(" - SP", ", São Paulo, Brasil")
