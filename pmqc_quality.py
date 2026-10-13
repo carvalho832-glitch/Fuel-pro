@@ -9,6 +9,7 @@ import csv
 from datetime import date, datetime, timezone
 import io
 import re
+from urllib.parse import urlparse
 
 from import_anp import norm
 
@@ -41,7 +42,12 @@ def parse_pmqc_csv(binary, registry, now=None, source_url=OFFICIAL_PMQC_URL):
     now = now or datetime.now(timezone.utc)
     if not isinstance(binary, bytes) or len(binary) > MAX_PMQC_BYTES or not binary:
         raise ValueError("CSV PMQC ausente ou fora do tamanho permitido")
-    if not source_url.startswith(OFFICIAL_PMQC_URL):
+    origin = urlparse(source_url)
+    official_dir = "/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/pmqc/"
+    raw_month = (origin.scheme == "https" and origin.netloc == "www.gov.br"
+                 and origin.path.startswith(official_dir)
+                 and re.search(r"/pmqc_20\d{2}_(?:0[1-9]|1[0-2])\.csv$", origin.path, re.I))
+    if source_url != OFFICIAL_PMQC_URL and not raw_month:
         raise ValueError("Fonte PMQC deve ser oficial e identificada")
     try:
         text = binary.decode("utf-8-sig")
