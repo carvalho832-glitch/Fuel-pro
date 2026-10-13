@@ -42,3 +42,29 @@ jobs:
         run: python -m pip install requests beautifulsoup4 openpyxl
       - name: Validar pesquisa semanal real ANP sem publicar preços
         run: python import_anp.py --mais-recente --apenas-validar
+
+
+  testar-motor-anp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    permissions:
+      contents: read
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar dependências
+        run: python -m pip install requests beautifulsoup4 openpyxl
+      - name: Cruzar API ANP de revendedores com pesquisa semanal (sem publicar)
+        run: python engine_anp.py --out-dir staging
+      - name: Guardar prévia privada para análise técnica
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuelpro-anp-staging
+          path: staging/
+          if-no-files-found: warn
+          retention-days: 7
