@@ -164,6 +164,8 @@ def latest_anp_file(session):
                 raise RuntimeError("URL de download não pertence ao site oficial ANP: " + url)
             file_response = session.get(url, timeout=90)
             file_response.raise_for_status()
+            print("ANP arquivo:", file_response.url, "| content-type:", file_response.headers.get("content-type"),
+                  "| bytes:", len(file_response.content), "| assinatura:", repr(file_response.content[:20]))
             return file_response.content
     raise RuntimeError("A planilha de preços por posto não foi encontrada na página oficial da ANP")
 
@@ -201,6 +203,12 @@ def run(args, session=None):
     else:
         binary = latest_anp_file(session)
     rows = xlsx_rows(binary) if binary[:2] == b"PK" else csv_rows(binary)
+    if getattr(args, "apenas_validar", False):
+        from itertools import chain, islice
+        sample = list(islice(rows, 3))
+        print("ANP amostra de colunas:", [list(s.keys()) for s in sample[:1]])
+        print("ANP amostra cidade/UF:", [(pick(s, "municipio"), pick(s, "uf"), pick(s, "product")) for s in sample])
+        rows = chain(sample, rows)
     stations = parse_rows(rows)
     if not stations:
         raise RuntimeError("Importação interrompida: nenhum posto válido de SJC/Araraquara na fonte.")
