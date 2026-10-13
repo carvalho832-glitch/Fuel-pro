@@ -59,4 +59,9 @@ jobs:
           git add data/historico_anp.json data/postos_anp_candidatos.json data/engine_status.json
           git diff --cached --quiet && echo 'Sem mudanças na base.' && exit 0
           git commit -m "data: atualizar coletas ANP em staging (sem publicação)"
-          git push origin HEAD:dev/fuelpro-confianca-anp
+          if ! git push origin HEAD:dev/fuelpro-confianca-anp; then
+            echo "Branch avançou: tentar rebase seguro, sem force push."
+            git fetch origin dev/fuelpro-confianca-anp
+            git rebase origin/dev/fuelpro-confianca-anp
+            git push origin HEAD:dev/fuelpro-confianca-anp
+          fi
