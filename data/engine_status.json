@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-10-13T01:47:31.983595+00:00",
+  "priceSource": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
+  "registrySource": "https://revendedoresapi.anp.gov.br/v1/combustivel",
+  "priceSampling": "weekly",
+  "cities": [
+    "ARARAQUARA",
+    "SAO JOSE DOS CAMPOS"
+  ],
+  "registryCounts": {
+    "ARARAQUARA": 63,
+    "SAO JOSE DOS CAMPOS": 131
+  },
+  "stationsWithPrices": 8,
+  "stationsWithCoordinatesAndPrices": 5,
+  "fuelObservationsInCurrentSurvey": 30,
+  "historyObservations": 30,
+  "missingRegistry": 1,
+  "missingCoordinates": 2,
+  "expiredObservations": 0,
+  "safeToPublish": true,
+  "note": "Preço ANP é amostral e coletado, não preço em tempo real. Coordenadas podem não estar validadas."
+}

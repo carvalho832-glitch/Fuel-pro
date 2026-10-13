@@ -1,0 +1,212 @@
+[
+  {
+    "cnpj": "10394030000183",
+    "fuel": "die_s10",
+    "price": 7.29,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "10394030000183",
+    "fuel": "eta",
+    "price": 4.09,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "10394030000183",
+    "fuel": "gas",
+    "price": 6.49,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "10394030000183",
+    "fuel": "gnv",
+    "price": 5.1,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "16923317000130",
+    "fuel": "die_s10",
+    "price": 7.59,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "16923317000130",
+    "fuel": "eta",
+    "price": 4.09,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "16923317000130",
+    "fuel": "gas",
+    "price": 6.49,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "16923317000130",
+    "fuel": "gas_ad",
+    "price": 6.79,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "17324326000177",
+    "fuel": "die",
+    "price": 6.99,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "17324326000177",
+    "fuel": "die_s10",
+    "price": 7.27,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "17324326000177",
+    "fuel": "eta",
+    "price": 3.17,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "17324326000177",
+    "fuel": "gas",
+    "price": 5.39,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "29017490000110",
+    "fuel": "eta",
+    "price": 3.17,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "29017490000110",
+    "fuel": "gas",
+    "price": 5.39,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "32995779000119",
+    "fuel": "die",
+    "price": 6.99,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "32995779000119",
+    "fuel": "die_s10",
+    "price": 7.27,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "32995779000119",
+    "fuel": "eta",
+    "price": 3.39,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "32995779000119",
+    "fuel": "gas",
+    "price": 5.87,
+    "collectedAt": "2026-10-05",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "11087247000103",
+    "fuel": "die_s10",
+    "price": 7.29,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "11087247000103",
+    "fuel": "eta",
+    "price": 4.09,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "11087247000103",
+    "fuel": "gas",
+    "price": 6.59,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "11087247000103",
+    "fuel": "gas_ad",
+    "price": 6.79,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "14119632000183",
+    "fuel": "die",
+    "price": 7.79,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "14119632000183",
+    "fuel": "die_s10",
+    "price": 7.79,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "14119632000183",
+    "fuel": "eta",
+    "price": 3.59,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "14119632000183",
+    "fuel": "gas",
+    "price": 6.39,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "25384281000154",
+    "fuel": "die_s10",
+    "price": 7.99,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "25384281000154",
+    "fuel": "eta",
+    "price": 4.19,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "25384281000154",
+    "fuel": "gas",
+    "price": 6.79,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  },
+  {
+    "cnpj": "25384281000154",
+    "fuel": "gas_ad",
+    "price": 6.99,
+    "collectedAt": "2026-10-06",
+    "source": "ANP - levantamento semanal"
+  }
+]

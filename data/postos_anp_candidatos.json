@@ -1,0 +1,132 @@
+[
+  {
+    "id": "10394030000183",
+    "cnpj": "10394030000183",
+    "name": "IGAS COMERCIO DE COMBUSTIVEIS LTDA",
+    "address": "AVENIDA AROEIRAS,  35, JARDIM AROEIRAS, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.8200275,
+    "lng": -48.174301,
+    "brand": "ALE",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "gnv": 5.1,
+      "gas": 6.49,
+      "die_s10": 7.29,
+      "eta": 4.09
+    },
+    "collectedAtByFuel": {
+      "gnv": "2026-10-05",
+      "gas": "2026-10-05",
+      "die_s10": "2026-10-05",
+      "eta": "2026-10-05"
+    }
+  },
+  {
+    "id": "11087247000103",
+    "cnpj": "11087247000103",
+    "name": "MAXGAS AUTO POSTO LTDA",
+    "address": "RUA ETTORE BERTI,  670, PARQUE RESIDENCIAL DAMHA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7590504,
+    "lng": -48.1994267,
+    "brand": "VIBRA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "gas": 6.59,
+      "gas_ad": 6.79,
+      "die_s10": 7.29,
+      "eta": 4.09
+    },
+    "collectedAtByFuel": {
+      "gas": "2026-10-06",
+      "gas_ad": "2026-10-06",
+      "die_s10": "2026-10-06",
+      "eta": "2026-10-06"
+    }
+  },
+  {
+    "id": "14119632000183",
+    "cnpj": "14119632000183",
+    "name": "AUTO POSTO ARENA 2 LTDA",
+    "address": "AVENIDA   BENTO DE ABREU,  280, CENTRO, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7776778,
+    "lng": -48.1773384,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "gas": 6.39,
+      "die": 7.79,
+      "die_s10": 7.79,
+      "eta": 3.59
+    },
+    "collectedAtByFuel": {
+      "gas": "2026-10-06",
+      "die": "2026-10-06",
+      "die_s10": "2026-10-06",
+      "eta": "2026-10-06"
+    }
+  },
+  {
+    "id": "17324326000177",
+    "cnpj": "17324326000177",
+    "name": "AUTO POSTO ATHENAS ARARAQUARA LTDA",
+    "address": "RUA DOS ELETRICITARIOS,  1061, JARDIM ARCO-IRIS, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.8157777,
+    "lng": -48.1461299,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "gas": 5.39,
+      "die": 6.99,
+      "die_s10": 7.27,
+      "eta": 3.17
+    },
+    "collectedAtByFuel": {
+      "gas": "2026-10-05",
+      "die": "2026-10-05",
+      "die_s10": "2026-10-05",
+      "eta": "2026-10-05"
+    }
+  },
+  {
+    "id": "32995779000119",
+    "cnpj": "32995779000119",
+    "name": "CONCORDIA POSTO DE COMBUSTIVEIS E LUBRIFICANTES LTDA",
+    "address": "AVENIDA LUIZ ALBERTO,  522, VILA VELOSA, Araraquara - SP",
+    "city": "ARARAQUARA",
+    "lat": -21.7683763,
+    "lng": -48.1651958,
+    "brand": "BANDEIRA BRANCA",
+    "source": "ANP - levantamento semanal",
+    "locationPrecision": "approximate",
+    "locationValidated": false,
+    "geoSource": "ANP - API Revendedores",
+    "prices": {
+      "gas": 5.87,
+      "die": 6.99,
+      "die_s10": 7.27,
+      "eta": 3.39
+    },
+    "collectedAtByFuel": {
+      "gas": "2026-10-05",
+      "die": "2026-10-05",
+      "die_s10": "2026-10-05",
+      "eta": "2026-10-05"
+    }
+  }
+]
