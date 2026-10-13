@@ -214,12 +214,17 @@ function showDetail(p) {
     'Sem coleta recente deste combustível para este CNPJ.';
   const audit = p.geoAudit || {};
   const flags = Array.isArray(audit.reasons) ? audit.reasons : [];
-  const geowarning = flags.includes('near_another_cnpj') ?
-    ' Há outro CNPJ com coordenadas próximas.' : '';
+  const warnings = [];
+  if (flags.includes('near_another_cnpj')) warnings.push('Outro CNPJ aparece muito próximo nesta base.');
+  if (flags.includes('geo_observation_old')) warnings.push('Coordenada cadastrada há mais de 2 anos.');
+  if (flags.includes('geo_date_unknown')) warnings.push('Data de obtenção da coordenada desconhecida.');
+  const recorded = typeof p.geoRecordedAt === 'string' && /^\d{2}\/\d{2}\/\d{4}$/.test(p.geoRecordedAt)
+    ? ' Registro de posição ANP em ' + p.geoRecordedAt + '.' : '';
   const hasPoint = p.mapEligible === true && safeCoordinate(p);
   els['detail-geo'].textContent = hasPoint ?
-    '📍 Coordenadas do cadastro ANP, ainda não validadas em campo. Rotas bloqueadas.' + geowarning :
-    '📍 Não há coordenadas utilizáveis para este posto. A localização não pode ser exibida no mapa. Rotas bloqueadas.';
+    '📍 Posição cadastral provisória, não validada em campo. Rotas bloqueadas.' +
+    recorded + (warnings.length ? ' ' + warnings.join(' ') : '') :
+    '📍 Sem coordenadas utilizáveis para este posto. A ficha existe no cadastro ANP, mas não há pin confiável nem rota.';
   const pmqc = p.pmqc;
   if (pmqc && pmqc.sampleCount > 0) {
     const affected = Number(pmqc.samplesWithNonconformity) || 0;
