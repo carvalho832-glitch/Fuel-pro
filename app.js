@@ -21,6 +21,15 @@ const safeCoords = p => Number.isFinite(Number(p.lat)) && Number.isFinite(Number
 function observedDate(p, fuel) {
   return (p.collectedAtByFuel && p.collectedAtByFuel[fuel]) || p.collectedAt || null;
 }
+function validObservation(p, fuel) {
+  const iso = observedDate(p, fuel);
+  if (!validPrice(p.prices && p.prices[fuel]) || typeof iso !== 'string' ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return false;
+  const stamp = Date.parse(iso + 'T12:00:00Z');
+  if (!Number.isFinite(stamp)) return false;
+  const ageMs = Date.now() - stamp;
+  return ageMs >= -86400000 && ageMs <= 30 * 86400000;
+}
 function dateInfo(iso) {
   if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return { label:'Data da coleta não informada', old:true };
   const date = new Date(iso + 'T12:00:00Z');
@@ -39,7 +48,7 @@ function showEmpty(message) {
 }
 function renderMarkers() {
   markersLayer.clearLayers();
-  const visible = postos.filter(p => validPrice(p.prices[currentFuel]) && safeCoords(p));
+  const visible = postos.filter(p => validObservation(p, currentFuel) && safeCoords(p));
   if (!visible.length) {
     showEmpty('Nenhum preço pesquisado e localizado para este combustível. Não mostramos estimativas como preços reais.');
     return;
@@ -88,8 +97,8 @@ async function carregarDados() {
     postos = raw.filter(p => p && typeof p.name === 'string'
       && p.name.length > 3 && p.name.length < 160 && p.name !== 'FILTROS'
       && p.prices && typeof p.prices === 'object'
-      && typeof p.source === 'string' && p.source.length > 2
-      && Object.keys(p.prices).some(k => validPrice(p.prices[k]))
+      && p.source === 'ANP - levantamento semanal'
+      && Object.keys(p.prices).some(k => validObservation(p, k))
       && safeCoords(p));
     renderMarkers();
     showStatus(postos.length ? postos.length + ' postos com localização e preços rastreáveis' :
@@ -129,7 +138,10 @@ map.on('locationfound', e => L.circleMarker(e.latlng, {radius:8,color:'#2563eb',
 map.on('locationerror', () => showStatus('Não foi possível acessar sua localização.'));
 function openRoute() {
   if (!selectedStation || !safeCoords(selectedStation)) return;
-  const dst = encodeURIComponent(selectedStation.lat + ',' + selectedStation.lng);
+  const destination = selectedStation.locationPrecision === 'approximate'
+    ? selectedStation.name + ', ' + selectedStation.address
+    : selectedStation.lat + ',' + selectedStation.lng;
+  const dst = encodeURIComponent(destination);
   window.open('https://www.google.com/maps/dir/?api=1&destination=' + dst, '_blank', 'noopener,noreferrer');
 }
 function showSourceInfo() {
