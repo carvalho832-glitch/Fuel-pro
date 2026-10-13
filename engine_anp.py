@@ -21,6 +21,7 @@ from import_anp import (
 from anp_history import fetch_history
 from fuel_confidence import evidence_profile, build_station_catalog
 from geo_audit import audit_catalog
+from pmqc_quality import parse_pmqc_csv
 
 API_URL = "https://revendedoresapi.anp.gov.br/v1/combustivel"
 REGISTRY_CITIES = ("ARARAQUARA", "SAO JOSE DOS CAMPOS")
@@ -273,7 +274,7 @@ def atomic_json(path, obj):
     tmp.replace(path)
 
 def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
-        session=None, history_weeks=0):
+        session=None, history_weeks=0, pmqc_file=None):
     session = session or requests.Session()
     session.headers.update({"User-Agent": UA})
     older, files, mode = [], [], "disabled"
@@ -300,12 +301,32 @@ def run(prices_file=None, registry_file=None, out_dir="staging", prev=None,
         archived_observations=older, archived_files=files, archive_mode=mode
     )
     out = Path(out_dir)
-    atomic_json(out/"status.json", status)
     atomic_json(out/"historico_anp.json", history)
     # No publish if there are zero verified prices. Keep staging explicit and reviewable.
     atomic_json(out/"dados_candidatos.json", mapped)
     catalog = build_station_catalog(registry, mapped)
     audited_catalog, geo_review_queue, geo_summary = audit_catalog(catalog)
+    pmqc_evidence = {}
+    if pmqc_file:
+        pmqc_evidence = parse_pmqc_csv(Path(pmqc_file).read_bytes(), registry)
+        for station in audited_catalog:
+            evidence = pmqc_evidence.get(station["cnpj"])
+            if evidence:
+                station["fuelScore"]["quality"] = {
+                    "status": "laboratory_samples_found",
+                    "rating": None,
+                    "laboratoryEvidence": evidence,
+                    "summary": "Ensaios laboratoriais amostrais da ANP; não garantem qualidade atual.",
+                }
+    status["pmqc"] = {
+        "source": "ANP - PMQC",
+        "imported": bool(pmqc_file),
+        "stationsWithSamples": len(pmqc_evidence),
+        "totalSamples": sum(item["sampleCount"] for item in pmqc_evidence.values()),
+        "ratingsPublished": 0,
+        "certifiesCurrentQuality": False
+    }
+    atomic_json(out/"status.json", status)
     atomic_json(out/"catalogo_postos_anp.json", audited_catalog)
     atomic_json(out/"geo_revisao_pendente.json", geo_review_queue)
     print(json.dumps(status, ensure_ascii=False, indent=2))
@@ -317,8 +338,9 @@ if __name__ == "__main__":
     parser.add_argument("--registry-file", help="JSON de cadastro ANP de teste (omitido: API oficial)")
     parser.add_argument("--out-dir", default="staging", help="Diretório isolado para revisão")
     parser.add_argument("--prev", help="Caminho opcional do histórico anterior")
+    parser.add_argument("--pmqc-file", help="CSV oficial PMQC, validado; opcional, não baixa automaticamente")
     parser.add_argument("--history-weeks", type=int, choices=range(0, 13), metavar="0-12",
                         default=0, help="Carrega semanas anteriores (até 12) para ampliar o histórico")
     args = parser.parse_args()
     run(args.prices_file, args.registry_file, args.out_dir, args.prev,
-        history_weeks=args.history_weeks)
+        history_weeks=args.history_weeks, pmqc_file=args.pmqc_file)
