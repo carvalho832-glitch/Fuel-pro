@@ -97,10 +97,16 @@ function render() {
   }
   const missingGeo = all.filter(p =>
     (city === 'ALL' || p.city === city) && !p.mapEligible).length;
+  const generated = status && status.generatedAt && status.generatedAt.slice(0,10);
+  const snapshotAge = priceAge(generated);
+  const snapshotLabel = generated ?
+    ' · base consultada em ' + friendlyDay(generated) : '';
+  const oldSnapshot = snapshotAge === null || snapshotAge > 14;
   els.summary.textContent =
     filtered.length + ' postos no mapa · ' + priced +
     ' com preço pesquisado de ' + FUELS[fuel].toLowerCase() +
-    ' · ' + missingGeo + ' sem coordenadas';
+    ' · ' + missingGeo + ' sem coordenadas' + snapshotLabel +
+    (oldSnapshot ? ' · ATENÇÃO: base precisa ser atualizada' : '');
 }
 function friendlyDay(iso) {
   const ts = readDate(iso);
@@ -189,6 +195,10 @@ async function boot() {
       p.fuelScoreOverall === null);
     status = data;
     if (!all.length) throw new Error('Sem postos com proveniência válida');
+    const ageDays = priceAge(data.generatedAt.slice(0,10));
+    if (ageDays === null || ageDays > 14) {
+      notify('Esta base de homologação está antiga. Preços de mais de 30 dias ficam ocultos.');
+    }
     chooseCity(currentCity());
   } catch(error) {
     console.error('Fuel Pro beta: dados inválidos',error);
