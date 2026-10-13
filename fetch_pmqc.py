@@ -6,6 +6,7 @@ GitHub Actions e nunca deve ser commitado no repositório.
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 import re
 from urllib.parse import urljoin, urlparse
@@ -89,8 +90,12 @@ def download_latest(output_path, session=None):
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(binary)
+    metadata = {"url": url, "bytes": len(binary), "mode": page_mode}
+    output.with_suffix(".source.json").write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     print("PMQC original da ANP:", url, "| bytes:", len(binary), "| modo:", page_mode)
-    return {"url": url, "bytes": len(binary), "mode": page_mode}
+    return metadata
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
