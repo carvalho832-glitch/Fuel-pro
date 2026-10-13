@@ -74,7 +74,10 @@ function displayAddress(post,storage){
   return feedback&&feedback.kind==='correction'?feedback.proposedAddress:post.address;
 }
 function fullAddress(post,storage){
-  return [displayAddress(post,storage),post.district,cityName(post.city),'SP','Brasil']
+  const entry=get(storage,post.cnpj);
+  // If a user edited the full address, the old ANP district may be incorrect.
+  const district=entry&&entry.kind==='correction'?null:post.district;
+  return [displayAddress(post,storage),district,cityName(post.city),'SP','Brasil']
     .map(x=>clean(x,180)).filter(Boolean).join(', ');
 }
 function mapsUrl(post,storage){
