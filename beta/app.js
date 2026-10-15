@@ -379,7 +379,7 @@ function showDetail(p) {
   els['detail-geo'].textContent = hasPoint ?
     '📍 Posição cadastral provisória, não validada em campo. A rota por endereço requer conferir o destino.' +
     recorded + (warnings.length ? ' ' + warnings.join(' ') : '') :
-    '📍 Sem coordenadas utilizáveis para este posto. A ficha existe no cadastro ANP, mas não há pin confiável nem rota.' +
+    '📍 Sem coordenadas utilizáveis para este posto. A ficha existe no cadastro ANP, mas não há pin; a rota só pode ser aberta pelo endereço escrito.' +
     (warnings.length ? ' ' + warnings.join(' ') : '');
   const pmqc = p.pmqc;
   if (pmqc && pmqc.sampleCount > 0) {
