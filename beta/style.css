@@ -145,3 +145,13 @@ select{width:100%;max-width:100%;min-width:0;border:1px solid #cde0d6;border-rad
  .station-highlights{gap:5px}
  .station-highlights span{font-size:10px;padding:7px 8px}
 }
+
+/* Fuel Pro 2.1: comparison controls without paid geolocation APIs. */
+.nearby-sort-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:center}
+.nearby-sort-controls>label{font-size:10px;font-weight:750;color:#3a6b4d;line-height:1.35}
+.nearby-sort-controls>label:first-child{display:flex;flex-direction:column;gap:4px}
+.nearby-sort-controls select{width:100%;min-width:0;padding:9px 7px;border:1px solid #b1d1be;
+  border-radius:9px;background:#fff;color:#174b3a;font-size:11px;font-family:inherit}
+.nearby-priced-check{display:flex;align-items:center;gap:7px;cursor:pointer}
+.nearby-priced-check input{accent-color:#18885a;width:17px;height:17px;flex-shrink:0}
+@media(max-width:370px){.nearby-sort-controls{grid-template-columns:1fr}}
