@@ -33,8 +33,10 @@ jobs:
           node --check beta/firebase_reports.js
           node --check beta/sw.js
           node --check admin/app.js
+          node --check admin/conflicts.js
+          node --check beta/community_public.js
       - name: Testar pesquisa local de postos
-        run: node --test tests/station_search.test.cjs tests/community_feedback.test.cjs tests/firebase_reports.test.cjs tests/admin_panel.test.cjs
+        run: node --test tests/station_search.test.cjs tests/community_feedback.test.cjs tests/firebase_reports.test.cjs tests/admin_panel.test.cjs tests/community_publication.test.cjs
       - name: Verificar JSON
         run: |
           python -m json.tool dados.json > /dev/null
