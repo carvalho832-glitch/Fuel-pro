@@ -67,7 +67,7 @@
     </div>
     <section id="nearby-panel" class="nearby-panel" hidden aria-label="Postos próximos da minha localização">
       <div class="nearby-heading">
-        <div><strong>📍 Postos perto de mim</strong><small>Localização usada só neste aparelho. Coordenadas ANP provisórias.</small></div>
+        <div><strong>📍 Postos perto de mim</strong><small>GPS não gravado no Firebase. Pins ANP provisórios.</small></div>
         <button id="nearby-close" type="button" aria-label="Fechar busca de postos próximos">✕</button>
       </div>
       <div class="nearby-filters">
@@ -84,7 +84,7 @@
       </div>
       <p id="nearby-status" class="nearby-status" role="status" aria-live="polite">Toque para permitir o GPS e encontrar postos próximos.</p>
       <div id="nearby-results" class="nearby-results" role="region" aria-label="Postos por distância aproximada"></div>
-      <p class="nearby-footnote">Distâncias em linha reta até pins provisórios, não representam distância por ruas ou tempo de viagem. Postos sem coordenadas continuam disponíveis na busca pelo nome.</p>
+      <p class="nearby-footnote">Distâncias em linha reta até pins provisórios, não representam trajetos por ruas. O GPS não é armazenado nem enviado ao Firebase; o mapa solicita imagens da região ao OpenStreetMap. Postos sem coordenadas continuam na busca pelo nome.</p>
     </section>
   </header>
   <button id="gps" type="button" class="gps" title="Localizar-me no mapa" aria-label="Localizar-me no mapa">⌖</button>
