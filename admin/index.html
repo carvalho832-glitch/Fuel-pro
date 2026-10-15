@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#11382c">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Fuel Pro Admin. Painel privado para moderação de relatos comunitários.">
+  <title>Fuel Pro Admin | Gestão de endereços</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="stylesheet" href="./style.css?v=1">
+  <script type="module" src="./app.js?v=1"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="branding"><span class="logo" aria-hidden="true">⛽</span><div>
+      <strong>Fuel Pro <span class="admin-tag">ADMIN</span></strong>
+      <span>Central de gestão · Ambiente separado</span>
+    </div></div>
+    <div class="account"><span id="account-email"></span><button id="logout" class="quiet" type="button" hidden>Sair</button></div>
+  </header>
+  <main>
+    <section id="login-view" class="center-panel" hidden>
+      <div class="intro-icon">🔐</div>
+      <p class="eyebrow">Acesso restrito</p>
+      <h1>Gestão Fuel Pro</h1>
+      <p>Analise endereços confirmados pelos motoristas, avalie sugestões e mantenha um histórico seguro das decisões. Este ambiente não aparece no aplicativo público.</p>
+      <button id="login-google" class="primary" type="button">Entrar com Google</button>
+      <p class="micro">Somente contas administrativas previamente autorizadas podem acessar os relatos. Entrar não concede permissão automaticamente.</p>
+    </section>
+    <section id="blocked-view" class="center-panel" hidden>
+      <div class="intro-icon">🛡️</div>
+      <p class="eyebrow">Conta identificada</p>
+      <h1>Aguardando autorização</h1>
+      <p>O Google reconheceu sua conta, mas ela ainda não tem permissão para gerenciar o Fuel Pro. Encaminhe o código abaixo somente ao responsável pela configuração.</p>
+      <div class="uid-box"><span id="pending-uid"></span><button id="copy-uid" class="quiet" type="button">Copiar código</button></div>
+      <button id="recheck-access" type="button" class="secondary">Verificar acesso novamente</button>
+      <p class="micro">A autorização é aplicada no Firebase por um administrador técnico. Não existe cadastro administrativo público.</p>
+    </section>
+    <section id="dashboard" class="dashboard" hidden>
+      <div class="page-intro">
+        <div><p class="eyebrow">Painel privado · Dados do Firestore</p>
+          <h1>Relatos de endereços</h1>
+          <p>Decida o que fazer com cada confirmação, preservando o cadastro original da ANP. Aprovar um relato <strong>não</strong> altera automaticamente as posições dos postos no mapa.</p>
+        </div>
+        <button id="refresh" class="secondary" type="button">↻ Atualizar</button>
+      </div>
+      <div class="stats" aria-label="Resumo">
+        <article class="metric"><span>Todos os relatos</span><strong id="count-all">0</strong></article>
+        <article class="metric"><span>Aguardando análise</span><strong id="count-pending">0</strong></article>
+        <article class="metric"><span>Aprovados</span><strong id="count-approved">0</strong></article>
+        <article class="metric"><span>Rejeitados</span><strong id="count-rejected">0</strong></article>
+      </div>
+      <div class="workspace">
+        <section class="inbox" aria-label="Relatos">
+          <div class="inbox-heading"><h2>Caixa de entrada</h2><span id="visible-count"></span></div>
+          <label class="sr-only" for="filter-status">Filtrar situação</label>
+          <div class="filters">
+            <select id="filter-status">
+              <option value="pending">Pendentes</option>
+              <option value="all">Todos</option>
+              <option value="approved">Aprovados</option>
+              <option value="rejected">Rejeitados</option>
+            </select>
+            <label class="sr-only" for="filter-text">Buscar posto, cidade ou CNPJ</label>
+            <input id="filter-text" type="search" maxlength="120" placeholder="Buscar posto, cidade ou CNPJ">
+          </div>
+          <div id="report-list" class="report-list" role="list" aria-label="Relatos encontrados"></div>
+        </section>
+        <section class="review" aria-label="Analisar relato">
+          <div id="empty-detail" class="empty-detail"><div class="empty-icon">📋</div><h2>Escolha um relato</h2><p>Selecione um registro na caixa de entrada para conferir os endereços e tomar uma decisão.</p></div>
+          <article id="report-detail" hidden>
+            <div class="detail-header"><div><p class="eyebrow">Verificação comunitária</p><h2 id="detail-title"></h2></div><span id="detail-badge" class="status-pill"></span></div>
+            <div class="metadata">
+              <div><span>CNPJ</span><strong id="detail-cnpj"></strong></div>
+              <div><span>Município</span><strong id="detail-city"></strong></div>
+              <div><span>Enviado em</span><strong id="detail-date"></strong></div>
+              <div><span>Tipo</span><strong id="detail-kind"></strong></div>
+            </div>
+            <div class="compare"><div class="original"><span class="field-name">Endereço do cadastro ANP</span><p id="detail-original"></p></div><div class="suggested"><span class="field-name">Endereço informado pelo motorista</span><p id="detail-proposed"></p></div></div>
+            <div class="note-view"><span class="field-name">Observação do motorista</span><p id="detail-notes"></p></div>
+            <div id="reviewed-info" class="reviewed-info" hidden></div>
+            <div id="decision-box" class="decision-box">
+              <label for="review-note">Justificativa da decisão <span class="muted">(obrigatória para rejeitar)</span></label>
+              <textarea id="review-note" maxlength="500" rows="3" placeholder="Ex.: endereço compatível com o relato recebido; aguardando verificação independente"></textarea>
+              <div class="action-row">
+                <button id="approve" class="primary" type="button">✓ Aprovar relato</button>
+                <button id="reject" class="danger" type="button">✕ Rejeitar relato</button>
+              </div>
+              <p class="micro">Uma decisão cria uma entrada de auditoria imutável no Firestore. Ela não altera automaticamente os preços, endereços oficiais ou coordenadas da ANP.</p>
+            </div>
+          </article>
+        </section>
+      </div>
+      <p class="footer-note">Fuel Pro Admin · Projeto Firebase fuelpro-app-832 · Acesso e permissões verificados pelo servidor</p>
+    </section>
+  </main>
+  <div id="alert" class="alert" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
