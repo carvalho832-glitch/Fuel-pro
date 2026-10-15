@@ -15,9 +15,11 @@ for(const id of ['login-view','blocked-view','dashboard','account-email','logout
   'detail-cnpj','detail-city','detail-date','detail-kind','detail-original',
   'detail-proposed','detail-notes','reviewed-info','decision-box',
   'review-note','approve','reject','alert','history-count','history-list',
-  'conflict-warning','conflict-description'])els[id]=document.getElementById(id);
+  'conflict-warning','conflict-description',
+  'publication-box','publication-status','publish-confirmation'])els[id]=document.getElementById(id);
 
 let auth=null,db=null,user=null,authorized=false,records=[],history=[],chosenId=null,busy=false;
+let publicationRequestId=0;
 function visible(id){for(const key of ['login-view','blocked-view','dashboard'])els[key].hidden=key!==id;}
 function say(message){
   els.alert.textContent=message;els.alert.hidden=false;
@@ -187,6 +189,87 @@ function showChosen(){
       (r.reviewNote?' · Observação: '+r.reviewNote:'');
   }
   els['review-note'].value='';
+  void updatePublicationState(r);
+}
+async function updatePublicationState(r){
+  const request=++publicationRequestId;
+  const panel=els['publication-box'];
+  const status=els['publication-status'];
+  const action=els['publish-confirmation'];
+  panel.hidden=true;
+  if(!r || r.status!=='approved')return;
+  panel.hidden=false;
+  const conflict=window.FuelProAdminConflict.conflictFor(records,r).conflict;
+  const eligible=r.kind==='confirmed' &&
+    window.FuelProAdminConflict.normalizeAddress(r.originalAddress)===
+    window.FuelProAdminConflict.normalizeAddress(r.proposedAddress);
+  action.disabled=true;
+  status.textContent='Verificando publicação anterior…';
+  try{
+    const snap=await getDoc(doc(db,'fuelpro_public_stations',r.cnpj));
+    if(request!==publicationRequestId || chosenId!==r.id)return;
+    if(snap.exists()){
+      status.textContent='✓ Já publicado para motoristas: '+(snap.data().address||'endereço confirmado')+'.';
+      action.textContent='✓ Publicado';
+      return;
+    }
+    if(conflict){
+      status.textContent='⚠️ Existem relatos conflitantes. Resolva as divergências antes de publicar.';
+    }else if(!eligible){
+      status.textContent='Este relato é uma correção ou não coincide com o cadastro ANP. Publicação bloqueada nesta etapa.';
+    }else{
+      status.textContent='Aprovado internamente. A confirmação ainda NÃO está publicada para motoristas.';
+      action.disabled=false;
+    }
+    action.textContent='Publicar confirmação revisada';
+  }catch(error){
+    if(request!==publicationRequestId)return;
+    console.error('Falha ao consultar publicação comunitária',error);
+    status.textContent='Não foi possível verificar se já existe publicação. Tente atualizar.';
+  }
+}
+async function publishConfirmation(){
+  if(!authorized||!user||busy)return;
+  const r=records.find(x=>x.id===chosenId);
+  if(!r||r.status!=='approved'||r.kind!=='confirmed' ||
+      window.FuelProAdminConflict.normalizeAddress(r.originalAddress)!==
+      window.FuelProAdminConflict.normalizeAddress(r.proposedAddress) ||
+      window.FuelProAdminConflict.conflictFor(records,r).conflict){
+    return say('Publicação bloqueada: é necessária confirmação aprovada, sem divergências.');
+  }
+  if(!window.confirm('PUBLICAR esta confirmação para motoristas?\n'+
+    r.stationName+'\n'+r.originalAddress+
+    '\nO endereço ANP e o GPS NÃO serão substituídos.'))return;
+  busy=true;
+  const button=els['publish-confirmation'];
+  button.disabled=true;
+  const status=els['publication-status'];
+  try{
+    const publicRef=doc(db,'fuelpro_public_stations',r.cnpj);
+    const current=await getDoc(publicRef);
+    if(current.exists())return say('Já existe uma publicação para este CNPJ.');
+    const stamp=serverTimestamp();
+    const batch=writeBatch(db);
+    batch.set(publicRef,{
+      cnpj:r.cnpj,city:r.city,stationName:r.stationName,
+      address:r.originalAddress,kind:'confirmed',
+      status:'community_confirmed',publishedAt:stamp
+    });
+    batch.set(doc(db,'fuelpro_publication_sources',r.cnpj),{
+      cnpj:r.cnpj,reportId:r.id,publishedBy:user.uid,publishedAt:stamp
+    });
+    await batch.commit();
+    status.textContent='✓ Publicado com fonte privada registrada no Firebase.';
+    button.textContent='✓ Publicado';
+    say('✓ Confirmação publicada para consulta comunitária. O cadastro ANP permanece intacto.');
+  }catch(err){
+    console.error('Falha ao publicar confirmação:',err);
+    status.textContent='Não foi possível publicar. Nada foi confirmado como público.';
+    say(err.code==='permission-denied'?'O Firebase recusou a publicação.':'Falha ao publicar. Tente novamente.');
+  }finally{
+    busy=false;
+    if(chosenId===r.id)void updatePublicationState(r);
+  }
 }
 async function decide(nextStatus){
   if(!authorized||!user||busy)return;
@@ -295,4 +378,5 @@ els['filter-status'].addEventListener('change',drawList);
 els['filter-text'].addEventListener('input',drawList);
 els.approve.addEventListener('click',()=>decide('approved'));
 els.reject.addEventListener('click',()=>decide('rejected'));
+els['publish-confirmation'].addEventListener('click',()=>{void publishConfirmation();});
 void start();
