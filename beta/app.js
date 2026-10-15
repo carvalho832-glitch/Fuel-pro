@@ -287,22 +287,90 @@ function effectiveDistrict(p) {
 function routeForStation(p) {
   return FuelProCommunity.mapsUrl(p,window.localStorage);
 }
-function updateCommunityState(post) {
+const RECEIPTS_KEY='fuelpro.firebase.confirmations.v1';
+function firebaseActive(){
+  return FuelProFirebase.isConfigured(window.FuelProFirebaseSettings);
+}
+function receiptFor(record){
+  if(!record)return null;
+  try{
+    const receipts=JSON.parse(window.localStorage.getItem(RECEIPTS_KEY)||'{}');
+    const entry=receipts[record.cnpj];
+    return entry && entry.localCreatedAt===record.createdAt ? entry : null;
+  }catch(error){return null;}
+}
+function saveReceipt(record,result){
+  try{
+    const receipts=JSON.parse(window.localStorage.getItem(RECEIPTS_KEY)||'{}');
+    receipts[record.cnpj]={
+      localCreatedAt:record.createdAt,reportId:result.reportId,
+      receivedAt:new Date().toISOString(),reviewStatus:'pending'
+    };
+    window.localStorage.setItem(RECEIPTS_KEY,JSON.stringify(receipts));
+    return true;
+  }catch(error){return false;}
+}
+function updateCommunityState(post){
   const feedback=communityRecord(post);
+  const receipt=receiptFor(feedback);
   els['community-form'].hidden=true;
   els['feedback-share-actions'].hidden=!feedback;
-  els['community-status'].textContent=feedback
-    ? feedback.kind==='confirmed'
-      ? '✓ Você confirmou este endereço neste navegador. Ainda não é validação oficial nem pública.'
-      : '✏️ Sua correção está guardada neste navegador: '+feedback.proposedAddress+'. Ainda não foi aceita no cadastro público.'
-    : 'Endereço exibido conforme a ANP. Ainda não há confirmação sua neste navegador.';
+  els['send-feedback'].textContent=firebaseActive()
+    ? 'Enviar pelo Fuel Pro' : 'Envio online em preparação';
+  els['send-feedback'].disabled=!firebaseActive();
+  els['community-status'].textContent=!feedback
+    ? 'Endereço cadastrado na ANP. Você ainda não fez confirmação neste navegador.'
+    : receipt
+      ? '✓ Recebido pelo Firebase. Aguardando revisão; o endereço oficial não foi alterado.'
+      : firebaseActive()
+        ? 'Relato salvo neste aparelho, ainda não enviado. Toque em Enviar pelo Fuel Pro.'
+        : 'Relato salvo somente neste aparelho. O recebimento Firebase ainda não foi ativado.';
 }
-function saveCommunityRecord(record) {
-  try {
+async function submitSavedFeedback(){
+  if(!selected)return;
+  const station=selected;
+  const feedback=communityRecord(station);
+  if(!feedback){notify('Confirme ou corrija o endereço antes de enviar.');return;}
+  if(!firebaseActive()){notify('O servidor Firebase ainda está em configuração. Seu registro permanece salvo no aparelho.');return;}
+  const button=els['send-feedback'];
+  button.disabled=true;
+  button.textContent='Enviando…';
+  els['community-status'].textContent='Enviando relato com identificação anônima…';
+  try{
+    const receipt=await FuelProFirebase.submit(feedback);
+    if(receipt && receipt.accepted===true){
+      const locallySaved=saveReceipt(feedback,receipt);
+      if(selected && selected.cnpj===station.cnpj){
+        updateCommunityState(station);
+        if(!locallySaved)els['community-status'].textContent=
+          '✓ Recebido pelo Firebase. Não foi possível guardar o comprovante neste navegador.';
+      }
+      notify('✓ Relato recebido pelo Fuel Pro. Aguardando revisão.');
+    }else{
+      throw new Error('O servidor não confirmou o recebimento.');
+    }
+  }catch(error){
+    if(selected && selected.cnpj===station.cnpj){
+      els['community-status'].textContent='Ainda não enviado. Relato preservado neste aparelho. Tente novamente quando houver conexão.';
+    }
+    notify('Não foi possível confirmar o envio: '+(error&&error.message?error.message:'tente novamente.'));
+  }finally{
+    if(selected && selected.cnpj===station.cnpj){
+      button.disabled=false;
+      button.textContent='Tentar envio pelo Fuel Pro';
+    }
+  }
+}
+function saveCommunityRecord(record){
+  try{
     FuelProCommunity.save(window.localStorage,record);
     showDetail(selected);
     if(!els['station-search-panel'].hidden)updateSearchResults();
-    notify('Relato salvo somente neste navegador. Compartilhe ou envie para revisão.');
+    if(firebaseActive()){
+      void submitSavedFeedback();
+    }else{
+      notify('Relato salvo neste aparelho. O envio pelo Firebase será ativado após configurar a base.');
+    }
   }catch(error){notify(error.message||'Não foi possível guardar o relato.');}
 }
 els['confirm-address'].addEventListener('click',()=>{
@@ -334,23 +402,17 @@ els['undo-feedback'].addEventListener('click',()=>{
   if(!selected)return;
   try{
     if(FuelProCommunity.remove(window.localStorage,selected.cnpj)){
+      try {
+        const receipts=JSON.parse(window.localStorage.getItem(RECEIPTS_KEY)||'{}');
+        delete receipts[selected.cnpj];
+        window.localStorage.setItem(RECEIPTS_KEY,JSON.stringify(receipts));
+      }catch(error){}
       showDetail(selected);
       notify('Registro local apagado. O endereço da ANP voltou a ser exibido.');
     }else notify('Não foi possível apagar o registro deste dispositivo.');
   }catch(error){notify('Não foi possível acessar os registros deste navegador.');}
 });
-els['send-feedback'].addEventListener('click',()=>{
-  if(!selected)return;
-  const item=communityRecord(selected);
-  if(!item)return notify('Confirme ou corrija o endereço antes de enviar.');
-  const url=FuelProCommunity.issueUrl(selected,item);
-  const link=document.createElement('a');
-  link.href=url;
-  link.target='_blank';
-  link.rel='noopener noreferrer';
-  link.click();
-  notify('Página do GitHub aberta. O relato só é enviado quando você finalizar a publicação lá.');
-});
+els['send-feedback'].addEventListener('click',()=>{void submitSavedFeedback();});
 els['share-feedback'].addEventListener('click',async()=>{
   if(!selected)return;
   const record=communityRecord(selected);
