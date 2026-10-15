@@ -86,3 +86,62 @@ select{width:100%;max-width:100%;min-width:0;border:1px solid #cde0d6;border-rad
   padding:12px 14px;margin:12px 0;font-size:12px;font-weight:700;color:#1c6443;
   line-height:1.55}
 .public-community-status[hidden]{display:none}
+
+
+/* Fuel Pro 2.1: device-only GPS, nearby stations and clearer ANP evidence. */
+.discovery-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+.discovery-actions .search-toggle{margin-top:0;text-align:center}
+.nearby-toggle{border:1px solid #b0d5c0;background:#e9f8ee;color:#13543c;border-radius:11px;
+  padding:8px 7px;font-weight:800;font-size:12px;cursor:pointer}
+.nearby-toggle[aria-expanded="true"]{background:#174b3a;color:#fff}
+.discovery-actions button:focus-visible,.nearby-panel button:focus-visible,.nearby-panel select:focus-visible{
+  outline:3px solid #27ad78;outline-offset:2px}
+.nearby-panel{position:absolute;top:calc(100% + 8px);left:0;right:0;
+  border-radius:16px;border:1px solid #c6dfce;background:#fffffff7;box-shadow:0 15px 40px #102f2650;
+  z-index:1120;max-height:min(65dvh,560px);padding:13px;
+  display:flex;flex-direction:column;gap:9px}
+.nearby-panel[hidden]{display:none}
+.nearby-heading{display:flex;justify-content:space-between;align-items:start;gap:9px}
+.nearby-heading strong{display:block;font-size:14px;color:#134734}
+.nearby-heading small{display:block;font-size:10px;color:#547568;line-height:1.5;margin-top:4px}
+.nearby-heading button{border:0;border-radius:9px;background:#edf5ee;padding:8px 11px;color:#325545}
+.nearby-filters{display:flex;align-items:end;gap:8px}
+.nearby-filters label{flex:1;font-weight:700;font-size:10px;color:#3a6b4d;display:flex;flex-direction:column;gap:3px}
+.nearby-filters select{padding:9px 12px;font-size:12px}
+.nearby-filters button{font-size:11px;font-weight:800;border:1px solid #b1d1be;background:#f4faf6;
+  color:#17543d;padding:11px;border-radius:10px;white-space:nowrap}
+.nearby-filters button:disabled,.gps:disabled{opacity:.5;cursor:wait}
+.nearby-status{margin:0;border-radius:10px;background:#e9f5ed;padding:10px 11px;
+  font-size:11px;line-height:1.5;color:#1a5b42;font-weight:700}
+.nearby-results{min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:7px;
+  overscroll-behavior:contain}
+.nearby-result{display:flex;flex-direction:column;gap:5px;padding:11px 12px;flex-shrink:0;
+  border:1px solid #d7e8df;border-radius:12px;background:#f9fcfa;text-align:left;
+  font-family:inherit;color:#1a3f31;cursor:pointer}
+.nearby-item-head{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.nearby-item-name{font-size:12px;line-height:1.3;overflow-wrap:anywhere}
+.nearby-km{white-space:nowrap;border:1px solid #b7ddc4;border-radius:8px;background:#e8f8ee;
+  font-size:11px;font-weight:800;color:#18613d;padding:5px 6px}
+.nearby-item-address{font-size:11px;color:#61786b;line-height:1.4}
+.nearby-item-price{font-size:11px;color:#0f7b4a;font-weight:750}
+.nearby-footnote{font-size:10px;line-height:1.5;color:#667c71;margin:0}
+.station-highlights{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0}
+.station-highlights span{display:inline-flex;align-items:center;gap:5px;border:1px solid #d1e5d7;
+  border-radius:10px;padding:8px 10px;background:#f5faf6;font-size:11px;color:#2e5f48;
+  font-weight:750;line-height:1.35}
+.station-highlights span.station-geo-flag{background:#fff6e7;border-color:#eed9b0;color:#836126}
+.station-highlights span.station-distance{background:#edf4ff;border-color:#cfdefb;color:#295998}
+.station-distance[hidden]{display:none}
+.technical-details{border:1px solid #dcebe0;border-radius:12px;background:#f8fbf8;margin:12px 0;
+  overflow:hidden}
+.technical-details summary{padding:13px 14px;color:#265642;font-weight:750;font-size:12px;cursor:pointer}
+.technical-details[open] summary{border-bottom:1px solid #dcebe0}
+.technical-details .facts{margin:8px 10px}
+.technical-details .facts p{background:#fff}
+@media(max-width:420px){
+ .discovery-actions{gap:6px;margin-top:7px}
+ .discovery-actions .search-toggle,.nearby-toggle{font-size:11px;padding:10px 7px}
+ .nearby-panel{max-height:60dvh;padding:10px}
+ .station-highlights{gap:5px}
+ .station-highlights span{font-size:10px;padding:7px 8px}
+}
