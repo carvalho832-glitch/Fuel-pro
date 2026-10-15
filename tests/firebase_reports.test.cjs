@@ -80,7 +80,7 @@ test('receipt keeps send button disabled after Firebase confirmation',()=>{
   assert.match(source,/✓ Recebido pelo Fuel Pro/);
   assert.match(source,/els\['send-feedback'\]\.disabled=delivered \|\| !firebaseActive\(\)/);
   assert.match(source,/if\(receiptFor\(feedback\)\)/);
-  assert.match(source,/if\(receiptFor\(communityRecord\(station\)\)\)/);
+  assert.match(source,/if\(acknowledgedByServer \|\| receiptFor\(communityRecord\(station\)\)\)/);
   assert.doesNotMatch(source,/button\.textContent='Tentar envio pelo Fuel Pro';/);
 });
 
