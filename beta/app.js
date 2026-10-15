@@ -489,6 +489,12 @@ async function boot() {
     notify('Não foi possível validar a base ANP. Nenhum posto foi exibido.');
   }
 }
+window.addEventListener('fuelpro-firebase-ready', () => {
+  if (selected) updateCommunityState(selected);
+});
+window.addEventListener('fuelpro-firebase-unavailable', () => {
+  if (selected) updateCommunityState(selected);
+});
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () =>
     navigator.serviceWorker.register('./sw.js').catch(error => console.warn(error))
