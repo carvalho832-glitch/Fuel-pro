@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // A document in fuelpro_admins/{uid} may only be added from the
+    // Firebase Console/Admin SDK, never by a browser.
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/fuelpro_admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/fuelpro_admins/$(request.auth.uid)).data.active == true;
+    }
+    function isAnonymous() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+    function ownerRecord() {
+      return request.auth != null && resource.data.ownerUid == request.auth.uid;
+    }
+    function validCity(city) {
+      return city in ['ARARAQUARA', 'SAO JOSE DOS CAMPOS'];
+    }
+    function validReport(data) {
+      return data.keys().hasAll([
+          'ownerUid', 'cnpj', 'city', 'kind', 'stationName',
+          'originalAddress', 'proposedAddress', 'notes',
+          'createdAt', 'updatedAt', 'status', 'schemaVersion'
+        ])
+        && data.keys().hasOnly([
+          'ownerUid', 'cnpj', 'city', 'kind', 'stationName',
+          'originalAddress', 'proposedAddress', 'notes',
+          'createdAt', 'updatedAt', 'status', 'schemaVersion'
+        ])
+        && data.ownerUid is string
+        && data.ownerUid == request.auth.uid
+        && data.cnpj is string && data.cnpj.matches('^[0-9]{14}$')
+        && validCity(data.city)
+        && data.kind in ['confirmed', 'correction']
+        && data.stationName is string && data.stationName.size() >= 2 && data.stationName.size() <= 130
+        && data.originalAddress is string && data.originalAddress.size() >= 7 && data.originalAddress.size() <= 180
+        && data.proposedAddress is string && data.proposedAddress.size() >= 7 && data.proposedAddress.size() <= 180
+        && data.notes is string && data.notes.size() <= 280
+        && data.status == 'pending'
+        && data.schemaVersion == 1;
+    }
+    match /fuelpro_reports/{reportId} {
+      // One record per anonymous account and CNPJ. Helps limit accidental
+      // duplicates, but is NOT a complete anti-spam measure.
+      allow create: if isAnonymous()
+        && reportId == request.auth.uid + '_' + request.resource.data.cnpj
+        && validReport(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      // A motorist can read only their own submission. Only admins may list.
+      allow get: if isAdmin() || ownerRecord();
+      allow list: if isAdmin();
+
+      // Corrections may be retried after 60s while unreviewed. No change to
+      // CNPJ, original ANP address, UID, creation timestamp, or review status.
+      allow update: if isAdmin()
+        || (isAnonymous() && ownerRecord()
+          && resource.data.status == 'pending'
+          && validReport(request.resource.data)
+          && request.resource.data.createdAt == resource.data.createdAt
+          && request.resource.data.updatedAt == request.time
+          && request.time > resource.data.updatedAt + duration.value(60, 's')
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['kind', 'proposedAddress', 'notes', 'updatedAt']));
+
+      allow delete: if isAdmin();
+    }
+    match /fuelpro_admins/{uid} {
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, create, update, delete: if false;
+    }
+    // Deny all other collections.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
