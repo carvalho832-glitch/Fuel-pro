@@ -19,3 +19,5 @@
 .publication-box p:not(.eyebrow){font-size:12px;line-height:1.65;color:#537261;margin:7px 0}
 .publication-box #publication-status{font-weight:700;color:#185741}
 .publication-box button{width:100%;margin-top:9px}
+
+.load-problem{background:#fff5e7;border:1px solid #edc98a;border-radius:11px;padding:12px 14px;color:#895b1b!important;font-weight:700;font-size:12px!important}
