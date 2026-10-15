@@ -121,3 +121,34 @@ Cuidado: a versão legada em `main` ainda possui o antigo workflow
 `.github/workflows/update.yml`, cujo scraper está com falhas conhecidas.
 Antes do lançamento novo, desabilitar/substituir o legado para evitar
 informações sem procedência. Não alterá-lo sem uma mudança planejada.
+
+## Fuel Pro 2.1 Beta: mapa, GPS e comparação (15/10/2026)
+
+A interface de homologação fica em `beta/`, separada da versão legada e do
+painel administrativo `admin/`. O mapa usa Leaflet/OpenStreetMap e as
+coordenadas do cadastro ANP permanecem **provisórias, sem conferência em campo**.
+
+- Ação **Perto de mim**: solicita permissão de GPS no navegador via HTTPS,
+  calcula distância **em linha reta** no aparelho e permite raio de 2 a 50 km.
+  A posição do motorista não é persistida no Firebase nem no localStorage.
+- O usuário pode ordenar a lista por **mais perto** ou **menor preço pesquisado**.
+  No segundo caso, postos sem preço válido aparecem ao final, sem preço fictício.
+- O filtro **Apenas com preço ANP recente** exibe somente valores com origem
+  e coleta válidas nos últimos 30 dias. A seleção de combustível recarrega a
+  comparação para não misturar gasolina, etanol e diesel.
+- A ficha informa bandeira, endereço, CNPJ, distância aproximada,
+  combustível/valor/data da pesquisa e limitações da coordenada, além de
+  rota pelo endereço e confirmação comunitária sujeita à moderação.
+- Não foram adicionadas APIs pagas, nem alterados Firebase, Admin ou importador ANP.
+
+Verificações do comparador (sem rede, sem GPS real):
+```bash
+node --check beta/app.js
+node --check beta/nearby_stations.js
+node tests/test_nearby_comparison.js
+```
+
+**Publicação:** estas alterações estão somente na branch experimental.
+Os testes de lógica não substituem homologação em Android/iPhone, conferência
+dos 13 pontos com preço da base de 13/10 e validação da integração Firebase.
+A versão pública não foi substituída automaticamente.
