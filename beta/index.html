@@ -15,6 +15,8 @@
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="./station_search.js"></script>
   <script defer src="./community_feedback.js"></script>
+  <script defer src="./firebase_config.js"></script>
+  <script defer src="./firebase_reports.js"></script>
   <script defer src="./app.js"></script>
 </head>
 <body>
@@ -101,11 +103,11 @@
         </div>
       </form>
       <div id="feedback-share-actions" class="community-share" hidden>
-        <button id="send-feedback" type="button">Enviar para revisão no GitHub</button>
+        <button id="send-feedback" type="button">Enviar pelo Fuel Pro</button>
         <button id="share-feedback" type="button">Compartilhar relato</button>
         <button id="undo-feedback" type="button">Apagar meu registro</button>
       </div>
-      <p class="community-foot">O registro fica neste navegador até ser compartilhado ou enviado. Para atualizar a base de todos será necessária revisão. A publicação no GitHub exige uma conta e será pública: não informe dados pessoais, telefone ou informações de terceiros.</p>
+      <p class="community-foot">Sem conta para motoristas. Se o Firebase estiver indisponível ou em preparação, a sugestão fica neste aparelho como pendente. Só aparecerá como recebida depois da confirmação do servidor. Não inclua dados pessoais ou de terceiros nas observações.</p>
     </section>
     <div class="detail-actions">
       <button id="source-info" type="button">Entenda os dados</button>
