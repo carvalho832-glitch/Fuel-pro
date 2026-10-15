@@ -53,8 +53,8 @@ test('server rules permit only explicit approved confirmations to be published',
   assert.match(rules,/request\.resource\.data\.status == 'community_confirmed'/);
   assert.match(rules,/request\.resource\.data\.kind == 'confirmed'/);
   assert.match(rules,/match \/fuelpro_publication_sources\/\{cnpj\}/);
-  assert.match(rules,/data\.status == 'approved'/);
-  assert.match(rules,/data\.originalAddress ==\s*get\(/);
+  assert.match(rules,/report\.status == 'approved'/);
+  assert.match(rules,/report\.originalAddress == report\.proposedAddress/);
   assert.match(rules,/allow update, delete: if false;/);
   assert.doesNotMatch(rules,/allow read, write: if true/);
 });
