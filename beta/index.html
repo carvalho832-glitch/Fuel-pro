@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#102f26">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="description" content="Fuel Pro Beta: postos cadastrados na ANP, preços observados e evidências com datas e ressalvas.">
+  <meta name="description" content="Fuel Pro 2.1: encontre postos próximos no mapa, consulte a ANP e confirme endereços com a comunidade.">
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="icon" type="image/svg+xml" href="./icon.svg">
   <link rel="manifest" href="./manifest.webmanifest">
-  <title>Fuel Pro Beta | Postos e preços ANP</title>
+  <title>Fuel Pro 2.1 Beta | Postos próximos e ANP</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="./style.css?v=20261015r3">
+  <link rel="stylesheet" href="./style.css?v=21">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="./station_search.js"></script>
+  <script defer src="./nearby_stations.js?v=21"></script>
   <script defer src="./community_feedback.js"></script>
   <script defer src="./firebase_config.js?v=20261015r2"></script>
   <script defer src="./firebase_reports.js"></script>
   <script defer src="./community_public.js?v=1"></script>
-  <script defer src="./app.js?v=20261015r3"></script>
+  <script defer src="./app.js?v=21"></script>
 </head>
 <body>
   <div id="map" role="region" aria-label="Mapa de postos de combustível"></div>
   <header class="toolbar">
-    <div class="brand"><span aria-hidden="true">⛽</span><div><strong>Fuel Pro <span class="beta-label">BETA</span></strong><small>Dados oficiais • testes internos</small></div></div>
+    <div class="brand"><span aria-hidden="true">⛽</span><div><strong>Fuel Pro <span class="beta-label">2.1 BETA</span></strong><small>Dados oficiais • testes internos</small></div></div>
     <div class="warning" role="note">📍 Endereços do cadastro ANP são nossa referência. Se houver divergência, confirme ou sugira uma correção. Pins ainda não conferidos em campo; preços são coletas históricas.</div>
     <div class="tools">
       <label class="control">Cidade
@@ -50,7 +51,10 @@
       <button id="mode-price" type="button">Com preço pesquisado</button>
     </div>
     <div class="summary" id="summary" aria-live="polite">Carregando cadastro ANP…</div>
-    <button id="search-toggle" class="search-toggle" type="button" aria-expanded="false" aria-controls="station-search-panel">🔎 Localizar posto pelo nome, bairro ou CNPJ</button>
+    <div class="discovery-actions">
+      <button id="search-toggle" class="search-toggle" type="button" aria-expanded="false" aria-controls="station-search-panel">🔎 Buscar posto</button>
+      <button id="nearby-toggle" class="nearby-toggle" type="button" aria-expanded="false" aria-controls="nearby-panel">📍 Perto de mim</button>
+    </div>
     <div id="station-search-panel" class="station-search-panel" hidden>
       <div class="search-controls">
         <label class="sr-only" for="station-query">Buscar posto no cadastro da ANP</label>
@@ -61,8 +65,29 @@
       <div id="search-count" class="search-count" role="status" aria-live="polite">Digite pelo menos 2 caracteres.</div>
       <div id="search-results" class="search-results" role="region" aria-label="Resultados da busca de postos"></div>
     </div>
+    <section id="nearby-panel" class="nearby-panel" hidden aria-label="Postos próximos da minha localização">
+      <div class="nearby-heading">
+        <div><strong>📍 Postos perto de mim</strong><small>Localização usada só neste aparelho. Coordenadas ANP provisórias.</small></div>
+        <button id="nearby-close" type="button" aria-label="Fechar busca de postos próximos">✕</button>
+      </div>
+      <div class="nearby-filters">
+        <label for="nearby-radius">Raio aproximado
+          <select id="nearby-radius">
+            <option value="2">2 km</option>
+            <option value="5">5 km</option>
+            <option value="10" selected>10 km</option>
+            <option value="20">20 km</option>
+            <option value="50">50 km</option>
+          </select>
+        </label>
+        <button id="nearby-retry" type="button">↻ Atualizar GPS</button>
+      </div>
+      <p id="nearby-status" class="nearby-status" role="status" aria-live="polite">Toque para permitir o GPS e encontrar postos próximos.</p>
+      <div id="nearby-results" class="nearby-results" role="region" aria-label="Postos por distância aproximada"></div>
+      <p class="nearby-footnote">Distâncias em linha reta até pins provisórios, não representam distância por ruas ou tempo de viagem. Postos sem coordenadas continuam disponíveis na busca pelo nome.</p>
+    </section>
   </header>
-  <button id="gps" type="button" class="gps" title="Centralizar na minha localização" aria-label="Centralizar na minha localização">⌖</button>
+  <button id="gps" type="button" class="gps" title="Localizar-me no mapa" aria-label="Localizar-me no mapa">⌖</button>
   <div class="legend" aria-label="Legenda dos marcadores">
     <span><i class="dot" aria-hidden="true"></i> Sem preço</span>
     <span><i class="price-swatch" aria-hidden="true"></i> Preço da coleta</span>
@@ -72,15 +97,22 @@
     <h2 id="detail-name"></h2>
     <p id="detail-address"></p>
     <p id="detail-cnpj" class="detail-cnpj"></p>
+    <div class="station-highlights" aria-label="Resumo do posto">
+      <span id="detail-brand" class="station-brand"></span>
+      <span id="detail-distance" class="station-distance" hidden></span>
+      <span class="station-geo-flag">📍 Posição ANP provisória</span>
+    </div>
     <div class="detail-price">
       <div><small id="detail-fuel"></small><strong id="detail-value"></strong></div>
       <p id="detail-date"></p>
     </div>
-    <div class="facts">
-      <p id="detail-geo"></p>
-      <p id="detail-lab"></p>
-      <p id="detail-brand"></p>
-    </div>
+    <details class="technical-details">
+      <summary>ℹ️ Fontes ANP, posição e análises do combustível</summary>
+      <div class="facts">
+        <p id="detail-geo"></p>
+        <p id="detail-lab"></p>
+      </div>
+    </details>
     <p id="public-community-status" class="public-community-status" hidden></p>
     <div class="detail-actions">
       <button id="directions" type="button">🧭 Abrir rota pelo endereço</button>
