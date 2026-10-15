@@ -4,7 +4,7 @@
   "private": true,
   "description": "Independent admin for Fuel Pro; no paid services",
   "scripts": {
-    "build": "esbuild app.js --bundle --platform=browser --format=esm --target=es2020 --minify --outfile=app.bundle.js",
+    "build": "esbuild app.js --bundle --platform=browser --format=iife --target=es2020 --minify --outfile=app.bundle.js",
     "check": "node --check app.js && node --check conflicts.js"
   },
   "dependencies": {
