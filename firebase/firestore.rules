@@ -54,11 +54,11 @@ service cloud.firestore {
       // Reading a missing own document is necessary before first create.
       // Other anonymous users cannot read another UID's report.
       allow get: if isAdmin()
-        || (isAnonymous() && reportId.matches('^' + request.auth.uid + '_[0-9]{14}
+        || (isAnonymous() && reportId.matches('^' + request.auth.uid + '_[0-9]{14}$'));
       allow list: if isAdmin();
 
-      // Corrections may be retried after 60s while unreviewed. No change to
-      // CNPJ, original ANP address, UID, creation timestamp, or review status.
+      // Each user may update only their pending report after 60 seconds.
+      // Admin review is an administrative action and cannot be impersonated.
       allow update: if isAdmin()
         || (isAnonymous() && ownerRecord()
           && resource.data.status == 'pending'
@@ -75,31 +75,6 @@ service cloud.firestore {
       allow get: if request.auth != null && request.auth.uid == uid;
       allow list, create, update, delete: if false;
     }
-    // Deny all other collections.
-    match /{document=**} { allow read, write: if false; }
-  }
-}));
-      allow list: if isAdmin();
-
-      // Corrections may be retried after 60s while unreviewed. No change to
-      // CNPJ, original ANP address, UID, creation timestamp, or review status.
-      allow update: if isAdmin()
-        || (isAnonymous() && ownerRecord()
-          && resource.data.status == 'pending'
-          && validReport(request.resource.data)
-          && request.resource.data.createdAt == resource.data.createdAt
-          && request.resource.data.updatedAt == request.time
-          && request.time > resource.data.updatedAt + duration.value(60, 's')
-          && request.resource.data.diff(resource.data).affectedKeys()
-               .hasOnly(['kind', 'proposedAddress', 'notes', 'updatedAt']));
-
-      allow delete: if isAdmin();
-    }
-    match /fuelpro_admins/{uid} {
-      allow get: if request.auth != null && request.auth.uid == uid;
-      allow list, create, update, delete: if false;
-    }
-    // Deny all other collections.
     match /{document=**} { allow read, write: if false; }
   }
 }
