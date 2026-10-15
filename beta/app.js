@@ -18,7 +18,7 @@ const els = Object.fromEntries([
   'search-toggle','station-search-panel','station-query','search-clear','search-count','search-results',
   'directions','confirm-address','suggest-address','community-form','community-status',
   'new-address','address-notes','cancel-suggestion','feedback-share-actions',
-  'send-feedback','share-feedback','undo-feedback'
+  'send-feedback','share-feedback','undo-feedback','public-community-status'
 ].map(id => [id, document.getElementById(id)]));
 
 let all = [];
@@ -236,7 +236,7 @@ function showDetail(p) {
     warnings.push('O cadastro de revendas não fornece coordenadas utilizáveis para comparar ao PMQC.');
   }
   els['detail-geo'].textContent = hasPoint ?
-    '📍 Posição cadastral provisória, não validada em campo. Rotas bloqueadas.' +
+    '📍 Posição cadastral provisória, não validada em campo. A rota por endereço requer conferir o destino.' +
     recorded + (warnings.length ? ' ' + warnings.join(' ') : '') :
     '📍 Sem coordenadas utilizáveis para este posto. A ficha existe no cadastro ANP, mas não há pin confiável nem rota.' +
     (warnings.length ? ' ' + warnings.join(' ') : '');
@@ -257,6 +257,7 @@ function showDetail(p) {
   els['detail-brand'].textContent = '🏷️ Bandeira cadastrada: ' + (p.brand || 'não informada');
   updateCommunityState(p);
   els.detail.hidden = false;
+  void updatePublishedStatus(p);
 }
 els.close.addEventListener('click',hideDetail);
 els['city-filter'].addEventListener('change', e => chooseCity(e.target.value));
@@ -272,6 +273,26 @@ function setMode(next) {
 
 /* Confirmações ficam no dispositivo; um relato só chega ao projeto
  * quando a pessoa finaliza o envio externo, sem token privado no PWA. */
+let publicStatusSerial=0;
+async function updatePublishedStatus(post){
+  const serial=++publicStatusSerial;
+  const label=els['public-community-status'];
+  label.hidden=true;
+  if(!window.FuelProPublic.settingsReady(window.FuelProFirebaseSettings))return;
+  try{
+    const result=await window.FuelProPublic.fetchPublicConfirmation(
+      post.cnpj,window.FuelProFirebaseSettings);
+    if(serial!==publicStatusSerial||selected?.cnpj!==post.cnpj||!result)return;
+    const date=result.publishedAt ?
+      new Date(result.publishedAt).toLocaleDateString('pt-BR',{timeZone:'America/Sao_Paulo'}):'';
+    label.textContent='✓ Endereço confirmado por motorista e publicado após revisão administrativa'+
+      (date?' em '+date:'')+
+      '. Não é validação oficial da ANP nem verificação do GPS.';
+    label.hidden=false;
+  }catch(error){
+    console.warn('Consulta de publicação comunitária indisponível:',error);
+  }
+}
 function communityRecord(p) {
   try {return FuelProCommunity.get(window.localStorage,p.cnpj);}
   catch(error){return null;}
@@ -516,7 +537,10 @@ async function boot() {
   }
 }
 window.addEventListener('fuelpro-firebase-ready', () => {
-  if (selected) updateCommunityState(selected);
+  if (selected) {
+    updateCommunityState(selected);
+    void updatePublishedStatus(selected);
+  }
 });
 window.addEventListener('fuelpro-firebase-unavailable', () => {
   if (selected) updateCommunityState(selected);
