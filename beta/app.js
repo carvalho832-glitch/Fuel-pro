@@ -18,7 +18,9 @@ const els = Object.fromEntries([
   'search-toggle','station-search-panel','station-query','search-clear','search-count','search-results',
   'directions','confirm-address','suggest-address','community-form','community-status',
   'new-address','address-notes','cancel-suggestion','feedback-share-actions',
-  'send-feedback','share-feedback','undo-feedback','public-community-status'
+  'send-feedback','share-feedback','undo-feedback','public-community-status',
+  'nearby-toggle','nearby-panel','nearby-close','nearby-retry','nearby-radius',
+  'nearby-status','nearby-results','detail-distance'
 ].map(id => [id, document.getElementById(id)]));
 
 let all = [];
@@ -26,6 +28,9 @@ let selected = null;
 let mode = 'all';
 let status = {};
 let locationMarker = null;
+let locationAccuracy = null;
+let userPosition = null; // Ephemeral GPS in memory only, never localStorage or Firebase.
+let locating = false;
 let searchUpdateTimer = null;
 const map = L.map('map', {zoomControl:false, preferCanvas:true}).setView(CENTERS['SAO JOSE DOS CAMPOS'], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -70,6 +75,7 @@ function stationCount(city) {
 function toggleSearchPanel(force) {
   const panel = els['station-search-panel'];
   const show = typeof force === 'boolean' ? force : panel.hidden;
+  if(show) closeNearbyPanel();
   panel.hidden = !show;
   els['search-toggle'].setAttribute('aria-expanded', String(show));
   if (show) {
@@ -130,6 +136,140 @@ function locateStationFromSearch(station) {
   showDetail(station);
   if (!hasPoint) notify('Este posto não possui coordenadas ANP utilizáveis; exibimos apenas a ficha cadastral.');
 }
+/* GPS and nearby stations: browser permission is requested only from
+ * a direct user interaction. Coordinates never leave device memory. */
+function closeNearbyPanel(){
+  const panel=els['nearby-panel'];
+  if(!panel)return;
+  panel.hidden=true;
+  els['nearby-toggle'].setAttribute('aria-expanded','false');
+}
+function showNearbyPanel(){
+  toggleSearchPanel(false);
+  els['nearby-panel'].hidden=false;
+  els['nearby-toggle'].setAttribute('aria-expanded','true');
+  if(userPosition){
+    updateNearbyResults();
+  } else {
+    els['nearby-status'].textContent='Solicitando permissão para usar o GPS neste aparelho…';
+    void requestGps();
+  }
+}
+function updateNearbyResults(){
+  const list=els['nearby-results'];
+  list.replaceChildren();
+  if(!userPosition){
+    els['nearby-status'].textContent='Ative o GPS para listar postos próximos. Sua posição não será enviada ao servidor.';
+    return;
+  }
+  const radius=Number(els['nearby-radius'].value);
+  const results=FuelProNearby.nearest(all,userPosition,{
+    city:currentCity(),radiusKm:radius,limit:15
+  });
+  els['nearby-status'].textContent=results.total
+    ? results.total+' posto(s) com coordenadas no raio de '+radius+
+      ' km · exibindo '+results.matches.length+' mais próximo(s).'
+    : 'Nenhum posto com coordenadas ANP encontrado em '+radius+
+      ' km. Amplie o raio ou selecione “Ambas” em Cidade.';
+  for(const {station,distanceKm} of results.matches){
+    const item=document.createElement('button');
+    item.type='button';
+    item.className='nearby-result';
+    const head=makeTextElement('span','nearby-item-head','');
+    const title=makeTextElement('strong','nearby-item-name',station.name||'Posto cadastrado');
+    const badge=makeTextElement('span','nearby-km',FuelProNearby.formatDistance(distanceKm));
+    head.append(title,badge);
+    const address=makeTextElement('span','nearby-item-address',
+      [effectiveAddress(station),effectiveDistrict(station)].filter(Boolean).join(' · '));
+    const recent=observed(station,currentFuel());
+    const price=makeTextElement('span','nearby-item-price',recent
+      ? formatMoney(recent.value)+' · coleta ANP '+friendlyDay(recent.iso)
+      : 'Preço atual não disponível');
+    item.append(head,address,price);
+    item.addEventListener('click',()=>{
+      closeNearbyPanel();
+      map.flyTo([station.lat,station.lng],15,{duration:.55});
+      showDetail(station);
+    });
+    list.append(item);
+  }
+}
+function renderUserPosition(coords){
+  if(locationMarker)map.removeLayer(locationMarker);
+  if(locationAccuracy)map.removeLayer(locationAccuracy);
+  const latlng=[coords.latitude,coords.longitude];
+  locationMarker=L.circleMarker(latlng,{
+    radius:9,color:'#fff',weight:3,fillColor:'#2375e0',fillOpacity:1,
+    bubblingMouseEvents:false
+  }).addTo(map);
+  locationMarker.bindTooltip('Sua posição (GPS do aparelho)');
+  if(Number.isFinite(coords.accuracy)&&coords.accuracy>0&&coords.accuracy<=3000){
+    locationAccuracy=L.circle(latlng,{
+      radius:coords.accuracy,color:'#2375e0',weight:1,
+      fillColor:'#478fef',fillOpacity:.10,bubblingMouseEvents:false
+    }).addTo(map);
+  }
+}
+function gpsErrorMessage(error){
+  if(error?.code===1)return 'Permissão de localização negada. Autorize o GPS nas configurações do navegador.';
+  if(error?.code===2)return 'Localização indisponível. Verifique se o GPS está ligado e tente novamente.';
+  if(error?.code===3)return 'O GPS demorou para responder. Tente novamente em um local com melhor sinal.';
+  return 'Não foi possível acessar a localização deste aparelho.';
+}
+function requestGps(){
+  if(locating)return Promise.resolve(false);
+  if(!window.isSecureContext||!navigator.geolocation){
+    const message='Localização requer HTTPS e um navegador com GPS habilitado.';
+    els['nearby-status'].textContent=message;notify(message);
+    return Promise.resolve(false);
+  }
+  locating=true;
+  els.gps.disabled=true;
+  els['nearby-retry'].disabled=true;
+  els['nearby-status'].textContent='Obtendo sua localização com permissão do navegador…';
+  return new Promise(resolve=>{
+    navigator.geolocation.getCurrentPosition(position=>{
+      locating=false;
+      els.gps.disabled=false;
+      els['nearby-retry'].disabled=false;
+      const coord={lat:position.coords.latitude,lng:position.coords.longitude};
+      if(!FuelProNearby.validPoint(coord)){
+        els['nearby-status'].textContent='Coordenadas de GPS inválidas. Tente novamente.';
+        resolve(false);return;
+      }
+      userPosition=coord;
+      const inferred=FuelProNearby.nearestCity(all,coord,30);
+      if(inferred && currentCity()!==inferred){
+        els['city-filter'].value=inferred;
+        chooseCity(inferred);
+      }
+      renderUserPosition(position.coords);
+      map.setView([coord.lat,coord.lng],14);
+      if(!els['nearby-panel'].hidden)updateNearbyResults();
+      const accuracy=Number.isFinite(position.coords.accuracy)
+        ? ' · precisão informada: '+Math.round(position.coords.accuracy)+' m':'';
+      notify('Localização obtida neste aparelho'+accuracy+'. Distâncias são estimativas em linha reta.');
+      if(selected)showDetail(selected);
+      resolve(true);
+    },error=>{
+      locating=false;
+      els.gps.disabled=false;
+      els['nearby-retry'].disabled=false;
+      const message=gpsErrorMessage(error);
+      els['nearby-status'].textContent=message;
+      notify(message);
+      resolve(false);
+    },{enableHighAccuracy:false,timeout:15000,maximumAge:120000});
+  });
+}
+els['nearby-toggle'].addEventListener('click',()=>{
+  if(els['nearby-panel'].hidden)showNearbyPanel();
+  else closeNearbyPanel();
+});
+els['nearby-close'].addEventListener('click',closeNearbyPanel);
+els['nearby-retry'].addEventListener('click',()=>{void requestGps();});
+els['nearby-radius'].addEventListener('change',updateNearbyResults);
+
 els['search-toggle'].addEventListener('click',()=>toggleSearchPanel());
 els['search-clear'].addEventListener('click',()=>{
   els['station-query'].value='';
@@ -157,6 +297,7 @@ function chooseCity(city) {
   } else map.setView(CENTERS[city] || CENTERS['SAO JOSE DOS CAMPOS'],12);
   render();
   if (!els['station-search-panel'].hidden) updateSearchResults();
+  if (!els['nearby-panel'].hidden) updateNearbyResults();
 }
 function render() {
   overlay.clearLayers();
@@ -254,7 +395,11 @@ function showDetail(p) {
   } else {
     els['detail-lab'].textContent = '🧪 Sem amostra PMQC associada a este CNPJ no arquivo mensal importado. Isso não indica aprovação nem reprovação.';
   }
-  els['detail-brand'].textContent = '🏷️ Bandeira cadastrada: ' + (p.brand || 'não informada');
+  els['detail-brand'].textContent = '🏷️ ' + (p.brand || 'Bandeira não informada');
+  const km = userPosition && hasPoint ? FuelProNearby.distanceKm(userPosition,p) : null;
+  els['detail-distance'].hidden = km === null;
+  els['detail-distance'].textContent = km === null ? '' :
+    '📏 ' + FuelProNearby.formatDistance(km) + ' em linha reta';
   updateCommunityState(p);
   els.detail.hidden = false;
   void updatePublishedStatus(p);
@@ -503,13 +648,7 @@ els['copy-address'].addEventListener('click',async()=>{
 });
 els['source-info'].addEventListener('click', () =>
   notify('Preços: pesquisa semanal ANP. Posição: cadastro ANP não validado. PMQC: ensaios amostrais de setembro/2026. Nenhuma nota de qualidade foi calculada.'));
-els.gps.addEventListener('click',() => map.locate({setView:true,maxZoom:14,enableHighAccuracy:true}));
-map.on('locationfound', e => {
-  if (locationMarker) map.removeLayer(locationMarker);
-  locationMarker = L.circleMarker(e.latlng,{radius:8,color:'#2563eb',fillColor:'#3b82f6',fillOpacity:.45})
-    .addTo(map);
-});
-map.on('locationerror',()=>notify('Não foi possível determinar sua localização.'));
+els.gps.addEventListener('click',()=>{void requestGps();});
 map.on('click',hideDetail);
 async function boot() {
   try {
