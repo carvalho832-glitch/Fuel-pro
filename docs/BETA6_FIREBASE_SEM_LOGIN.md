@@ -72,17 +72,31 @@ Não usar os Firestores existentes de ContaComigo ou Ponto Pessoal.
     falha de conexão, bloqueio de outro usuário e moderação.
 11. Publicar nova Beta em endereço **separado** do PWA anterior.
 
-### Estado atual
+### Estado atual: conectado (15/10/2026)
 
-**Implementação em GitHub, não conectada a um projeto Firebase real.**
-`beta/firebase_config.js` tem `enabled:false` para que
-nenhuma gravação desprotegida aconteça por acidente.
+- Projeto dedicado `fuelpro-app-832` criado e verificado.
+- **Faturamento desativado** (`billingEnabled:false`), sem cartão associado.
+- Firestore Standard `(default)` criado na região `southamerica-east1`
+  (São Paulo), com proteção contra exclusão.
+- Authentication com provedor `anonymous` habilitado.
+- Regras `firebase/firestore.rules` corrigidas, compiladas e publicadas
+  com êxito no Firestore; publicadas somente no projeto Fuel Pro.
+- App Web registrado e Beta publicada no Firebase Hosting gratuito:
+  **https://fuelpro-app-832.web.app/**
+- `beta/firebase_config.js` usa a URL reservada
+  `/__/firebase/init.json` do Hosting para carregar a configuração
+  pública automaticamente, sem copiar chaves para o GitHub.
+- Teste real em 15/10/2026: autenticação anônima HTTP **200**,
+  criação de documento Firestore **200**, leitura do próprio relato **200**
+  e leitura do mesmo documento por outra conta anônima **403**.
+- Registro de teste foi apagado após a verificação.
+- Testes de código GitHub Actions: **aprovados**.
+- **Pendente:** confirmação do fluxo visual pelo usuário no Android,
+  testes de spam/App Check e painel de moderação administrativa.
 
-Não foi criado projeto pago, cobrado serviço ou ativado
-Cloud Functions. Sem habilitar e testar o projeto no console,
-o envio permanece local, com aviso honesto de pendência.
-O aplicativo já lançado anteriormente continua funcionando
-normalmente.
+A Beta anterior no ShipStatic não foi substituída. O fluxo de envio
+direto ao Firestore só é habilitado automaticamente no domínio Firebase
+do projeto correto. Outros endereços continuam com rascunho local.
 
 ## Alertas e limites
 
