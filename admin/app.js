@@ -1,9 +1,9 @@
 /* Fuel Pro Admin. Standalone site. Server-enforced Google admin whitelist.
  * No admin secrets in the browser, no public post edits.
  */
-import {initializeApp} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js';
-import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js';
-import {getFirestore,doc,getDoc,collection,query,orderBy,limit,getDocs,writeBatch,serverTimestamp} from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js';
+import {initializeApp} from 'firebase/app';
+import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged} from 'firebase/auth';
+import {getFirestore,doc,getDoc,collection,query,orderBy,limit,getDocs,writeBatch,serverTimestamp} from 'firebase/firestore';
 
 const EXPECTED_PROJECT='fuelpro-app-832';
 const HOSTS=['fuelpro-admin-832.web.app','fuelpro-admin-832.firebaseapp.com'];
@@ -331,6 +331,7 @@ async function signIn(){
   }finally{els['login-google'].disabled=false;}
 }
 async function start(){
+  window.__fuelproAdminStarted=true;
   visible('login-view');
   if(!HOSTS.includes(location.hostname)){
     els['login-google'].disabled=true;
@@ -346,6 +347,7 @@ async function start(){
     }
     const app=initializeApp(cfg,'fuelpro-admin');
     auth=getAuth(app);db=getFirestore(app);
+    els['login-google'].disabled=false;
     onAuthStateChanged(auth,async u=>{
       els['account-email'].textContent=u?.email||'';
       els.logout.hidden=!u;
