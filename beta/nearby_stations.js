@@ -24,10 +24,14 @@ function nearest(stations,position,options){
   const radius=opt.radiusKm===undefined?10:Number(opt.radiusKm);
   const city=opt.city||'ALL';
   const limit=Number.isInteger(opt.limit)?Math.max(1,Math.min(30,opt.limit)):12;
+  const sortBy=opt.sortBy==='price'?'price':'distance';
+  const onlyPriced=opt.onlyPriced===true;
+  // Prices are supplied by the caller only after checking ANP source/date.
+  const priceOf=typeof opt.priceOf==='function'?opt.priceOf:null;
   if(!validPoint(position)||!Array.isArray(stations)||!Number.isFinite(radius)||radius<=0||radius>200)
-    return {matches:[],total:0,withoutCoords:0};
+    return {matches:[],total:0,withoutCoords:0,withPrice:0};
   const distances=[];
-  let missing=0;
+  let missing=0,withPrice=0;
   for(const station of stations){
     if(!station || !/^\d{14}$/.test(station.cnpj||''))continue;
     if(city!=='ALL' && station.city!==city)continue;
@@ -35,12 +39,27 @@ function nearest(stations,position,options){
       missing++;continue;
     }
     const distance=distanceKm(position,station);
-    if(distance!==null && distance<=radius)
-      distances.push({station,distanceKm:distance});
+    if(distance===null || distance>radius)continue;
+    const rawPrice=priceOf?priceOf(station):null;
+    const price=typeof rawPrice==='number' && Number.isFinite(rawPrice) &&
+      rawPrice>0.5 && rawPrice<30 ? rawPrice : null;
+    if(price!==null)withPrice++;
+    if(onlyPriced && price===null)continue;
+    distances.push({station,distanceKm:distance,price});
   }
-  distances.sort((a,b)=>a.distanceKm-b.distanceKm ||
-    a.station.cnpj.localeCompare(b.station.cnpj));
-  return {matches:distances.slice(0,limit),total:distances.length,withoutCoords:missing};
+  distances.sort((a,b)=>{
+    if(sortBy==='price'){
+      // Unpriced stations remain visible, but never outrank a documented price.
+      if(a.price===null && b.price!==null)return 1;
+      if(b.price===null && a.price!==null)return -1;
+      if(a.price!==null && b.price!==null && a.price!==b.price)
+        return a.price-b.price;
+    }
+    return a.distanceKm-b.distanceKm ||
+      a.station.cnpj.localeCompare(b.station.cnpj);
+  });
+  return {matches:distances.slice(0,limit),total:distances.length,
+    withoutCoords:missing,withPrice};
 }
 function nearestCity(stations,position,maxDistanceKm=30){
   const result=nearest(stations,position,{radiusKm:maxDistanceKm,limit:1});
