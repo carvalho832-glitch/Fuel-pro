@@ -14,9 +14,10 @@ for(const id of ['login-view','blocked-view','dashboard','account-email','logout
   'report-list','empty-detail','report-detail','detail-title','detail-badge',
   'detail-cnpj','detail-city','detail-date','detail-kind','detail-original',
   'detail-proposed','detail-notes','reviewed-info','decision-box',
-  'review-note','approve','reject','alert'])els[id]=document.getElementById(id);
+  'review-note','approve','reject','alert','history-count','history-list',
+  'conflict-warning','conflict-description'])els[id]=document.getElementById(id);
 
-let auth=null,db=null,user=null,authorized=false,records=[],chosenId=null,busy=false;
+let auth=null,db=null,user=null,authorized=false,records=[],history=[],chosenId=null,busy=false;
 function visible(id){for(const key of ['login-view','blocked-view','dashboard'])els[key].hidden=key!==id;}
 function say(message){
   els.alert.textContent=message;els.alert.hidden=false;
@@ -52,7 +53,7 @@ function isCurrentAdmin(u){
   return u && u.providerData.some(p=>p.providerId==='google.com');
 }
 function resetData(){
-  authorized=false;records=[];chosenId=null;user=null;
+  authorized=false;records=[];history=[];chosenId=null;user=null;
   els['report-list'].replaceChildren();
   els['report-detail'].hidden=true;
   els['empty-detail'].hidden=false;
@@ -81,10 +82,42 @@ async function loadReports(){
     records=snap.docs.map(d=>({id:d.id,...d.data()}));
     if(chosenId&&!records.some(x=>x.id===chosenId))chosenId=null;
     updateStats();drawList();showChosen();
+    await loadHistory();
   }catch(err){
     console.error('Não foi possível carregar relatórios:',err);
     say(err.code==='permission-denied'?'Acesso não autorizado pelo Firebase.':'Erro ao carregar relatos. Confira a conexão.');
   }finally{els.refresh.disabled=false;}
+}
+async function loadHistory(){
+  if(!authorized || !user)return;
+  try{
+    const snap=await getDocs(query(collection(db,'fuelpro_review_logs'),
+      orderBy('reviewedAt','desc'),limit(80)));
+    history=snap.docs.map(d=>({id:d.id,...d.data()}));
+    drawHistory();
+  }catch(err){
+    console.error('Falha ao carregar histórico administrativo:',err);
+    els['history-list'].replaceChildren(dom('p','','Não foi possível consultar a auditoria.'));
+  }
+}
+function drawHistory(){
+  const list=els['history-list'];
+  list.replaceChildren();
+  els['history-count'].textContent=history.length+' decisões carregadas';
+  if(!history.length){
+    list.append(dom('p','', 'Ainda não há decisões registradas.'));
+    return;
+  }
+  for(const entry of history){
+    const card=dom('article','history-entry');
+    const pill=dom('span','small-pill '+safeStatus(entry.status),statusName(entry.status));
+    card.append(pill);
+    const report=records.find(r=>r.id===entry.reportId);
+    card.append(dom('strong','',report?.stationName||'CNPJ '+maskedCnpj(entry.cnpj)));
+    card.append(dom('p','audit-meta','Decidido em '+displayDate(entry.reviewedAt)));
+    card.append(dom('p','',entry.reviewNote||'Sem justificativa adicional.'));
+    list.append(card);
+  }
 }
 function updateStats(){
   els['count-all'].textContent=records.length;
@@ -113,6 +146,9 @@ function drawList(){
     foot.append(dom('span','',r.kind==='confirmed'?'✓ Confirmação':'✏️ Correção'));
     foot.append(dom('span','',displayDate(r.createdAt)));
     button.append(foot);
+    if(window.FuelProAdminConflict.conflictFor(records,r).conflict){
+      button.append(dom('span','small-pill pending','⚠️ Divergência em outros relatos'));
+    }
     button.addEventListener('click',()=>{chosenId=r.id;drawList();showChosen();});
     list.append(button);
   }
@@ -136,6 +172,12 @@ function showChosen(){
   els['detail-original'].textContent=r.originalAddress||'Não informado';
   els['detail-proposed'].textContent=r.proposedAddress||'Não informado';
   els['detail-notes'].textContent=r.notes||'Nenhuma observação adicional.';
+  const check=window.FuelProAdminConflict.conflictFor(records,r);
+  els['conflict-warning'].hidden=!check.conflict;
+  els['conflict-description'].textContent=check.conflict ?
+    check.others+' outro(s) relato(s) diverge(m) deste endereço. '+
+    'Endereços distintos registrados: '+check.distinct.map(x=>x.address+' ('+x.count+')').join('; ')+
+    '. Compare manualmente antes de aprovar e publicar informações comunitárias.' : '';
   const decided=r.status!=='pending';
   els['decision-box'].hidden=decided;
   els['reviewed-info'].hidden=!decided;
@@ -189,6 +231,7 @@ async function loadReportsAfterDecision(){
     orderBy('createdAt','desc'),limit(150)));
   records=snap.docs.map(d=>({id:d.id,...d.data()}));
   updateStats();drawList();showChosen();
+  await loadHistory();
 }
 async function signIn(){
   if(!auth)return;
