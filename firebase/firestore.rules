@@ -58,8 +58,8 @@ service cloud.firestore {
         || (isAnonymous() && reportId.matches('^' + request.auth.uid + '_[0-9]{14}$'));
       allow list: if isAdmin();
 
-      // Anonymous sender can update only their own still-pending data.
-      // Admin moderation is atomic with a separate immutable audit entry.
+      // Anonymous sender can edit only pending data. Admin moderation
+      // must use atomic batched update + append-only audit entry.
       allow update: if (isAnonymous() && ownerRecord()
           && resource.data.status == 'pending'
           && validReport(request.resource.data)
@@ -82,27 +82,17 @@ service cloud.firestore {
           && getAfter(/databases/$(database)/documents/fuelpro_review_logs/$(reportId)).data.reviewedBy == request.auth.uid
           && getAfter(/databases/$(database)/documents/fuelpro_review_logs/$(reportId)).data.reviewedAt == request.time);
 
-      // No delete from the admin browser: retain submission history.
       allow delete: if false;
 
     }
     match /fuelpro_review_logs/{reportId} {
       allow get, list: if isAdmin();
       allow create: if isAdmin()
-        && request.resource.data.keys().hasAll(['reportId', 'cnpj', 'status',
-          'reviewedBy', 'reviewedAt', 'reviewNote'])
-        && request.resource.data.keys().hasOnly(['reportId', 'cnpj', 'status',
-          'reviewedBy', 'reviewedAt', 'reviewNote'])
+        && request.resource.data.keys().hasAll(['reportId', 'cnpj', 'status', 'reviewedBy', 'reviewedAt', 'reviewNote'])
+        && request.resource.data.keys().hasOnly(['reportId', 'cnpj', 'status', 'reviewedBy', 'reviewedAt', 'reviewNote'])
         && request.resource.data.reportId == reportId
         && request.resource.data.cnpj is string
-        && request.resource.data.cnpj.matches('^[0-9]{14}
-      allow get: if request.auth != null && request.auth.uid == uid;
-      allow list, create, update, delete: if false;
-    }
-    match /{document=**} { allow read, write: if false; }
-  }
-}
-)
+        && request.resource.data.cnpj.matches('^[0-9]{14}$')
         && request.resource.data.status in ['approved', 'rejected']
         && request.resource.data.reviewedBy == request.auth.uid
         && request.resource.data.reviewedAt == request.time
