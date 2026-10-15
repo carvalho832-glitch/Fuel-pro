@@ -103,8 +103,8 @@ test('successful cloud acknowledgment holds sent status even if local receipt is
 test('Android loads versioned scripts and app cache is bumped',()=>{
   const html=fs.readFileSync(path.join(__dirname,'../beta/index.html'),'utf8');
   const worker=fs.readFileSync(path.join(__dirname,'../beta/sw.js'),'utf8');
-  assert.match(html,/app\.js\?v=20261015r3/);
+  assert.match(html,/app\.js\?v=21/);
   assert.match(html,/firebase_config\.js\?v=20261015r2/);
-  assert.match(worker,/fuel-pro-anp-beta-v10-community-public/);
-  assert.match(worker,/app\.js\?v=20261015r3/);
+  assert.match(worker,/fuel-pro-anp-beta-v21-nearby/);
+  assert.match(worker,/app\.js\?v=21/);
 });
