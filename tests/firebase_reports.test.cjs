@@ -73,3 +73,21 @@ test('client never includes service-account credential or an admin role',()=>{
   assert.match(src,/serverTimestamp/);
   assert.match(src,/await sdk\.firestore\.(setDoc|updateDoc)/);
 });
+
+test('receipt keeps send button disabled after Firebase confirmation',()=>{
+  const source=fs.readFileSync(path.join(__dirname,'../beta/app.js'),'utf8');
+  assert.match(source,/const delivered=Boolean\(receipt\)/);
+  assert.match(source,/✓ Recebido pelo Fuel Pro/);
+  assert.match(source,/els\['send-feedback'\]\.disabled=delivered \|\| !firebaseActive\(\)/);
+  assert.match(source,/if\(receiptFor\(feedback\)\)/);
+  assert.match(source,/if\(receiptFor\(communityRecord\(station\)\)\)/);
+  assert.doesNotMatch(source,/button\.textContent='Tentar envio pelo Fuel Pro';/);
+});
+
+test('the local erase button is not mistaken for deleting the cloud report',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'../beta/index.html'),'utf8');
+  const source=fs.readFileSync(path.join(__dirname,'../beta/app.js'),'utf8');
+  assert.match(html,/Apagar apenas deste aparelho/);
+  assert.match(html,/não cancela um relato já enviado ao Firebase/);
+  assert.match(source,/O relato já enviado permanece no Firebase|O relato já enviado permanece/i);
+});
