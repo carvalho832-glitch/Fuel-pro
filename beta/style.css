@@ -79,3 +79,5 @@ select{width:100%;max-width:100%;min-width:0;border:1px solid #cde0d6;border-rad
 .detail-actions{flex-wrap:wrap}
 .detail-actions button{min-width:0}
 @media(max-width:380px){.community-buttons,.community-share{grid-template-columns:1fr}.community-share button:first-child,.community-share button:last-child{grid-column:auto}}
+
+.community-section button:disabled{opacity:.65;cursor:default}
