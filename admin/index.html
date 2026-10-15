@@ -9,7 +9,8 @@
   <title>Fuel Pro Admin | Gestão de endereços</title>
   <link rel="icon" type="image/svg+xml" href="./icon.svg">
   <link rel="stylesheet" href="./style.css?v=1">
-  <script type="module" src="./app.js?v=1"></script>
+  <script defer src="./conflicts.js?v=2"></script>
+  <script type="module" src="./app.js?v=2"></script>
 </head>
 <body>
   <header class="masthead">
@@ -79,6 +80,10 @@
             </div>
             <div class="compare"><div class="original"><span class="field-name">Endereço do cadastro ANP</span><p id="detail-original"></p></div><div class="suggested"><span class="field-name">Endereço informado pelo motorista</span><p id="detail-proposed"></p></div></div>
             <div class="note-view"><span class="field-name">Observação do motorista</span><p id="detail-notes"></p></div>
+            <div id="conflict-warning" class="conflict-warning" hidden role="note">
+              <strong>⚠️ Informações conflitantes para este CNPJ</strong>
+              <p id="conflict-description"></p>
+            </div>
             <div id="reviewed-info" class="reviewed-info" hidden></div>
             <div id="decision-box" class="decision-box">
               <label for="review-note">Justificativa da decisão <span class="muted">(obrigatória para rejeitar)</span></label>
@@ -92,6 +97,14 @@
           </article>
         </section>
       </div>
+      <section class="history-panel" aria-labelledby="history-heading">
+        <div class="history-head">
+          <div><p class="eyebrow">Rastreabilidade</p><h2 id="history-heading">Histórico de decisões</h2>
+          <p>Auditorias geradas ao aprovar ou rejeitar relatos, sem modificar o cadastro ANP.</p></div>
+          <span id="history-count"></span>
+        </div>
+        <div id="history-list" class="history-list" role="region" aria-label="Últimas decisões administrativas"></div>
+      </section>
       <p class="footer-note">Fuel Pro Admin · Projeto Firebase fuelpro-app-832 · Acesso e permissões verificados pelo servidor</p>
     </section>
   </main>
