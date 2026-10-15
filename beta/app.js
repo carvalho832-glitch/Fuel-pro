@@ -14,6 +14,7 @@ const els = Object.fromEntries([
   'city-filter','fuel-filter','summary','detail','detail-name','detail-address',
   'detail-fuel','detail-value','detail-date','detail-geo','detail-lab',
   'detail-brand','close','gps','mode-all','mode-price','copy-address',
+  'detail-expand','detail-expand-label','detail-advanced','community-disclosure','technical-details',
   'source-info','notification','detail-cnpj',
   'search-toggle','station-search-panel','station-query','search-clear','search-count','search-results',
   'directions','confirm-address','suggest-address','community-form','community-status',
@@ -68,7 +69,21 @@ function notify(message) {
 }
 function currentCity() { return els['city-filter'].value; }
 function currentFuel() { return els['fuel-filter'].value; }
-function hideDetail() { selected=null; els.detail.hidden = true; }
+function setDetailExpanded(expanded) {
+  els.detail.classList.toggle('expanded', expanded);
+  els['detail-advanced'].hidden = !expanded;
+  els['detail-expand'].setAttribute('aria-expanded', String(expanded));
+  els['detail-expand-label'].textContent = expanded ? 'Menos detalhes' : 'Mais detalhes';
+  if (!expanded) els.detail.scrollTop = 0;
+}
+function hideDetail() {
+  selected = null;
+  setDetailExpanded(false);
+  els.detail.hidden = true;
+}
+els['detail-expand'].addEventListener('click', () =>
+  setDetailExpanded(els['detail-expand'].getAttribute('aria-expanded') !== 'true')
+);
 function stationCount(city) {
   return all.filter(p => p.city === city && safeCoordinate(p)).length;
 }
@@ -352,6 +367,13 @@ function friendlyDay(iso) {
   return ts === null ? 'não informada' : new Date(ts).toLocaleDateString('pt-BR',{timeZone:'UTC'});
 }
 function showDetail(p) {
+  // GPS refresh and saving a report must not unexpectedly collapse this sheet.
+  // Selecting a different post always starts with the short view.
+  if (!selected || selected.cnpj !== p.cnpj) {
+    setDetailExpanded(false);
+    els['community-disclosure'].open = false;
+    els['technical-details'].open = false;
+  }
   selected = p;
   const fuel = currentFuel(), price = observed(p,fuel);
   els['detail-name'].textContent = p.name || 'Posto cadastrado na ANP';
@@ -661,8 +683,11 @@ els['copy-address'].addEventListener('click',async()=>{
     notify('Não foi possível copiar automaticamente. Consulte o endereço exibido na ficha.');
   }
 });
-els['source-info'].addEventListener('click', () =>
-  notify('Preços: pesquisa semanal ANP. Posição: cadastro ANP não validado. PMQC: ensaios amostrais de setembro/2026. Nenhuma nota de qualidade foi calculada.'));
+els['source-info'].addEventListener('click', () => {
+  // Show complete evidence rather than a short-lived notification.
+  els['technical-details'].open = true;
+  els['technical-details'].scrollIntoView({block:'nearest',behavior:'smooth'});
+});
 els.gps.addEventListener('click',()=>{void requestGps();});
 map.on('click',hideDetail);
 async function boot() {
