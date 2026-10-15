@@ -103,30 +103,17 @@ service cloud.firestore {
         && getAfter(/databases/$(database)/documents/fuelpro_reports/$(reportId)).data.reviewedBy == request.auth.uid;
       allow update, delete: if false;
     }
-    // Public community confirmation is a distinct, opt-in SECOND decision.
-    // Initial version only permits a confirmed ANP address from one
-    // approved report; corrections need stronger review before publication.
+    // A second, opt-in action. Public records contain NO anonymous UID.
     match /fuelpro_public_stations/{cnpj} {
       allow get: if true;
       allow list: if false;
       allow create: if isAdmin()
-        && request.resource.data.keys().hasAll([
-          'cnpj', 'city', 'stationName', 'address', 'kind',
-          'status', 'publishedAt'
-        ])
         && request.resource.data.keys().hasOnly([
           'cnpj', 'city', 'stationName', 'address', 'kind',
           'status', 'publishedAt'
         ])
         && request.resource.data.cnpj == cnpj
-        && request.resource.data.cnpj.matches('^[0-9]{14}
-      allow get: if request.auth != null && request.auth.uid == uid;
-      allow list, create, update, delete: if false;
-    }
-    match /{document=**} { allow read, write: if false; }
-  }
-}
-)
+        && request.resource.data.cnpj.matches('^[0-9]{14}$')
         && validCity(request.resource.data.city)
         && request.resource.data.stationName is string
         && request.resource.data.stationName.size() >= 2
@@ -142,35 +129,33 @@ service cloud.firestore {
         && getAfter(/databases/$(database)/documents/fuelpro_publication_sources/$(cnpj)).data.cnpj == cnpj;
       allow update, delete: if false;
     }
-    // Reference linking community statement to approved source remains
-    // PRIVATE; public records never expose anonymous user IDs.
+    // Private source stored in the same atomic commit as public notice.
     match /fuelpro_publication_sources/{cnpj} {
+      function validSource() {
+        let report = get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data;
+        let publicRecord = getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data;
+        return report.cnpj == cnpj
+          && report.status == 'approved'
+          && report.kind == 'confirmed'
+          && report.originalAddress == report.proposedAddress
+          && publicRecord.cnpj == cnpj
+          && publicRecord.city == report.city
+          && publicRecord.stationName == report.stationName
+          && publicRecord.address == report.originalAddress
+          && publicRecord.kind == 'confirmed'
+          && publicRecord.status == 'community_confirmed'
+          && publicRecord.publishedAt == request.time;
+      }
       allow get, list: if isAdmin();
       allow create: if isAdmin()
-        && request.resource.data.keys().hasAll([
-          'cnpj', 'reportId', 'publishedBy', 'publishedAt'
-        ])
         && request.resource.data.keys().hasOnly([
           'cnpj', 'reportId', 'publishedBy', 'publishedAt'
         ])
         && request.resource.data.cnpj == cnpj
+        && request.resource.data.reportId is string
         && request.resource.data.publishedBy == request.auth.uid
         && request.resource.data.publishedAt == request.time
-        && request.resource.data.reportId is string
-        && get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.cnpj == cnpj
-        && get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.status == 'approved'
-        && get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.kind == 'confirmed'
-        && get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.originalAddress ==
-           get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.proposedAddress
-        && getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data.cnpj == cnpj
-        && getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data.city ==
-           get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.city
-        && getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data.stationName ==
-           get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.stationName
-        && getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data.address ==
-           get(/databases/$(database)/documents/fuelpro_reports/$(request.resource.data.reportId)).data.originalAddress
-        && getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data.status == 'community_confirmed'
-        && getAfter(/databases/$(database)/documents/fuelpro_public_stations/$(cnpj)).data.publishedAt == request.time;
+        && validSource();
       allow update, delete: if false;
     }
     match /fuelpro_admins/{uid} {
