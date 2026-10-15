@@ -315,9 +315,13 @@ function updateCommunityState(post){
   const receipt=receiptFor(feedback);
   els['community-form'].hidden=true;
   els['feedback-share-actions'].hidden=!feedback;
-  els['send-feedback'].textContent=firebaseActive()
-    ? 'Enviar pelo Fuel Pro' : 'Envio online em preparação';
-  els['send-feedback'].disabled=!firebaseActive();
+  const delivered=Boolean(receipt);
+  els['send-feedback'].textContent=delivered ? '✓ Recebido pelo Fuel Pro'
+    : firebaseActive() ? 'Enviar pelo Fuel Pro' : 'Envio online em preparação';
+  els['send-feedback'].disabled=delivered || !firebaseActive();
+  els['confirm-address'].disabled=delivered && feedback.kind==='confirmed';
+  els['confirm-address'].textContent=(delivered && feedback.kind==='confirmed')
+    ? '✓ Endereço confirmado' : '✓ Confirmar endereço';
   els['community-status'].textContent=!feedback
     ? 'Endereço cadastrado na ANP. Você ainda não fez confirmação neste navegador.'
     : receipt
@@ -331,6 +335,7 @@ async function submitSavedFeedback(){
   const station=selected;
   const feedback=communityRecord(station);
   if(!feedback){notify('Confirme ou corrija o endereço antes de enviar.');return;}
+  if(receiptFor(feedback)){notify('Este relato já foi recebido e está aguardando revisão.');return;}
   if(!firebaseActive()){notify('O servidor Firebase ainda está em configuração. Seu registro permanece salvo no aparelho.');return;}
   const button=els['send-feedback'];
   button.disabled=true;
@@ -356,8 +361,13 @@ async function submitSavedFeedback(){
     notify('Não foi possível confirmar o envio: '+(error&&error.message?error.message:'tente novamente.'));
   }finally{
     if(selected && selected.cnpj===station.cnpj){
-      button.disabled=false;
-      button.textContent='Tentar envio pelo Fuel Pro';
+      if(receiptFor(communityRecord(station))){
+        updateCommunityState(station);
+      } else {
+        button.disabled=!firebaseActive();
+        button.textContent=firebaseActive()
+          ? 'Tentar envio pelo Fuel Pro' : 'Envio online em preparação';
+      }
     }
   }
 }
@@ -375,6 +385,11 @@ function saveCommunityRecord(record){
 }
 els['confirm-address'].addEventListener('click',()=>{
   if(!selected)return;
+  const previous=communityRecord(selected);
+  if(previous && previous.kind==='confirmed' && receiptFor(previous)){
+    notify('Sua confirmação já está no Firebase, aguardando revisão.');
+    return;
+  }
   try {
     const feedback=FuelProCommunity.makeRecord(selected,'confirmed',selected.address,'');
     saveCommunityRecord(feedback);
@@ -400,6 +415,7 @@ els['community-form'].addEventListener('submit',event=>{
 });
 els['undo-feedback'].addEventListener('click',()=>{
   if(!selected)return;
+  const wasSent=Boolean(receiptFor(communityRecord(selected)));
   try{
     if(FuelProCommunity.remove(window.localStorage,selected.cnpj)){
       try {
@@ -408,7 +424,9 @@ els['undo-feedback'].addEventListener('click',()=>{
         window.localStorage.setItem(RECEIPTS_KEY,JSON.stringify(receipts));
       }catch(error){}
       showDetail(selected);
-      notify('Registro local apagado. O endereço da ANP voltou a ser exibido.');
+      notify(wasSent
+        ? 'Registro apagado deste aparelho. O relato já enviado permanece no Firebase, aguardando revisão.'
+        : 'Registro local apagado. O endereço da ANP voltou a ser exibido.');
     }else notify('Não foi possível apagar o registro deste dispositivo.');
   }catch(error){notify('Não foi possível acessar os registros deste navegador.');}
 });
