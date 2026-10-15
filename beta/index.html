@@ -11,15 +11,15 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <title>Fuel Pro 2.1 Beta | Postos próximos e ANP</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="./style.css?v=21">
+  <link rel="stylesheet" href="./style.css?v=22">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="./station_search.js"></script>
-  <script defer src="./nearby_stations.js?v=21"></script>
+  <script defer src="./nearby_stations.js?v=22"></script>
   <script defer src="./community_feedback.js"></script>
   <script defer src="./firebase_config.js?v=20261015r2"></script>
   <script defer src="./firebase_reports.js"></script>
   <script defer src="./community_public.js?v=1"></script>
-  <script defer src="./app.js?v=21"></script>
+  <script defer src="./app.js?v=22"></script>
 </head>
 <body>
   <div id="map" role="region" aria-label="Mapa de postos de combustível"></div>
@@ -81,6 +81,18 @@
           </select>
         </label>
         <button id="nearby-retry" type="button">↻ Atualizar GPS</button>
+      </div>
+      <div class="nearby-sort-controls">
+        <label for="nearby-sort">Ordenar por
+          <select id="nearby-sort">
+            <option value="distance" selected>Mais perto</option>
+            <option value="price">Menor preço pesquisado</option>
+          </select>
+        </label>
+        <label class="nearby-priced-check" for="nearby-priced-only">
+          <input type="checkbox" id="nearby-priced-only">
+          Apenas com preço ANP recente
+        </label>
       </div>
       <p id="nearby-status" class="nearby-status" role="status" aria-live="polite">Toque para permitir o GPS e encontrar postos próximos.</p>
       <div id="nearby-results" class="nearby-results" role="region" aria-label="Postos por distância aproximada"></div>
