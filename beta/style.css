@@ -81,3 +81,8 @@ select{width:100%;max-width:100%;min-width:0;border:1px solid #cde0d6;border-rad
 @media(max-width:380px){.community-buttons,.community-share{grid-template-columns:1fr}.community-share button:first-child,.community-share button:last-child{grid-column:auto}}
 
 .community-section button:disabled{opacity:.65;cursor:default}
+
+.public-community-status{background:#e6f7ec;border:1px solid #b8dfc5;border-radius:11px;
+  padding:12px 14px;margin:12px 0;font-size:12px;font-weight:700;color:#1c6443;
+  line-height:1.55}
+.public-community-status[hidden]{display:none}
