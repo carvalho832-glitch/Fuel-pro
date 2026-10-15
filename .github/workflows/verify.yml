@@ -29,9 +29,11 @@ jobs:
           node --check beta/app.js
           node --check beta/station_search.js
           node --check beta/community_feedback.js
+          node --check beta/firebase_config.js
+          node --check beta/firebase_reports.js
           node --check beta/sw.js
       - name: Testar pesquisa local de postos
-        run: node --test tests/station_search.test.cjs tests/community_feedback.test.cjs
+        run: node --test tests/station_search.test.cjs tests/community_feedback.test.cjs tests/firebase_reports.test.cjs
       - name: Verificar JSON
         run: |
           python -m json.tool dados.json > /dev/null
