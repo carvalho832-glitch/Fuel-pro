@@ -338,15 +338,19 @@ async function submitSavedFeedback(){
   if(receiptFor(feedback)){notify('Este relato já foi recebido e está aguardando revisão.');return;}
   if(!firebaseActive()){notify('O servidor Firebase ainda está em configuração. Seu registro permanece salvo no aparelho.');return;}
   const button=els['send-feedback'];
+  let acknowledgedByServer=false;
   button.disabled=true;
   button.textContent='Enviando…';
   els['community-status'].textContent='Enviando relato com identificação anônima…';
   try{
     const receipt=await FuelProFirebase.submit(feedback);
     if(receipt && receipt.accepted===true){
+      acknowledgedByServer=true;
       const locallySaved=saveReceipt(feedback,receipt);
       if(selected && selected.cnpj===station.cnpj){
         updateCommunityState(station);
+        button.disabled=true;
+        button.textContent='✓ Recebido pelo Fuel Pro';
         if(!locallySaved)els['community-status'].textContent=
           '✓ Recebido pelo Firebase. Não foi possível guardar o comprovante neste navegador.';
       }
@@ -361,8 +365,12 @@ async function submitSavedFeedback(){
     notify('Não foi possível confirmar o envio: '+(error&&error.message?error.message:'tente novamente.'));
   }finally{
     if(selected && selected.cnpj===station.cnpj){
-      if(receiptFor(communityRecord(station))){
+      // A server-acknowledged operation cannot become "Retry" merely
+      // because of a stale local receipt or delayed UI refresh.
+      if(acknowledgedByServer || receiptFor(communityRecord(station))){
         updateCommunityState(station);
+        button.disabled=true;
+        button.textContent='✓ Recebido pelo Fuel Pro';
       } else {
         button.disabled=!firebaseActive();
         button.textContent=firebaseActive()
