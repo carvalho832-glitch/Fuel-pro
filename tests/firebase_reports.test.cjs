@@ -91,3 +91,20 @@ test('the local erase button is not mistaken for deleting the cloud report',()=>
   assert.match(html,/não cancela um relato já enviado ao Firebase/);
   assert.match(source,/O relato já enviado permanece no Firebase|O relato já enviado permanece/i);
 });
+
+test('successful cloud acknowledgment holds sent status even if local receipt is delayed',()=>{
+  const source=fs.readFileSync(path.join(__dirname,'../beta/app.js'),'utf8');
+  assert.match(source,/let acknowledgedByServer=false/);
+  assert.match(source,/acknowledgedByServer=true/);
+  assert.match(source,/if\(acknowledgedByServer \|\| receiptFor\(communityRecord\(station\)\)\)/);
+  assert.match(source,/button\.disabled=true;\s*button\.textContent='✓ Recebido pelo Fuel Pro'/);
+});
+
+test('Android loads versioned scripts and app cache is bumped',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'../beta/index.html'),'utf8');
+  const worker=fs.readFileSync(path.join(__dirname,'../beta/sw.js'),'utf8');
+  assert.match(html,/app\.js\?v=20261015r2/);
+  assert.match(html,/firebase_config\.js\?v=20261015r2/);
+  assert.match(worker,/fuel-pro-anp-beta-v9-receipt-fix/);
+  assert.match(worker,/app\.js\?v=20261015r2/);
+});
