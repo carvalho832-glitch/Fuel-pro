@@ -52,3 +52,14 @@ test('admin UI shows history, justified rejection and no auto-update of ANP',()=
   assert.match(js,/nextStatus==='rejected'&&note\.length<10/);
   assert.match(html,/não<\/strong> altera automaticamente/);
 });
+
+test('admin never leaves only the header visible when JavaScript fails to initialize',()=>{
+  assert.match(html,/<section id="login-view" class="center-panel">/);
+  assert.match(html,/id="load-problem"/);
+  assert.match(html,/__fuelproAdminStarted/);
+  assert.match(html,/app\.bundle\.js\?v=3/);
+  const pkg=JSON.parse(read('admin/package.json'));
+  assert.equal(pkg.dependencies.firebase,'12.4.0');
+  assert.match(pkg.scripts.build,/esbuild app\.js --bundle/);
+  assert.doesNotMatch(html,/gstatic\.com\/firebasejs/);
+});
