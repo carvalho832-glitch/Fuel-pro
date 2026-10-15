@@ -185,8 +185,8 @@ select{width:100%;max-width:100%;min-width:0;border:1px solid #cde0d6;border-rad
 .detail-expand{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
   min-height:35px;margin-top:6px;border:1px solid #cee0d5;border-radius:10px;
   background:#f4faf6;color:#164b38;font-size:12px;font-weight:800;cursor:pointer}
-.detail-expand span{font-size:18px;line-height:1}
-.detail-expand[aria-expanded="true"] span{transform:rotate(180deg)}
+.detail-expand span[aria-hidden="true"]{font-size:18px;line-height:1}
+.detail-expand[aria-expanded="true"] span[aria-hidden="true"]{transform:rotate(180deg)}
 .detail-expand:focus-visible,.warning summary:focus-visible,.community-disclosure summary:focus-visible{
   outline:3px solid #34bb85;outline-offset:2px}
 .detail-advanced[hidden]{display:none}
