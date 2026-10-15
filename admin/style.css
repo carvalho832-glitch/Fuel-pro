@@ -13,3 +13,9 @@
 .history-entry p{font-size:11px;line-height:1.5;color:#5e7564;margin:6px 0;overflow-wrap:anywhere}
 .history-entry .audit-meta{font-size:10px;color:#627c6d}
 @media(max-width:680px){.history-panel{padding:17px}.history-list{grid-template-columns:1fr}.history-head{flex-direction:column;gap:7px}}
+
+.publication-box{background:#eff6f0;border:1px solid #c7dfd0;border-radius:13px;padding:17px;margin:18px 0}
+.publication-box h3{font-size:15px;margin:0 0 7px;color:#164833}
+.publication-box p:not(.eyebrow){font-size:12px;line-height:1.65;color:#537261;margin:7px 0}
+.publication-box #publication-status{font-weight:700;color:#185741}
+.publication-box button{width:100%;margin-top:9px}
