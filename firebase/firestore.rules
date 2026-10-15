@@ -5,6 +5,7 @@ service cloud.firestore {
     // Firebase Console/Admin SDK, never by a browser.
     function isAdmin() {
       return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'google.com'
         && exists(/databases/$(database)/documents/fuelpro_admins/$(request.auth.uid))
         && get(/databases/$(database)/documents/fuelpro_admins/$(request.auth.uid)).data.active == true;
     }
@@ -57,19 +58,60 @@ service cloud.firestore {
         || (isAnonymous() && reportId.matches('^' + request.auth.uid + '_[0-9]{14}$'));
       allow list: if isAdmin();
 
-      // Each user may update only their pending report after 60 seconds.
-      // Admin review is an administrative action and cannot be impersonated.
-      allow update: if isAdmin()
-        || (isAnonymous() && ownerRecord()
+      // Anonymous sender can update only their own still-pending data.
+      // Admin moderation is atomic with a separate immutable audit entry.
+      allow update: if (isAnonymous() && ownerRecord()
           && resource.data.status == 'pending'
           && validReport(request.resource.data)
           && request.resource.data.createdAt == resource.data.createdAt
           && request.resource.data.updatedAt == request.time
           && request.time > resource.data.updatedAt + duration.value(60, 's')
           && request.resource.data.diff(resource.data).affectedKeys()
-               .hasOnly(['kind', 'proposedAddress', 'notes', 'updatedAt']));
+               .hasOnly(['kind', 'proposedAddress', 'notes', 'updatedAt']))
+        || (isAdmin()
+          && resource.data.status == 'pending'
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['status', 'reviewedBy', 'reviewedAt', 'reviewNote'])
+          && request.resource.data.status in ['approved', 'rejected']
+          && request.resource.data.reviewedBy == request.auth.uid
+          && request.resource.data.reviewedAt == request.time
+          && request.resource.data.reviewNote is string
+          && request.resource.data.reviewNote.size() <= 500
+          && getAfter(/databases/$(database)/documents/fuelpro_review_logs/$(reportId)).data.reportId == reportId
+          && getAfter(/databases/$(database)/documents/fuelpro_review_logs/$(reportId)).data.status == request.resource.data.status
+          && getAfter(/databases/$(database)/documents/fuelpro_review_logs/$(reportId)).data.reviewedBy == request.auth.uid
+          && getAfter(/databases/$(database)/documents/fuelpro_review_logs/$(reportId)).data.reviewedAt == request.time);
 
-      allow delete: if isAdmin();
+      // No delete from the admin browser: retain submission history.
+      allow delete: if false;
+
+    }
+    match /fuelpro_review_logs/{reportId} {
+      allow get, list: if isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.keys().hasAll(['reportId', 'cnpj', 'status',
+          'reviewedBy', 'reviewedAt', 'reviewNote'])
+        && request.resource.data.keys().hasOnly(['reportId', 'cnpj', 'status',
+          'reviewedBy', 'reviewedAt', 'reviewNote'])
+        && request.resource.data.reportId == reportId
+        && request.resource.data.cnpj is string
+        && request.resource.data.cnpj.matches('^[0-9]{14}
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, create, update, delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
+)
+        && request.resource.data.status in ['approved', 'rejected']
+        && request.resource.data.reviewedBy == request.auth.uid
+        && request.resource.data.reviewedAt == request.time
+        && request.resource.data.reviewNote is string
+        && request.resource.data.reviewNote.size() <= 500
+        && getAfter(/databases/$(database)/documents/fuelpro_reports/$(reportId)).data.status == request.resource.data.status
+        && getAfter(/databases/$(database)/documents/fuelpro_reports/$(reportId)).data.cnpj == request.resource.data.cnpj
+        && getAfter(/databases/$(database)/documents/fuelpro_reports/$(reportId)).data.reviewedBy == request.auth.uid;
+      allow update, delete: if false;
     }
     match /fuelpro_admins/{uid} {
       allow get: if request.auth != null && request.auth.uid == uid;
