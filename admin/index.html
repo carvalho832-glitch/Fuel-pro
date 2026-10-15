@@ -8,9 +8,21 @@
   <meta name="description" content="Fuel Pro Admin. Painel privado para moderação de relatos comunitários.">
   <title>Fuel Pro Admin | Gestão de endereços</title>
   <link rel="icon" type="image/svg+xml" href="./icon.svg">
-  <link rel="stylesheet" href="./style.css?v=2">
+  <link rel="stylesheet" href="./style.css?v=3">
   <script defer src="./conflicts.js?v=2"></script>
-  <script type="module" src="./app.js?v=2"></script>
+  <script type="module" src="./app.bundle.js?v=3"></script>
+  <script>
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        if (!window.__fuelproAdminStarted) {
+          var login = document.getElementById('login-view');
+          var problem = document.getElementById('load-problem');
+          if (login) login.hidden = false;
+          if (problem) problem.hidden = false;
+        }
+      }, 6500);
+    });
+  </script>
 </head>
 <body>
   <header class="masthead">
@@ -21,12 +33,13 @@
     <div class="account"><span id="account-email"></span><button id="logout" class="quiet" type="button" hidden>Sair</button></div>
   </header>
   <main>
-    <section id="login-view" class="center-panel" hidden>
+    <section id="login-view" class="center-panel">
       <div class="intro-icon">🔐</div>
       <p class="eyebrow">Acesso restrito</p>
       <h1>Gestão Fuel Pro</h1>
       <p>Analise endereços confirmados pelos motoristas, avalie sugestões e mantenha um histórico seguro das decisões. Este ambiente não aparece no aplicativo público.</p>
-      <button id="login-google" class="primary" type="button">Entrar com Google</button>
+      <button id="login-google" class="primary" type="button" disabled>Entrar com Google</button>
+      <p id="load-problem" class="load-problem" role="alert" hidden>Não foi possível carregar o sistema administrativo. Abra este endereço diretamente no Chrome, confira a conexão e atualize a página. Nenhum registro foi alterado.</p>
       <p class="micro">Somente contas administrativas previamente autorizadas podem acessar os relatos. Entrar não concede permissão automaticamente.</p>
     </section>
     <section id="blocked-view" class="center-panel" hidden>
