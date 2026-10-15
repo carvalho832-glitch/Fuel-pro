@@ -20,7 +20,7 @@ const els = Object.fromEntries([
   'new-address','address-notes','cancel-suggestion','feedback-share-actions',
   'send-feedback','share-feedback','undo-feedback','public-community-status',
   'nearby-toggle','nearby-panel','nearby-close','nearby-retry','nearby-radius',
-  'nearby-status','nearby-results','detail-distance'
+  'nearby-status','nearby-results','nearby-sort','nearby-priced-only','detail-distance'
 ].map(id => [id, document.getElementById(id)]));
 
 let all = [];
@@ -163,14 +163,23 @@ function updateNearbyResults(){
     return;
   }
   const radius=Number(els['nearby-radius'].value);
+  const pricedOnly=els['nearby-priced-only'].checked;
+  const sortBy=els['nearby-sort'].value==='price'?'price':'distance';
   const results=FuelProNearby.nearest(all,userPosition,{
-    city:currentCity(),radiusKm:radius,limit:15
+    city:currentCity(),radiusKm:radius,limit:15,sortBy,onlyPriced:pricedOnly,
+    // Only the original observed ANP price, with a valid collection date, can be ranked.
+    priceOf:station=>observed(station,currentFuel())?.value ?? null
   });
   els['nearby-status'].textContent=results.total
-    ? results.total+' posto(s) com coordenadas no raio de '+radius+
-      ' km · exibindo '+results.matches.length+' mais próximo(s).'
-    : 'Nenhum posto com coordenadas ANP encontrado em '+radius+
-      ' km. Amplie o raio ou selecione “Ambas” em Cidade.';
+    ? results.total+' posto(s) no raio de '+radius+' km · '+results.withPrice+
+      ' com preço ANP recente de '+FUELS[currentFuel()].toLowerCase()+
+      ' · exibindo '+results.matches.length+
+      (sortBy==='price'?' · menores preços primeiro (sem preço por último).':' · mais próximos primeiro.')
+    : pricedOnly
+      ? 'Nenhum posto com preço ANP recente deste combustível em '+radius+
+        ' km. Desmarque o filtro, aumente o raio ou selecione “Ambas”.'
+      : 'Nenhum posto com coordenadas ANP encontrado em '+radius+
+        ' km. Amplie o raio ou selecione “Ambas” em Cidade.';
   for(const {station,distanceKm} of results.matches){
     const item=document.createElement('button');
     item.type='button';
@@ -269,6 +278,8 @@ els['nearby-toggle'].addEventListener('click',()=>{
 els['nearby-close'].addEventListener('click',closeNearbyPanel);
 els['nearby-retry'].addEventListener('click',()=>{void requestGps();});
 els['nearby-radius'].addEventListener('change',updateNearbyResults);
+els['nearby-sort'].addEventListener('change',updateNearbyResults);
+els['nearby-priced-only'].addEventListener('change',updateNearbyResults);
 
 els['search-toggle'].addEventListener('click',()=>toggleSearchPanel());
 els['search-clear'].addEventListener('click',()=>{
@@ -406,7 +417,11 @@ function showDetail(p) {
 }
 els.close.addEventListener('click',hideDetail);
 els['city-filter'].addEventListener('change', e => chooseCity(e.target.value));
-els['fuel-filter'].addEventListener('change', () => {hideDetail();render();});
+els['fuel-filter'].addEventListener('change', () => {
+  hideDetail();render();
+  if(!els['station-search-panel'].hidden)updateSearchResults();
+  if(!els['nearby-panel'].hidden)updateNearbyResults();
+});
 els['mode-all'].addEventListener('click', () => setMode('all'));
 els['mode-price'].addEventListener('click', () => setMode('price'));
 function setMode(next) {
