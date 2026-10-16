@@ -21,7 +21,8 @@ const els = Object.fromEntries([
   'new-address','address-notes','cancel-suggestion','feedback-share-actions',
   'send-feedback','share-feedback','undo-feedback','public-community-status',
   'nearby-toggle','nearby-panel','nearby-close','nearby-retry','nearby-radius',
-  'nearby-status','nearby-results','nearby-sort','nearby-priced-only','detail-distance'
+  'nearby-status','nearby-results','nearby-sort','nearby-priced-only','detail-distance',
+  'filters-toggle','extra-filters','minimize-detail','detail-mini','mini-name','mini-price'
 ].map(id => [id, document.getElementById(id)]));
 
 let all = [];
@@ -80,7 +81,27 @@ function hideDetail() {
   selected = null;
   setDetailExpanded(false);
   els.detail.hidden = true;
+  els['detail-mini'].hidden = true;
 }
+function minimizeDetail() {
+  if (!selected) return;
+  els.detail.hidden = true;
+  els['detail-mini'].hidden = false;
+}
+function restoreDetail() {
+  if (!selected) return hideDetail();
+  els['detail-mini'].hidden = true;
+  els.detail.hidden = false;
+}
+function toggleFilters(force) {
+  const isVisible = !els['extra-filters'].hidden;
+  const show = typeof force==='boolean' ? force : !isVisible;
+  els['extra-filters'].hidden = !show;
+  els['filters-toggle'].setAttribute('aria-expanded',String(show));
+}
+els['filters-toggle'].addEventListener('click',()=>toggleFilters());
+els['minimize-detail'].addEventListener('click',minimizeDetail);
+els['detail-mini'].addEventListener('click',restoreDetail);
 els['detail-expand'].addEventListener('click', () =>
   setDetailExpanded(els['detail-expand'].getAttribute('aria-expanded') !== 'true')
 );
@@ -90,7 +111,7 @@ function stationCount(city) {
 function toggleSearchPanel(force) {
   const panel = els['station-search-panel'];
   const show = typeof force === 'boolean' ? force : panel.hidden;
-  if(show) closeNearbyPanel();
+  if(show){ closeNearbyPanel(); toggleFilters(false); }
   panel.hidden = !show;
   els['search-toggle'].setAttribute('aria-expanded', String(show));
   if (show) {
@@ -161,6 +182,7 @@ function closeNearbyPanel(){
 }
 function showNearbyPanel(){
   toggleSearchPanel(false);
+  toggleFilters(false);
   els['nearby-panel'].hidden=false;
   els['nearby-toggle'].setAttribute('aria-expanded','true');
   if(userPosition){
@@ -354,13 +376,13 @@ function render() {
   const generated = status && status.generatedAt && status.generatedAt.slice(0,10);
   const snapshotAge = priceAge(generated);
   const snapshotLabel = generated ?
-    ' · base consultada em ' + friendlyDay(generated) : '';
+    ' · base ' + friendlyDay(generated) : '';
   const oldSnapshot = snapshotAge === null || snapshotAge > 14;
   els.summary.textContent =
-    filtered.length + ' postos no mapa · ' + priced +
-    ' com preço pesquisado de ' + FUELS[fuel].toLowerCase() +
-    ' · ' + missingGeo + ' sem coordenadas' + snapshotLabel +
-    (oldSnapshot ? ' · ATENÇÃO: base precisa ser atualizada' : '');
+    filtered.length + ' postos · ' + priced + ' com preço ANP de ' +
+    FUELS[fuel].toLowerCase() +
+    (missingGeo ? ' · ' + missingGeo + ' sem GPS cadastral' : '') + snapshotLabel +
+    (oldSnapshot ? ' · base antiga' : '');
 }
 function friendlyDay(iso) {
   const ts = readDate(iso);
@@ -384,6 +406,8 @@ function showDetail(p) {
   els['detail-fuel'].textContent = FUELS[fuel];
   els['detail-value'].textContent = price ? formatMoney(price.value) : 'Preço não disponível';
   els['detail-value'].classList.toggle('missing',!price);
+  els['mini-name'].textContent = p.name || 'Posto cadastrado na ANP';
+  els['mini-price'].textContent = price ? formatMoney(price.value) : 'Sem preço';
   els['detail-date'].textContent = price ?
     ('Pesquisa ANP: ' + friendlyDay(price.iso) + ' (' + price.age +
       (price.age === 1 ? ' dia' : ' dias') + ' atrás). Valor não é em tempo real.') :
@@ -434,6 +458,7 @@ function showDetail(p) {
   els['detail-distance'].textContent = km === null ? '' :
     '📏 ' + FuelProNearby.formatDistance(km) + ' em linha reta';
   updateCommunityState(p);
+  els['detail-mini'].hidden = true;
   els.detail.hidden = false;
   void updatePublishedStatus(p);
 }
