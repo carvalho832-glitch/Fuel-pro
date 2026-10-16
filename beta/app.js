@@ -85,6 +85,7 @@ function hideDetail() {
 }
 function minimizeDetail() {
   if (!selected) return;
+  setDetailExpanded(false);
   els.detail.hidden = true;
   els['detail-mini'].hidden = false;
 }
@@ -381,7 +382,7 @@ function render() {
   els.summary.textContent =
     filtered.length + ' postos · ' + priced + ' com preço ANP de ' +
     FUELS[fuel].toLowerCase() +
-    (missingGeo ? ' · ' + missingGeo + ' sem GPS cadastral' : '') + snapshotLabel +
+    (missingGeo ? ' · ' + missingGeo + ' sem coordenadas ANP' : '') + snapshotLabel +
     (oldSnapshot ? ' · base antiga' : '');
 }
 function friendlyDay(iso) {
@@ -714,7 +715,11 @@ els['source-info'].addEventListener('click', () => {
   els['technical-details'].scrollIntoView({block:'nearest',behavior:'smooth'});
 });
 els.gps.addEventListener('click',()=>{void requestGps();});
-map.on('click',hideDetail);
+map.on('click',()=>{
+  // When minimized, using the map must not discard the selected station.
+  if (!els['detail-mini'].hidden) return;
+  hideDetail();
+});
 async function boot() {
   try {
     const res=await fetch('./dados.json',{cache:'no-store'});
