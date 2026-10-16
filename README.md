@@ -152,3 +152,20 @@ node tests/test_nearby_comparison.js
 Os testes de lógica não substituem homologação em Android/iPhone, conferência
 dos 13 pontos com preço da base de 13/10 e validação da integração Firebase.
 A versão pública não foi substituída automaticamente.
+
+## Interface Beta com mapa prioritário (15/10/2026)
+
+- Cabeçalho reduzido em telas pequenas. Cidade, combustível, busca e
+  proximidade continuam visíveis; filtro de exibição e avisos ANP ficam
+  dentro de **Filtros**.
+- Ficha compacta com botão **minimizar** e barra inferior para **reabrir**
+  o mesmo posto. Interagir com o mapa quando a barra está minimizada
+  não apaga a seleção; selecionar outro posto atualiza a ficha.
+- Detalhes técnicos e relato comunitário permanecem disponíveis em
+  seções expansíveis, sem mudanças na API Firebase.
+- Dados da ANP e classificações não foram modificados. Preços continuam
+  identificados como coletas e não como informação em tempo real.
+- Controles testados via simulação de eventos JavaScript (abrir/recolher
+  filtros, minimizar e restaurar ficha, mapa sem perda da seleção, troca
+  de cidade) e verificação de sintaxe/identificadores. Validação manual
+  em aparelhos móveis continua necessária.
