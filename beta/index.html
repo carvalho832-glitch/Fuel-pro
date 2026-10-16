@@ -11,7 +11,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <title>Fuel Pro 2.1 Beta | Postos próximos e ANP</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="./style.css?v=24">
+  <link rel="stylesheet" href="./style.css?v=25">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="./station_search.js"></script>
   <script defer src="./nearby_stations.js?v=22"></script>
@@ -19,13 +19,15 @@
   <script defer src="./firebase_config.js?v=20261015r2"></script>
   <script defer src="./firebase_reports.js"></script>
   <script defer src="./community_public.js?v=1"></script>
-  <script defer src="./app.js?v=23"></script>
+  <script defer src="./app.js?v=25"></script>
 </head>
 <body>
   <div id="map" role="region" aria-label="Mapa de postos de combustível"></div>
   <header class="toolbar">
-    <div class="brand"><span aria-hidden="true">⛽</span><div><strong>Fuel Pro <span class="beta-label">2.1 BETA</span></strong><small>Dados oficiais • testes internos</small></div></div>
-    <details class="warning" role="note"><summary>📍 Dados ANP: preços históricos e posições provisórias</summary><p>Endereços do cadastro ANP são a referência. Os pins ainda não foram conferidos em campo e os preços vêm de coletas históricas. Você pode confirmar ou sugerir uma correção na ficha.</p></details>
+    <div class="brand-row">
+      <div class="brand"><span aria-hidden="true">⛽</span><div><strong>Fuel Pro <span class="beta-label">2.1 BETA</span></strong><small>Mapa de postos • dados ANP</small></div></div>
+      <button id="filters-toggle" class="filters-toggle" type="button" aria-expanded="false" aria-controls="extra-filters">⚙ Filtros</button>
+    </div>
     <div class="tools">
       <label class="control">Cidade
         <select id="city-filter" aria-label="Escolher cidade">
@@ -46,14 +48,20 @@
         </select>
       </label>
     </div>
-    <div class="toggle" role="group" aria-label="Quais postos mostrar">
-      <button id="mode-all" class="selected" type="button">Todos os postos</button>
-      <button id="mode-price" type="button">Com preço pesquisado</button>
-    </div>
-    <div class="summary" id="summary" aria-live="polite">Carregando cadastro ANP…</div>
     <div class="discovery-actions">
       <button id="search-toggle" class="search-toggle" type="button" aria-expanded="false" aria-controls="station-search-panel">🔎 Buscar posto</button>
       <button id="nearby-toggle" class="nearby-toggle" type="button" aria-expanded="false" aria-controls="nearby-panel">📍 Perto de mim</button>
+    </div>
+    <div class="summary" id="summary" aria-live="polite">Carregando cadastro ANP…</div>
+    <div id="extra-filters" class="extra-filters" hidden>
+      <div class="toggle" role="group" aria-label="Quais postos mostrar">
+        <button id="mode-all" class="selected" type="button">Todos os postos</button>
+        <button id="mode-price" type="button">Com preço pesquisado</button>
+      </div>
+      <details class="warning" role="note">
+        <summary>📍 Dados ANP: preços históricos e posições provisórias</summary>
+        <p>O mapa mostra cadastros da ANP; os pins ainda não foram conferidos em campo. Os valores são coletas históricas, não preços ao vivo. Confirme o destino antes de dirigir.</p>
+      </details>
     </div>
     <div id="station-search-panel" class="station-search-panel" hidden>
       <div class="search-controls">
@@ -105,7 +113,13 @@
     <span><i class="price-swatch" aria-hidden="true"></i> Preço da coleta</span>
   </div>
   <section id="detail" class="detail" aria-labelledby="detail-name" hidden>
-    <div class="detail-top"><span class="eyebrow">⛽ Ficha do posto • ANP</span><button id="close" aria-label="Fechar ficha do posto" type="button">✕</button></div>
+    <div class="detail-top">
+      <span class="eyebrow">⛽ Ficha do posto • ANP</span>
+      <div class="sheet-header-actions">
+        <button id="minimize-detail" aria-label="Minimizar ficha e mostrar o mapa" title="Minimizar ficha" type="button">−</button>
+        <button id="close" aria-label="Fechar ficha do posto" type="button">✕</button>
+      </div>
+    </div>
     <h2 id="detail-name"></h2>
     <p id="detail-address"></p>
     <div class="station-highlights" aria-label="Resumo do posto">
@@ -167,6 +181,11 @@
       <p class="detail-foot">A rota usa o endereço por escrito. Confira o destino antes de sair: as coordenadas dos pins não foram validadas em campo.</p>
     </div>
   </section>
+  <button id="detail-mini" class="detail-mini" type="button" aria-label="Reabrir ficha do posto selecionado" hidden>
+    <span id="mini-name" class="mini-name"></span>
+    <strong id="mini-price" class="mini-price"></strong>
+    <span class="mini-expand" aria-hidden="true">⌃</span>
+  </button>
   <div id="notification" class="notification" role="status" hidden></div>
   <noscript>O mapa precisa do JavaScript ativado no navegador.</noscript>
 </body>
