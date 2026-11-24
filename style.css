@@ -60,3 +60,12 @@ body { margin: 0; font-family: 'Inter', sans-serif; overflow: hidden; background
 #station-price { margin: 0; font-size: 2rem; color: var(--dark); font-weight: 900; }
 .btn-primary { flex: 2; background: var(--primary); color: white; border: none; padding: 18px; border-radius: 15px; font-weight: 700; }
 .btn-secondary { flex: 1; background: #f0f0f0; border: none; border-radius: 15px; font-weight: 600; color: #444; }
+
+.price-pin { color: white; padding: 7px 10px; border-radius: 20px; font-weight: 900; font-size: 13px; text-align: center; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,.25); border: 2px solid white; }
+#map-status { position: absolute; top: 143px; left: 5%; right: 5%; z-index: 105; background: #fff; padding: 10px 14px; border-radius: 12px; box-shadow: var(--shadow); font-size: 13px; }
+#map-status[hidden] { display: none; }
+#nearby-count { position: absolute; bottom: 94px; left: 12px; max-width: calc(100% - 95px); z-index: 9; background: rgba(255,255,255,.95); border-radius: 12px; padding: 10px 12px; font-size: 12px; box-shadow: var(--shadow); }
+.station-address, .distance-info { color: #666; font-size: 12px; margin: 5px 0; }
+.update-info { font-size: 11px; color: #666; max-width: 44%; text-align: right; }
+.action-buttons { display: flex; gap: 10px; }
+button { cursor: pointer; }
