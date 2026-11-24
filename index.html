@@ -16,6 +16,8 @@
 <body>
   <div id="app">
     <div id="map"></div>
+    <div id="map-status" role="status" hidden></div>
+    <div id="nearby-count" aria-live="polite">Ative o GPS para ver os postos próximos</div>
     <div class="search-overlay">
       <div class="search-bar">
         <input type="text" id="search-input" placeholder="Bairro ou cidade..." />
@@ -41,7 +43,8 @@
         <div class="header">
           <div>
             <h2 id="station-name">---</h2>
-            <p class="distance-info">📍 Selecionado no mapa</p>
+            <p class="distance-info" id="station-distance">Selecione o GPS para calcular a distância</p>
+            <p id="station-address" class="station-address"></p>
           </div>
           <div id="price-badge" class="verified-badge">Melhor Preço</div>
         </div>
@@ -50,10 +53,10 @@
             <span class="price-label" id="fuel-type-label">Gasolina Comum</span>
             <h1 id="station-price">R$ 0,00</h1>
           </div>
-          <div class="update-info"><span class="dot"></span> Atualizado agora</div>
+          <div class="update-info" id="station-updated">Data de atualização não informada</div>
         </div>
         <div class="action-buttons">
-          <button class="btn-secondary">Relatar Erro</button>
+          <button class="btn-secondary" onclick="closeStation()">Fechar</button>
           <button class="btn-primary" onclick="openRoute()">Ir para o Posto</button>
         </div>
       </div>
